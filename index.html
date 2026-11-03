@@ -374,6 +374,10 @@ footer a:hover{color:var(--ink);text-decoration:underline}
 .cred-list .what{font-size:15px;color:var(--gray);line-height:1.45}
 .cred-list .when{margin-top:auto;padding-top:10px;font-size:13px;color:var(--flag)}
 .creds .also{margin-top:16px;font-size:15px;color:var(--gray)}
+
+.notes.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:700px){.notes.two{grid-template-columns:1fr}}
+.ico-app{width:56px;height:56px;border-radius:13px;display:block;box-shadow:0 6px 12px -6px rgba(0,0,0,.45)}
 </style>
 <script>try{if(localStorage.getItem('look')==='dark')document.documentElement.setAttribute('data-look','dark')}catch(e){}</script>
 
@@ -414,6 +418,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
         <li><a href="#highsynk"><span class="ico"><span class="ico-phone"><i style="background-image:url(img/study-home.webp)"></i></span></span><span class="name">Highsynk<span class="flag">1,000+ users</span></span></a></li>
         <li><a href="#ultrabeaux"><span class="ico"><span class="ico-win"><b></b><i style="background-image:url(img/clinic-dashboard.webp)"></i></span></span><span class="name">Ultrabeaux<span class="flag">In daily use</span></span></a></li>
         <li><a href="#lab-manager"><span class="ico"><span class="ico-win"><b></b><i style="background-image:url(img/lab-dashboard.webp)"></i></span></span><span class="name">Lab Manager<span class="flag">In daily use</span></span></a></li>
+        <li><a href="#plirs"><span class="ico"><img class="ico-app" src="img/plirs-icon.webp" alt="" width="128" height="128"></span><span class="name">PLIRS<span class="flag">290 tests</span></span></a></li>
         <li><a href="#intellibin"><span class="ico"><span class="ico-glyph" style="background:#5a4116"><svg viewBox="0 0 28 28"><path d="M5 8h18M10.5 8V5h7v3M7 8l1.5 15h11L21 8M12 12v7M16 12v7"/></svg></span></span><span class="name">IntelliBin<span class="flag">Published</span></span></a></li>
         <li><a href="#breast-cancer"><span class="ico"><span class="ico-glyph" style="background:#21434a"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="9"/><circle cx="12" cy="12" r="2.6"/><circle cx="17.5" cy="16.5" r="1.3"/><circle cx="11" cy="18.2" r="1"/></svg></span></span><span class="name">Breast Cancer<span class="flag">Award winner</span></span></a></li>
         <li><a href="#road-safety"><span class="ico"><span class="ico-glyph" style="background:#2c2d33"><svg viewBox="0 0 28 28"><path d="M10.5 4 6 24M17.5 4 22 24M14 6v3M14 13v3M14 20v3"/></svg></span></span><span class="name">Road Safety</span></a></li>
@@ -438,7 +443,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
       <div class="head">
         <div>
         <h2 id="work-h">The library.</h2>
-        <p>Six projects, each one shipped, in use or published. Pull a book from the stack to open it.</p>
+        <p>Seven projects, each one shipped, in use or published. Pull a book from the stack to open it.</p>
         </div>
         <a class="link more" href="https://github.com/kinghighshow" target="_blank" rel="noopener">See code on GitHub</a>
       </div>
@@ -449,6 +454,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
             <li><button class="spine" style="--c:#1d2c4f;--w:88%;--t:70px;--x:3%;--r:-.4deg" data-book="highsynk" aria-controls="highsynk"><span class="title">Highsynk</span><span class="proof">1,000+ students<small>Mobile app, 2025</small></span></button></li>
             <li><button class="spine" style="--c:#4b2235;--w:93%;--t:66px;--x:0%;--r:.3deg" data-book="ultrabeaux" aria-controls="ultrabeaux"><span class="title">Ultrabeaux</span><span class="proof">~700 clients<small>Web app, in use</small></span></button></li>
             <li><button class="spine" style="--c:#173f31;--w:91%;--t:76px;--x:5%;--r:-.2deg" data-book="lab-manager" aria-controls="lab-manager"><span class="title">Lab Manager</span><span class="proof">6 staff daily<small>Desktop app, in use</small></span></button></li>
+            <li><button class="spine" style="--c:#5b2e1e;--w:94%;--t:68px;--x:2%;--r:.2deg" data-book="plirs" aria-controls="plirs"><span class="title">PLIRS</span><span class="proof">290 tests<small>Desktop app, v1.0</small></span></button></li>
             <li><button class="spine" style="--c:#5a4116;--w:97%;--t:80px;--x:1%;--r:.25deg" data-book="intellibin" aria-controls="intellibin"><span class="title">IntelliBin</span><span class="proof">97% accuracy<small>Edge AI, published</small></span></button></li>
             <li><button class="spine" style="--c:#21434a;--w:90%;--t:64px;--x:4%;--r:-.35deg" data-book="breast-cancer" aria-controls="breast-cancer"><span class="title">Breast Cancer</span><span class="proof">98.7% on test<small>Deep learning, 2024</small></span></button></li>
             <li><button class="spine" style="--c:#2c2d33;--w:100%;--t:72px;--x:0%;--r:.15deg" data-book="road-safety" aria-controls="road-safety"><span class="title">Road Safety</span><span class="proof">Two datasets<small>Data analysis, 2026</small></span></button></li>
@@ -560,6 +566,36 @@ footer a:hover{color:var(--ink);text-decoration:underline}
             <p class="fine">Screens shown with an empty database. No patient data appears.</p>
           </article>
 
+          <article class="page" id="plirs" aria-label="PLIRS">
+            <div class="page-meta"><span class="flag-txt">Version 1.0</span><span>Windows desktop app for a histopathology lab</span></div>
+            <h3>PLIRS</h3>
+            <p class="pitch">The Pathology Laboratory Information Retrieval System turns years of Word reports into an archive the lab can search, view, compile and export, without ever changing the original files.</p>
+            <div class="figures">
+              <div><b>~290</b><span>integration tests on real files</span></div>
+              <div><b>8</b><span>fields pulled from every report</span></div>
+              <div><b>AES-256</b><span>encrypted backup and restore</span></div>
+            </div>
+            <div class="media">
+              <div class="deck" data-deck tabindex="0" style="--wbg:#1e1e1e" aria-label="PLIRS screens, use arrow keys to browse">
+                <button class="win" data-cap="<b>Viewer.</b> The matching report opens in a sharp, lazily loaded PDF view with the search hit highlighted and the extracted fields beside it."><span class="frame"><span class="bar"><i></i><i></i><i></i><span>Viewer</span></span><img src="img/plirs-viewer.webp" alt="PLIRS report viewer with a highlighted search hit" loading="lazy" decoding="async"></span></button>
+                <button class="win" data-cap="<b>Search.</b> Full-text search with boolean, phrase, field-specific, wildcard and fuzzy matching across every imported report."><span class="frame"><span class="bar"><i></i><i></i><i></i><span>Search results</span></span><img src="img/plirs-search.webp" alt="PLIRS search results" loading="lazy" decoding="async"></span></button>
+                <button class="win" data-cap="<b>Library.</b> Word files dropped in are indexed in the background, with duplicates caught by their SHA-256 fingerprint."><span class="frame"><span class="bar"><i></i><i></i><i></i><span>Library</span></span><img src="img/plirs-main.webp" alt="PLIRS main window after import" loading="lazy" decoding="async"></span></button>
+                <button class="win" data-cap="<b>Themes.</b> Light and dark themes, plus a settings dialog and database maintenance tools for the admin."><span class="frame"><span class="bar"><i></i><i></i><i></i><span>Light theme</span></span><img src="img/plirs-light.webp" alt="PLIRS in its light theme" loading="lazy" decoding="async"></span></button>
+              </div>
+              <div class="deck-foot">
+                <p aria-live="polite" data-caption><b>Viewer.</b> The matching report opens in a sharp, lazily loaded PDF view with the search hit highlighted and the extracted fields beside it.</p>
+                <div class="arrows"><button class="glass" data-prev aria-label="Previous screen"><svg viewBox="0 0 16 16"><path d="M10 3 5 8l5 5"/></svg></button><button class="glass" data-next aria-label="Next screen"><svg viewBox="0 0 16 16"><path d="m6 3 5 5-5 5"/></svg></button></div>
+              </div>
+            </div>
+            <div class="notes two">
+              <div><h4>The problem</h4><p>The lab keeps years of reports in Word files, with several patients in each file. Finding a past case or putting together a set of reports meant opening files one by one.</p></div>
+              <div><h4>What I built</h4><p>Drag-and-drop import with a live queue, extraction of name, age, gender, hospital, lab number, date, diagnosis and comment from each report table, ranked “Find similar cases”, and collections you can reorder and export as one PDF or as CSV and Excel. Word is used for conversion so letterheads stay intact, with LibreOffice as a fallback.</p></div>
+              <div><h4>How it was tested</h4><p>About 290 integration tests run against real Word files, a real SQLite database and real Qt signals instead of mocks. They caught a search crash on malformed input and two packaging failures before release. The code follows Clean Architecture, with domain, application and interface layers kept separate.</p></div>
+              <div><h4>Built with</h4><p>Python, PySide6 (Qt 6), SQLite with FTS5 and BM25 ranking, PyMuPDF, mammoth, BeautifulSoup, pywin32, PyInstaller and Inno Setup.</p></div>
+            </div>
+            <p class="fine">Screens use fictional demo records. No patient data appears.</p>
+          </article>
+
           <article class="page" id="intellibin" aria-label="IntelliBin">
             <div class="page-meta"><span class="flag-txt">Published research</span><span>Final-year project, 2025</span></div>
             <h3>IntelliBin</h3>
@@ -662,9 +698,9 @@ footer a:hover{color:var(--ink);text-decoration:underline}
         </article>
         <article class="tile">
           <span class="kicker">Product development</span>
-          <h3>Web and mobile apps your team runs on.</h3>
+          <h3>Web, mobile and desktop apps your team runs on.</h3>
           <p>Tools that replace paper and spreadsheets: bookings, records, billing and dashboards, built around how your team works.</p>
-          <p class="proofline">See <a class="link" href="#ultrabeaux">Ultrabeaux</a> and <a class="link" href="#lab-manager">Lab Manager</a></p>
+          <p class="proofline">See <a class="link" href="#ultrabeaux">Ultrabeaux</a>, <a class="link" href="#lab-manager">Lab Manager</a> and <a class="link" href="#plirs">PLIRS</a></p>
         </article>
         <article class="tile inverse">
           <span class="kicker">Machine learning</span>
@@ -716,7 +752,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
         <div>
           <h3>Skills</h3>
           <div class="skillset">
-            <p><b>Apps and web</b>React, TypeScript, JavaScript, Electron, Vite, Tailwind CSS, HTML, CSS, Supabase, SQLite, REST APIs, Git</p>
+            <p><b>Apps and web</b>React, TypeScript, JavaScript, Electron, Vite, Tailwind CSS, HTML, CSS, Python desktop apps with PySide6 (Qt 6), Supabase, SQLite and FTS5, REST APIs, integration testing, Git</p>
             <p><b>AI and machine learning</b>Python, TensorFlow and Keras, TensorFlow Lite, scikit-learn, XGBoost, OpenCV, NLP, model evaluation</p>
             <p><b>Data</b>Pandas, NumPy, SQL, Plotly, Power BI, Tableau, Excel</p>
             <p><b>Design and engineering</b>Figma, UI/UX design, edge AI on Raspberry Pi, equipment maintenance, Agile and Scrum</p>
