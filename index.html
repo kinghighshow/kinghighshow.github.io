@@ -364,6 +364,16 @@ footer a:hover{color:var(--ink);text-decoration:underline}
 }
 .nav-links{order:2}.look-btn{order:3}.menu-btn{order:4}
 @media (max-width:720px){.look-btn{order:2}.menu-btn{order:3}.nav-links{order:4}}
+
+.creds{margin-top:clamp(56px,7vw,80px)}
+.creds h3{font-size:21px;letter-spacing:-.02em;margin-bottom:18px}
+.cred-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px}
+.cred-list li{background:var(--tile);border-radius:18px;padding:22px 24px;min-width:0;display:flex;flex-direction:column;gap:4px}
+.cred-list .issuer{font-size:13px;color:var(--gray)}
+.cred-list b{font-size:19px;font-weight:600;letter-spacing:-.02em;line-height:1.2}
+.cred-list .what{font-size:15px;color:var(--gray);line-height:1.45}
+.cred-list .when{margin-top:auto;padding-top:10px;font-size:13px;color:var(--flag)}
+.creds .also{margin-top:16px;font-size:15px;color:var(--gray)}
 </style>
 <script>try{if(localStorage.getItem('look')==='dark')document.documentElement.setAttribute('data-look','dark')}catch(e){}</script>
 
@@ -648,7 +658,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
           <span class="kicker">Web design</span>
           <h3>Websites and landing pages that feel considered.</h3>
           <p>Clean, fast sites designed from scratch, built responsive and accessible, and launched on your own domain.</p>
-          <p class="proofline">See this site and <a class="link" href="#highsynk">Highsynk</a></p>
+          <p class="proofline">See this site and <a class="link" href="#highsynk">Highsynk</a>. Certified in Web Designing with Distinction, 2026.</p>
         </article>
         <article class="tile">
           <span class="kicker">Product development</span>
@@ -700,7 +710,6 @@ footer a:hover{color:var(--ink);text-decoration:underline}
             <li><b>B.Eng. Biomedical Engineering, First Class</b><span class="at">Abiola Ajimobi Technical University, Ibadan, 2021 to 2025</span></li>
             <li><b>Overall Best Project and Best Department Project</b><span class="at">Biomedical Engineering, 2025, for IntelliBin</span></li>
             <li><b>Best Project</b><span class="at">GOMYCODE Data Science Internship, 2024</span></li>
-            <li><b>Certificates</b><span class="at">Data Science and Power BI (GOMYCODE), UI/UX Design (eHA Academy), Web Designing (Aptech)</span></li>
             <li><b>Leadership</b><span class="at">President, Biomedical Engineering Students Society. Vice President, Student Energy, Tech-U Chapter.</span></li>
           </ul>
         </div>
@@ -714,6 +723,18 @@ footer a:hover{color:var(--ink);text-decoration:underline}
             <p><b>Languages</b>English, Yoruba and Hausa</p>
           </div>
         </div>
+      </div>
+
+      <div class="creds">
+        <h3>Credentials</h3>
+        <ul class="cred-list">
+          <li><span class="issuer">Panel on Research Ethics, Canada</span><b>TCPS 2: CORE 2022</b><span class="what">Ethical conduct for research involving humans.</span><span class="when">October 2026</span></li>
+          <li><span class="issuer">Aptech, Arena Multimedia</span><b>Web Designing, with Distinction</b><span class="what">Certificate of Accomplishment in web design.</span><span class="when">March 2026</span></li>
+          <li><span class="issuer">Obichi PitchLab</span><b>Obichi Scholar</b><span class="what">Programme in innovation and research commercialization.</span><span class="when">March 2026</span></li>
+          <li><span class="issuer">Nigerian Society of Engineers</span><b>Graduate Member (GMNSE)</b><span class="what">Admitted as a graduate member of the professional body for engineers in Nigeria.</span><span class="when">January 2026</span></li>
+          <li><span class="issuer">GOMYCODE</span><b>Data Scientist Bootcamp</b><span class="what">Project-based training in data science and machine learning.</span><span class="when">October 2024</span></li>
+        </ul>
+        <p class="also">Also certified in Power BI (GOMYCODE) and UI/UX Design (eHA Academy).</p>
       </div>
 
       <div class="paper">
