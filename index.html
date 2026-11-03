@@ -87,7 +87,7 @@
 }
 *{box-sizing:border-box}
 html{background:var(--bg);scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.47;letter-spacing:-0.022em;-webkit-font-smoothing:antialiased;overflow-x:clip;transition:background .4s,color .4s}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.47;letter-spacing:-0.022em;-webkit-font-smoothing:antialiased;overflow-x:clip;transition:background .4s,color .4s}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit}
 img{max-width:100%}
@@ -410,6 +410,27 @@ footer a:hover{color:var(--ink);text-decoration:underline}
 .certbox-bar p{font-size:15px;color:rgba(255,255,255,.9)}
 .certbox-bar button{height:36px;padding:0 18px;border:0;border-radius:999px;cursor:pointer;color:#fff;font-size:14px;background:rgba(255,255,255,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 0 0 1px rgba(255,255,255,.18);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 @media (prefers-reduced-motion:reduce){.cred{--c:40px}.cred:hover,.cred:focus-visible{--c:40px}}
+
+.cta-line{margin-top:28px;padding:18px 22px;border-radius:18px;background:var(--tile);font-size:17px;color:var(--ink);letter-spacing:-.02em}
+.cta-line .link{white-space:nowrap}
+.hire-list{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:0;font-size:15px}
+.hire-list li{padding:9px 0;border-top:1px solid var(--line);color:var(--ink)}
+.tile.inverse .hire-list li{color:var(--inverse-ink);border-color:rgba(127,127,127,.35)}
+.tile.inverse .link{color:#2997ff}
+.enquiry{margin:44px auto 0;max-width:640px;text-align:left;display:grid;gap:16px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:grid;gap:6px;min-width:0}
+.field span{font-size:14px;color:var(--gray)}
+.field input,.field select,.field textarea{width:100%;font:inherit;font-size:17px;color:var(--ink);background:var(--tile);border:1px solid transparent;border-radius:12px;padding:13px 14px;transition:border-color .2s,background .2s}
+.field textarea{resize:vertical;min-height:130px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--btn);background:var(--bg)}
+.field [aria-invalid="true"]{border-color:#e30000}
+.send-row{display:flex;align-items:center;flex-wrap:wrap;gap:12px 18px}
+.form-status{font-size:15px;color:var(--gray)}
+.form-status.ok{color:#1d8a3a}.form-status.err{color:#d70015}
+.or{margin-top:40px;font-size:14px;color:var(--gray)}
+.contact .mail{margin-top:12px}
+@media (max-width:560px){.row2{grid-template-columns:1fr}}
 </style>
 <script>try{if(localStorage.getItem('look')==='dark')document.documentElement.setAttribute('data-look','dark')}catch(e){}</script>
 
@@ -450,8 +471,8 @@ footer a:hover{color:var(--ink);text-decoration:underline}
         <li><a href="#highsynk"><span class="ico"><span class="ico-phone"><i style="background-image:url(img/study-home.webp)"></i></span></span><span class="name">Highsynk<span class="flag">1,000+ users</span></span></a></li>
         <li><a href="#ultrabeaux"><span class="ico"><span class="ico-win"><b></b><i style="background-image:url(img/clinic-dashboard.webp)"></i></span></span><span class="name">Ultrabeaux<span class="flag">In daily use</span></span></a></li>
         <li><a href="#lab-manager"><span class="ico"><span class="ico-win"><b></b><i style="background-image:url(img/lab-dashboard.webp)"></i></span></span><span class="name">Lab Manager<span class="flag">In daily use</span></span></a></li>
-        <li><a href="#plirs"><span class="ico"><img class="ico-app" src="img/plirs-icon.webp" alt="" width="128" height="128"></span><span class="name">PLIRS<span class="flag">290 tests</span></span></a></li>
         <li><a href="#intellibin"><span class="ico"><span class="ico-glyph" style="background:#5a4116"><svg viewBox="0 0 28 28"><path d="M5 8h18M10.5 8V5h7v3M7 8l1.5 15h11L21 8M12 12v7M16 12v7"/></svg></span></span><span class="name">IntelliBin<span class="flag">Published</span></span></a></li>
+        <li><a href="#plirs"><span class="ico"><img class="ico-app" src="img/plirs-icon.webp" alt="" width="128" height="128"></span><span class="name">PLIRS<span class="flag">290 tests</span></span></a></li>
         <li><a href="#breast-cancer"><span class="ico"><span class="ico-glyph" style="background:#21434a"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="9"/><circle cx="12" cy="12" r="2.6"/><circle cx="17.5" cy="16.5" r="1.3"/><circle cx="11" cy="18.2" r="1"/></svg></span></span><span class="name">Breast Cancer<span class="flag">Award winner</span></span></a></li>
         <li><a href="#road-safety"><span class="ico"><span class="ico-glyph" style="background:#2c2d33"><svg viewBox="0 0 28 28"><path d="M10.5 4 6 24M17.5 4 22 24M14 6v3M14 13v3M14 20v3"/></svg></span></span><span class="name">Road Safety</span></a></li>
       </ul>
@@ -483,19 +504,19 @@ footer a:hover{color:var(--ink);text-decoration:underline}
       <div class="library">
         <div class="shelf">
           <ul class="stack" id="stack">
-            <li><button class="spine" style="--c:#1d2c4f;--w:88%;--t:70px;--x:3%;--r:-.4deg" data-book="highsynk" aria-controls="highsynk"><span class="title">Highsynk</span><span class="proof">1,000+ students<small>Mobile app, 2025</small></span></button></li>
-            <li><button class="spine" style="--c:#4b2235;--w:93%;--t:66px;--x:0%;--r:.3deg" data-book="ultrabeaux" aria-controls="ultrabeaux"><span class="title">Ultrabeaux</span><span class="proof">~700 clients<small>Web app, in use</small></span></button></li>
-            <li><button class="spine" style="--c:#173f31;--w:91%;--t:76px;--x:5%;--r:-.2deg" data-book="lab-manager" aria-controls="lab-manager"><span class="title">Lab Manager</span><span class="proof">6 staff daily<small>Desktop app, in use</small></span></button></li>
-            <li><button class="spine" style="--c:#5b2e1e;--w:94%;--t:68px;--x:2%;--r:.2deg" data-book="plirs" aria-controls="plirs"><span class="title">PLIRS</span><span class="proof">290 tests<small>Desktop app, v1.0</small></span></button></li>
-            <li><button class="spine" style="--c:#5a4116;--w:97%;--t:80px;--x:1%;--r:.25deg" data-book="intellibin" aria-controls="intellibin"><span class="title">IntelliBin</span><span class="proof">97% accuracy<small>Edge AI, published</small></span></button></li>
-            <li><button class="spine" style="--c:#21434a;--w:90%;--t:64px;--x:4%;--r:-.35deg" data-book="breast-cancer" aria-controls="breast-cancer"><span class="title">Breast Cancer</span><span class="proof">98.7% on test<small>Deep learning, 2024</small></span></button></li>
-            <li><button class="spine" style="--c:#2c2d33;--w:100%;--t:72px;--x:0%;--r:.15deg" data-book="road-safety" aria-controls="road-safety"><span class="title">Road Safety</span><span class="proof">Two datasets<small>Data analysis, 2026</small></span></button></li>
+            <li><button class="spine" style="--c:#1d2c4f;--w:90%;--t:80px;--x:3%;--r:-.4deg" data-book="highsynk" aria-controls="highsynk"><span class="title">Highsynk</span><span class="proof">1,000+ students<small>Mobile app, 2025</small></span></button></li>
+            <li><button class="spine" style="--c:#4b2235;--w:94%;--t:78px;--x:0%;--r:.3deg" data-book="ultrabeaux" aria-controls="ultrabeaux"><span class="title">Ultrabeaux</span><span class="proof">~700 clients<small>Web app, in use</small></span></button></li>
+            <li><button class="spine" style="--c:#173f31;--w:92%;--t:82px;--x:5%;--r:-.2deg" data-book="lab-manager" aria-controls="lab-manager"><span class="title">Lab Manager</span><span class="proof">6 staff daily<small>Desktop app, in use</small></span></button></li>
+            <li><button class="spine" style="--c:#5a4116;--w:98%;--t:84px;--x:1%;--r:.25deg" data-book="intellibin" aria-controls="intellibin"><span class="title">IntelliBin</span><span class="proof">97% accuracy<small>Edge AI, published</small></span></button></li>
+            <li><button class="spine" style="--c:#5b2e1e;--w:88%;--t:64px;--x:4%;--r:.2deg" data-book="plirs" aria-controls="plirs"><span class="title">PLIRS</span><span class="proof">290 tests<small>Desktop app, v1.0</small></span></button></li>
+            <li><button class="spine" style="--c:#21434a;--w:86%;--t:56px;--x:6%;--r:-.35deg" data-book="breast-cancer" aria-controls="breast-cancer"><span class="title">Breast Cancer</span><span class="proof">98.7% on test<small>Deep learning, 2024</small></span></button></li>
+            <li><button class="spine" style="--c:#2c2d33;--w:100%;--t:56px;--x:0%;--r:.15deg" data-book="road-safety" aria-controls="road-safety"><span class="title">Road Safety</span><span class="proof">Completed<small>Academic, 2025 to 2026</small></span></button></li>
           </ul>
           <details class="more-shelf">
             <summary>Also on the shelf</summary>
             <ul>
               <li><b>Network Intrusion Detection</b>, 2025. A Random Forest model that spots XSS, SQL injection and brute-force patterns in traffic.</li>
-              <li><b>Kampuz Connect</b>, 2025 to 2026. A campus marketplace demo designed and built at Aptech in HTML, CSS and JavaScript.</li>
+              <li><b>Kampuz Connect</b>, 2025 to 2026. A campus marketplace demo designed and built at Aptech in HTML, CSS and JavaScript. <a class="link more" href="https://github.com/kinghighshow/HighsynkKampuzConnect" target="_blank" rel="noopener">View code</a></li>
               <li><b>Histology Image Cleanup</b>, 2024. Removes background from histology slides and improves tissue clarity with OpenCV.</li>
               <li><b>Pathology Dictation</b>, 2024. Turns a pathologist’s spoken descriptions into structured text.</li>
               <li><b>SmartMeal</b>, 2024. Meal planning and reminders for people managing diabetes.</li>
@@ -534,7 +555,8 @@ footer a:hover{color:var(--ink);text-decoration:underline}
               <div><h4>What I did</h4><p>Designed it for the phone first, with a bottom tab bar and large touch targets, then made it work just as well on a laptop. It works offline and keeps study data on the device, with export and import for backups.</p></div>
               <div><h4>Built with</h4><p>React, TypeScript, Vite, Tailwind CSS, shadcn/ui, PWA and Supabase.</p></div>
             </div>
-          </article>
+                      <p class="cta-line">Want a mobile-first app people actually open every day? <a class="link more" href="#contact" data-topic="app">Get a fixed quote</a></p>
+</article>
 
           <article class="page" id="ultrabeaux" aria-label="Ultrabeaux Clinic Portal">
             <div class="page-meta"><span class="flag-txt">In daily use</span><span>Ultrabeaux aesthetic clinic</span></div>
@@ -564,6 +586,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
               <div><h4>What I did</h4><p>Designed the interface and built the whole app, from staff sign-in and the dashboard to client records, the appointment calendar, follow-ups and a recycle bin for restoring deleted records.</p></div>
               <div><h4>Built with</h4><p>React, TypeScript, Vite, Tailwind CSS, shadcn/ui, Supabase and Vercel.</p></div>
             </div>
+            <p class="cta-line">Need a client portal that replaces paper forms and spreadsheets? <a class="link more" href="#contact" data-topic="app">Get a fixed quote</a></p>
             <p class="fine">Screens shown with an empty database. No client data appears.</p>
           </article>
 
@@ -595,6 +618,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
               <div><h4>What I did</h4><p>Designed the interface and built the application. It runs offline and keeps all data on the lab’s own computer.</p></div>
               <div><h4>Built with</h4><p>React, Electron, HTML, CSS and SQLite.</p></div>
             </div>
+            <p class="cta-line">Need secure, offline-first software for your lab or clinic? <a class="link more" href="#contact" data-topic="app">Get a fixed quote</a></p>
             <p class="fine">Screens shown with an empty database. No patient data appears.</p>
           </article>
 
@@ -625,6 +649,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
               <div><h4>How it was tested</h4><p>About 290 integration tests run against real Word files, a real SQLite database and real Qt signals instead of mocks. They caught a search crash on malformed input and two packaging failures before release. The code follows Clean Architecture, with domain, application and interface layers kept separate.</p></div>
               <div><h4>Built with</h4><p>Python, PySide6 (Qt 6), SQLite with FTS5 and BM25 ranking, PyMuPDF, mammoth, BeautifulSoup, pywin32, PyInstaller and Inno Setup.</p></div>
             </div>
+            <p class="cta-line">Sitting on years of documents nobody can search? <a class="link more" href="#contact" data-topic="app">Get a fixed quote</a></p>
             <p class="fine">Screens use fictional demo records. No patient data appears.</p>
           </article>
 
@@ -654,6 +679,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
                 <div class="links"><a class="link" href="https://www.acadlore.com/article/HF/2025_3_3/hf030302" target="_blank" rel="noopener">Read the paper</a></div></div>
               <div><h4>Built with</h4><p>Python, TensorFlow and TensorFlow Lite, MobileNetV2, OpenCV, Raspberry Pi 4B and an OV5647 camera.</p></div>
             </div>
+            <p class="cta-line">Have a problem computer vision could solve? <a class="link more" href="#contact" data-topic="ai">Get a fixed quote</a></p>
             <p class="fine">Prototype results from controlled testing. Pharmaceutical waste was the weakest class at 85%. Not clinically validated.</p>
           </article>
 
@@ -679,13 +705,13 @@ footer a:hover{color:var(--ink);text-decoration:underline}
             <div class="notes">
               <div><h4>The problem</h4><p>Explore whether a model trained on local pathology data could help flag likely cancer cases for closer review.</p></div>
               <div><h4>What I did</h4><p>Prepared the laboratory records, built and trained the network, evaluated it on held-out data and presented the results.</p></div>
-              <div><h4>Built with</h4><p>Python, TensorFlow and Keras, Pandas, NumPy and scikit-learn.</p></div>
+              <div><h4>Built with</h4><p>Python, TensorFlow and Keras, Pandas, NumPy and scikit-learn.</p><div class="links"><a class="link more" href="https://github.com/kinghighshow/Breast-cancer-detection-app" target="_blank" rel="noopener">View code</a></div></div>
             </div>
             <p class="fine">A learning project. It has not been clinically validated or used for diagnosis.</p>
           </article>
 
           <article class="page" id="road-safety" aria-label="Road Safety Analysis">
-            <div class="page-meta"><span class="flag-txt">Academic</span><span>2025 to 2026</span></div>
+            <div class="page-meta"><span class="flag-txt">Completed</span><span>Academic projects, 2025 to 2026</span></div>
             <h3>Road Safety Analysis</h3>
             <p class="pitch">Two projects asking the same question: what conditions come before road incidents?</p>
             <div class="figures">
@@ -704,7 +730,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
             <div class="notes">
               <div><h4>Accident risk model, 2025</h4><p>Combined traffic density, weather, time of day and past accident records to flag high-risk road conditions.</p></div>
               <div><h4>Robotaxi incidents, 2026</h4><p>Team coursework at Conestoga. I cleaned and explored public autonomous-vehicle incident records and built a reusable chart class for the team.</p></div>
-              <div><h4>Built with</h4><p>Python, Pandas, Plotly and Jupyter.</p></div>
+              <div><h4>Built with</h4><p>Python, Pandas, Plotly and Jupyter.</p><div class="links"><a class="link more" href="https://github.com/kinghighshow/Accident-Prediction" target="_blank" rel="noopener">Risk model code</a><a class="link more" href="https://github.com/kinghighshow/RoboTaxi_safety" target="_blank" rel="noopener">Robotaxi code</a></div></div>
             </div>
             <p class="fine">Both are academic projects. Neither is a deployed crash prediction system.</p>
           </article>
@@ -718,33 +744,37 @@ footer a:hover{color:var(--ink);text-decoration:underline}
       <div class="head">
         <div>
         <h2 id="services-h">How I help businesses grow with AI.</h2>
-        <p>From spotting the right opportunity to shipping the product. Every service is backed by real work in the library above.</p>
+        <p>I work with healthcare businesses, labs and clinics, and startups that want to automate. Every service below is backed by real work in the library above.</p>
         </div>
       </div>
       <div class="tiles">
-        <article class="tile">
-          <span class="kicker">Web design</span>
-          <h3>Websites and landing pages that feel considered.</h3>
-          <p>Clean, fast sites designed from scratch, built responsive and accessible, and launched on your own domain.</p>
-          <p class="proofline">See this site and <a class="link" href="#highsynk">Highsynk</a>. Certified in Web Designing with Distinction, 2026.</p>
-        </article>
-        <article class="tile">
-          <span class="kicker">Product development</span>
-          <h3>Web, mobile and desktop apps your team runs on.</h3>
-          <p>Tools that replace paper and spreadsheets: bookings, records, billing and dashboards, built around how your team works.</p>
-          <p class="proofline">See <a class="link" href="#ultrabeaux">Ultrabeaux</a>, <a class="link" href="#lab-manager">Lab Manager</a> and <a class="link" href="#plirs">PLIRS</a></p>
-        </article>
         <article class="tile inverse">
-          <span class="kicker">AI for business</span>
+          <span class="kicker">AI and machine learning</span>
           <h3>Find where AI pays off, then build it.</h3>
           <p>I look at how your business runs, find where machine learning or automation would save the most time or money, then build models trained and tested on your own data.</p>
+          <ul class="hire-list"><li>Predictive models for planning and risk</li><li>Computer vision for images and cameras</li><li>Automating repetitive office work</li><li>Honest evaluation you can trust</li></ul>
           <p class="proofline">See <a class="link" href="#intellibin">IntelliBin</a>, published in 2025</p>
         </article>
         <article class="tile">
-          <span class="kicker">Data</span>
+          <span class="kicker">Software development</span>
+          <h3>Web, mobile and desktop apps your team runs on.</h3>
+          <p>Tools that replace paper and spreadsheets, built around how your team already works.</p>
+          <ul class="hire-list"><li>Clinic and lab management systems</li><li>Bookings, records and billing</li><li>Searchable document archives</li><li>Offline-first and secure by design</li></ul>
+          <p class="proofline">See <a class="link" href="#ultrabeaux">Ultrabeaux</a>, <a class="link" href="#lab-manager">Lab Manager</a> and <a class="link" href="#plirs">PLIRS</a></p>
+        </article>
+        <article class="tile">
+          <span class="kicker">Data analytics</span>
           <h3>Analysis and dashboards that answer real questions.</h3>
-          <p>Messy records turned into answers, with interactive charts in Plotly, Power BI or Tableau.</p>
+          <p>Messy records turned into clear answers your team can act on.</p>
+          <ul class="hire-list"><li>Cleaning and joining messy data</li><li>Dashboards in Plotly, Power BI or Tableau</li><li>Reports for managers and boards</li><li>Trends, forecasts and risk flags</li></ul>
           <p class="proofline">See <a class="link" href="#road-safety">Road Safety Analysis</a></p>
+        </article>
+        <article class="tile">
+          <span class="kicker">Web development</span>
+          <h3>Websites and landing pages that feel considered.</h3>
+          <p>Clean, fast sites designed from scratch and launched on your own domain.</p>
+          <ul class="hire-list"><li>Company and personal websites</li><li>Landing pages that convert</li><li>Web apps with sign-in and data</li><li>Responsive and accessible</li></ul>
+          <p class="proofline">See this site and <a class="link" href="#highsynk">Highsynk</a>. Certified in Web Designing with Distinction, 2026.</p>
         </article>
       </div>
       <ol class="steps" aria-label="How a project runs">
@@ -759,7 +789,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
   <section class="sec" id="about" aria-labelledby="about-h">
     <div class="wrap">
       <div class="head" style="margin-bottom:28px"><h2 id="about-h">About me.</h2></div>
-      <p class="about-lead">I help organisations get the most out of AI, software and data, and I lead the work from start to finish. <span class="dim">I trained as a biomedical engineer, so I start with the real need, look closely at the data and check that what I build works for the people using it. I led my final-year research to publication as first author, served as president of my department’s engineering society, and release my own products under the name Highsynk.</span></p>
+      <p class="about-lead">I help organisations get the most out of AI, software and data, and I lead the work from start to finish. <span class="dim">Biomedical engineering is my edge. I understand clinical workflows, sensitive patient data and research ethics, so healthcare teams don’t have to explain the basics. I start with the real need, look closely at the data and check that what I build works for the people using it. I led my final-year research to publication as first author, served as president of my department’s engineering society, and release my own products under the name Highsynk.</span></p>
 
       <div class="cols">
         <div>
@@ -826,7 +856,27 @@ footer a:hover{color:var(--ink);text-decoration:underline}
   <section class="contact" id="contact" aria-labelledby="contact-h">
     <div class="wrap">
       <h2 id="contact-h">Let’s build something.</h2>
-      <p class="sub">I take on freelance work in web design, apps, machine learning and data, and I’m open to roles in Waterloo or remote. Send a short note about what you need and I’ll reply within a day.</p>
+      <p class="sub">Available for freelance projects and for full-time, part-time or contract roles. Open to remote work worldwide, and hybrid or onsite roles in the Toronto–Waterloo area. I reply within a day.</p>
+      <form class="enquiry" id="enquiry" action="https://formspree.io/f/FORM_ID" method="POST" data-endpoint="" novalidate>
+        <div class="row2">
+          <label class="field"><span>Name</span><input id="f-name" name="name" type="text" autocomplete="name" required></label>
+          <label class="field"><span>Email</span><input id="f-email" name="email" type="email" autocomplete="email" required></label>
+        </div>
+        <label class="field"><span>What do you need?</span>
+          <select id="f-topic" name="topic">
+            <option value="app">A web, mobile or desktop app</option>
+            <option value="ai">AI or machine learning</option>
+            <option value="data">Data analysis or dashboards</option>
+            <option value="web">A website or landing page</option>
+            <option value="role">A job or contract role</option>
+            <option value="other">Something else</option>
+          </select>
+        </label>
+        <label class="field"><span>Tell me about it</span><textarea id="f-msg" name="message" rows="5" required placeholder="What you want to build or improve, and roughly when."></textarea></label>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
+        <div class="send-row"><button class="btn btn-solid" type="submit" id="f-send">Send message</button><p class="form-status" id="f-status" role="status" aria-live="polite"></p></div>
+      </form>
+      <p class="or">Or email me directly</p>
       <div class="mail glass"><span id="email">sultanatanda123@gmail.com</span><button type="button" id="copy-email">Copy</button></div>
       <div class="elsewhere">
         <a class="link" href="https://www.linkedin.com/in/sultan-atanda-gmnse-421943223" target="_blank" rel="noopener">LinkedIn</a>
@@ -986,6 +1036,22 @@ footer a:hover{color:var(--ink);text-decoration:underline}
   });});
   document.getElementById('certbox-x').addEventListener('click',function(){box.close();});
   box.addEventListener('click',function(e){if(e.target===box)box.close();});
+
+  var form=document.getElementById('enquiry'),fstat=document.getElementById('f-status'),fsend=document.getElementById('f-send'),ftopic=document.getElementById('f-topic');
+  document.querySelectorAll('[data-topic]').forEach(function(a){a.addEventListener('click',function(){ftopic.value=a.dataset.topic;});});
+  function say(msg,cls){fstat.textContent=msg;fstat.className='form-status'+(cls?' '+cls:'');}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var bad=null;['f-name','f-email','f-msg'].forEach(function(id){var el=document.getElementById(id),ok=el.value.trim()&&(id!=='f-email'||/^\S+@\S+\.\S+$/.test(el.value.trim()));el.setAttribute('aria-invalid',ok?'false':'true');if(!ok&&!bad)bad=el;});
+    if(bad){say('Please add your name, a valid email and a short message.','err');bad.focus();return;}
+    var ep=form.dataset.endpoint;
+    if(!ep){say('The form isn’t connected yet. Please email me at sultanatanda123@gmail.com.','err');return;}
+    fsend.disabled=true;say('Sending…');
+    fetch(ep,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}}).then(function(r){
+      if(r.ok){form.reset();say('Thanks, your message was sent. I’ll reply within a day.','ok');}
+      else throw 0;
+    }).catch(function(){say('Your message didn’t send. Please email me at sultanatanda123@gmail.com.','err');}).then(function(){fsend.disabled=false;});
+  });
 
   var copy=document.getElementById('copy-email'),email=document.getElementById('email');
   copy.addEventListener('click',function(){
