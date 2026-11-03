@@ -252,10 +252,11 @@ footer a:hover{color:var(--fg)}
 .shot-tabs button:hover{color:var(--fg)}
 .shot-tabs button[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--accent)}
 .shot{margin:0}
-.shot img{display:block;width:100%;height:auto;aspect-ratio:1600/766;object-fit:cover;object-position:top left;border-radius:14px;border:1px solid var(--line);background:var(--surface);transition:opacity .2s}
+.shot-stage{aspect-ratio:16/8.4;max-width:100%;background:var(--surface);border-radius:18px;padding:clamp(10px,2vw,22px);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.shot img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid var(--line);background:var(--raised);transition:opacity .2s}
 .shot img.swap{opacity:.35}
 .shot figcaption{margin-top:14px;display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;font-size:14.5px;color:var(--muted)}
-.shot figcaption #shot-cap{max-width:44em}
+.shot figcaption .cap{max-width:44em}
 .shot-note{font-size:13px;color:var(--faint)}
 </style>
 
@@ -345,7 +346,7 @@ footer a:hover{color:var(--fg)}
           <h3>Custom business software</h3>
           <p>Internal tools that replace paper and spreadsheets for small teams.</p>
           <ul><li>Desktop and web apps</li><li>Records, tracking and reporting</li><li>Local or cloud data storage</li><li>Built around your workflow</li></ul>
-          <p class="proof">Proof: <a href="#lab-manager">Lab Manager</a>, used daily by six staff</p>
+          <p class="proof">Proof: <a href="#lab-manager">Lab Manager</a> and <a href="#ultrabeaux">Ultrabeaux</a></p>
         </article>
       </div>
       <ol class="process" aria-label="How a project runs">
@@ -457,17 +458,55 @@ footer a:hover{color:var(--fg)}
           </div>
         </div>
         <div class="shots" data-shots>
-          <div class="shot-tabs" role="tablist" aria-label="Lab Manager screens">
-            <button role="tab" id="shot-t0" aria-selected="true" aria-controls="shot-panel" data-src="img/lab-dashboard.webp" data-cap="Dashboard: the day’s revenue by payment method, new debt, referral commissions and recent intakes.">Dashboard</button>
-            <button role="tab" id="shot-t1" aria-selected="false" aria-controls="shot-panel" tabindex="-1" data-src="img/lab-intake.webp" data-cap="New intake: pick tests from the directory, apply discounts and referral fees, and split payment across cash, transfer and POS.">New intake</button>
-            <button role="tab" id="shot-t2" aria-selected="false" aria-controls="shot-panel" tabindex="-1" data-src="img/lab-ledger.webp" data-cap="Records ledger: every diagnostic record, searchable by patient or test and filtered by billing tier and payment status.">Records ledger</button>
-            <button role="tab" id="shot-t3" aria-selected="false" aria-controls="shot-panel" tabindex="-1" data-src="img/lab-finance.webp" data-cap="Financial analytics: revenue, outstanding debt and commissions over any date range.">Analytics</button>
-            <button role="tab" id="shot-t4" aria-selected="false" aria-controls="shot-panel" tabindex="-1" data-src="img/lab-hospitals.webp" data-cap="Hospitals: register partner facilities so their tests can be billed on retainership.">Hospitals</button>
-            <button role="tab" id="shot-t5" aria-selected="false" aria-controls="shot-panel" tabindex="-1" data-src="img/lab-audit.webp" data-cap="Audit trail: a timestamped log of who did what, for accountability between staff.">Audit trail</button>
+          <div class="shot-tabs" role="tablist" aria-label="Lab Manager screens" data-name="Lab Manager">
+            <button role="tab" id="lab-t0" aria-selected="true" aria-controls="lab-panel" data-src="img/lab-dashboard.webp" data-cap="Dashboard: the day’s revenue by payment method, new debt, referral commissions and recent intakes.">Dashboard</button>
+            <button role="tab" id="lab-t1" aria-selected="false" aria-controls="lab-panel" tabindex="-1" data-src="img/lab-intake.webp" data-cap="New intake: pick tests from the directory, apply discounts and referral fees, and split payment across cash, transfer and POS.">New intake</button>
+            <button role="tab" id="lab-t2" aria-selected="false" aria-controls="lab-panel" tabindex="-1" data-src="img/lab-ledger.webp" data-cap="Records ledger: every diagnostic record, searchable by patient or test and filtered by billing tier and payment status.">Records ledger</button>
+            <button role="tab" id="lab-t3" aria-selected="false" aria-controls="lab-panel" tabindex="-1" data-src="img/lab-finance.webp" data-cap="Financial analytics: revenue, outstanding debt and commissions over any date range.">Analytics</button>
+            <button role="tab" id="lab-t4" aria-selected="false" aria-controls="lab-panel" tabindex="-1" data-src="img/lab-hospitals.webp" data-cap="Hospitals: register partner facilities so their tests can be billed on retainership.">Hospitals</button>
+            <button role="tab" id="lab-t5" aria-selected="false" aria-controls="lab-panel" tabindex="-1" data-src="img/lab-audit.webp" data-cap="Audit trail: a timestamped log of who did what, for accountability between staff.">Audit trail</button>
           </div>
-          <figure class="shot" id="shot-panel" role="tabpanel" aria-labelledby="shot-t0">
-            <img src="img/lab-dashboard.webp" alt="Lab Manager dashboard screen" width="1600" height="762" loading="lazy" decoding="async">
-            <figcaption><span id="shot-cap">Dashboard: the day’s revenue by payment method, new debt, referral commissions and recent intakes.</span><span class="shot-note">Shown with an empty database. No patient data appears.</span></figcaption>
+          <figure class="shot" id="lab-panel" role="tabpanel" aria-labelledby="lab-t0">
+            <div class="shot-stage"><img src="img/lab-dashboard.webp" alt="Lab Manager dashboard screen" loading="lazy" decoding="async"></div>
+            <figcaption><span class="cap">Dashboard: the day’s revenue by payment method, new debt, referral commissions and recent intakes.</span><span class="shot-note">Shown with an empty database. No patient data appears.</span></figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="project" id="ultrabeaux">
+        <div>
+          <div class="status"><span class="tag">Client software</span><span>Aesthetic clinic</span></div>
+          <h3>Ultrabeaux Clinic Portal</h3>
+          <p class="sub">A management app for an aesthetic clinic that keeps client profiles, bookings and aftercare follow-ups in one place.</p>
+          <dl class="p-body">
+            <div><dt>Problem</dt><dd>An aesthetic clinic has to remember each client’s skin type and concerns, keep the day’s bookings straight and follow up after treatment, while knowing which invoices are still open.</dd></div>
+            <div><dt>What I did</dt><dd>Designed the interface and built the application, from staff sign-in and the dashboard to client records, the appointment calendar and follow-up scheduling.</dd></div>
+          </dl>
+        </div>
+        <div class="p-visual">
+          <p class="label" style="margin-bottom:14px">What the app covers</p>
+          <div class="modules">
+            <div>Clients<small>Skin type, concern, WhatsApp</small></div>
+            <div>Appointments<small>Calendar and list views</small></div>
+            <div>Booking<small>Existing clients or walk-ins</small></div>
+            <div>Follow-ups<small>Aftercare reminders</small></div>
+            <div>Invoices<small>Open balances at a glance</small></div>
+            <div>Recycle bin<small>Restore deleted records</small></div>
+            <div class="base">Staff sign-in · encrypted cloud sync</div>
+          </div>
+        </div>
+        <div class="shots">
+          <div class="shot-tabs" role="tablist" aria-label="Ultrabeaux screens" data-name="Ultrabeaux">
+            <button role="tab" id="clinic-t0" aria-selected="true" aria-controls="clinic-panel" data-src="img/clinic-dashboard.webp" data-cap="Dashboard: active clients, today’s visits, open invoices and follow-ups that need action.">Dashboard</button>
+            <button role="tab" id="clinic-t1" aria-selected="false" aria-controls="clinic-panel" tabindex="-1" data-src="img/clinic-client.webp" data-cap="New client: contact details, WhatsApp number, skin type and primary concern in one form.">New client</button>
+            <button role="tab" id="clinic-t2" aria-selected="false" aria-controls="clinic-panel" tabindex="-1" data-src="img/clinic-appointments.webp" data-cap="Appointments: a month calendar with a list view, search and a date filter.">Appointments</button>
+            <button role="tab" id="clinic-t3" aria-selected="false" aria-controls="clinic-panel" tabindex="-1" data-src="img/clinic-booking.webp" data-cap="Booking: schedule a visit for an existing client or a walk-in, with purpose and session notes.">Booking</button>
+            <button role="tab" id="clinic-t4" aria-selected="false" aria-controls="clinic-panel" tabindex="-1" data-src="img/clinic-followup.webp" data-cap="Follow-ups: set a date and reason so no client is forgotten after treatment.">Follow-ups</button>
+            <button role="tab" id="clinic-t5" aria-selected="false" aria-controls="clinic-panel" tabindex="-1" data-src="img/clinic-signin.webp" data-cap="Sign in: staff log in before any client record is shown.">Sign in</button>
+          </div>
+          <figure class="shot" id="clinic-panel" role="tabpanel" aria-labelledby="clinic-t0">
+            <div class="shot-stage"><img src="img/clinic-dashboard.webp" alt="Ultrabeaux dashboard screen" loading="lazy" decoding="async"></div>
+            <figcaption><span class="cap">Dashboard: active clients, today’s visits, open invoices and follow-ups that need action.</span><span class="shot-note">Shown with an empty database. No client data appears.</span></figcaption>
           </figure>
         </div>
       </article>
@@ -712,14 +751,16 @@ footer a:hover{color:var(--fg)}
     try{navigator.clipboard.writeText(t).then(done,fallback);}catch(e){fallback();}
   });
 
-  var tabs=[].slice.call(document.querySelectorAll('.shot-tabs [role=tab]'));
-  if(tabs.length){
-    var img=document.querySelector('#shot-panel img'),cap=document.getElementById('shot-cap'),panel=document.getElementById('shot-panel');
-    tabs.forEach(function(t){var i=new Image();i.src=t.dataset.src;});
+  [].forEach.call(document.querySelectorAll('.shot-tabs'),function(list){
+    var tabs=[].slice.call(list.querySelectorAll('[role=tab]')),name=list.dataset.name;
+    var panel=document.getElementById(tabs[0].getAttribute('aria-controls')),img=panel.querySelector('img'),cap=panel.querySelector('.cap');
+    var warm=function(){tabs.forEach(function(t){new Image().src=t.dataset.src;});warm=function(){};};
+    list.addEventListener('pointerenter',function(){warm();});
     function pick(t,focus){
+      warm();
       tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;});
       img.classList.add('swap');
-      var n=new Image();n.onload=function(){img.src=t.dataset.src;img.alt='Lab Manager '+t.textContent.toLowerCase()+' screen';img.classList.remove('swap');};n.src=t.dataset.src;
+      var n=new Image();n.onload=function(){img.src=t.dataset.src;img.alt=name+' '+t.textContent.toLowerCase()+' screen';img.classList.remove('swap');};n.src=t.dataset.src;
       cap.textContent=t.dataset.cap;panel.setAttribute('aria-labelledby',t.id);
       if(focus){t.focus();t.scrollIntoView({block:'nearest',inline:'nearest'});}
     }
@@ -730,7 +771,7 @@ footer a:hover{color:var(--fg)}
         if(j===null)return;e.preventDefault();pick(tabs[(j+tabs.length)%tabs.length],true);
       });
     });
-  }
+  });
   document.getElementById('year').textContent=new Date().getFullYear();
 })();
 </script>
