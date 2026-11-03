@@ -857,7 +857,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
     <div class="wrap">
       <h2 id="contact-h">Let’s build something.</h2>
       <p class="sub">Available for freelance projects and for full-time, part-time or contract roles. Open to remote work worldwide, and hybrid or onsite roles in the Toronto–Waterloo area. I reply within a day.</p>
-      <form class="enquiry" id="enquiry" action="https://formspree.io/f/FORM_ID" method="POST" data-endpoint="" novalidate>
+      <form class="enquiry" id="enquiry" action="https://formspree.io/f/xaeeaevp" method="POST" data-endpoint="https://formspree.io/f/xaeeaevp" novalidate>
         <div class="row2">
           <label class="field"><span>Name</span><input id="f-name" name="name" type="text" autocomplete="name" required></label>
           <label class="field"><span>Email</span><input id="f-email" name="email" type="email" autocomplete="email" required></label>
@@ -873,6 +873,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
           </select>
         </label>
         <label class="field"><span>Tell me about it</span><textarea id="f-msg" name="message" rows="5" required placeholder="What you want to build or improve, and roughly when."></textarea></label>
+        <input type="hidden" name="_subject" value="New portfolio enquiry">
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
         <div class="send-row"><button class="btn btn-solid" type="submit" id="f-send">Send message</button><p class="form-status" id="f-status" role="status" aria-live="polite"></p></div>
       </form>
@@ -1048,9 +1049,12 @@ footer a:hover{color:var(--ink);text-decoration:underline}
     if(!ep){say('The form isn’t connected yet. Please email me at sultanatanda123@gmail.com.','err');return;}
     fsend.disabled=true;say('Sending…');
     fetch(ep,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}}).then(function(r){
-      if(r.ok){form.reset();say('Thanks, your message was sent. I’ll reply within a day.','ok');}
-      else throw 0;
-    }).catch(function(){say('Your message didn’t send. Please email me at sultanatanda123@gmail.com.','err');}).then(function(){fsend.disabled=false;});
+      if(r.ok){form.reset();say('Thanks, your message was sent. I’ll reply within a day.','ok');return;}
+      return r.json().catch(function(){return{};}).then(function(d){
+        var m=d&&d.errors&&d.errors.length?d.errors.map(function(x){return x.message;}).join(' '):'';
+        say((m?m+' ':'')+'Your message didn’t send. Please email me at sultanatanda123@gmail.com.','err');
+      });
+    }).catch(function(){say('Your message didn’t send. Check your connection, or email me at sultanatanda123@gmail.com.','err');}).then(function(){fsend.disabled=false;});
   });
 
   var copy=document.getElementById('copy-email'),email=document.getElementById('email');
