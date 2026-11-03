@@ -8,6 +8,7 @@ Plain HTML and CSS with a few lines of JavaScript. No build step and no dependen
 
 - `index.html`: the whole site
 - `portrait.jpg`: hero portrait
+- `img/`: project screenshots (Lab Manager screens, shown with an empty database)
 
 ## Editing
 

@@ -244,6 +244,19 @@ footer a:hover{color:var(--fg)}
 .process span{display:block;margin-top:6px;font-size:14.5px;color:var(--muted);line-height:1.45}
 @media (max-width:900px){.process{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:480px){.process{grid-template-columns:1fr}}
+
+.shots{grid-column:1/-1;min-width:0}
+.shot-tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line);margin-bottom:20px}
+.shot-tabs::-webkit-scrollbar{display:none}
+.shot-tabs button{flex:none;font:inherit;font-size:14px;font-weight:500;color:var(--muted);background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:10px 12px;cursor:pointer;transition:color .15s,border-color .15s}
+.shot-tabs button:hover{color:var(--fg)}
+.shot-tabs button[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--accent)}
+.shot{margin:0}
+.shot img{display:block;width:100%;height:auto;aspect-ratio:1600/766;object-fit:cover;object-position:top left;border-radius:14px;border:1px solid var(--line);background:var(--surface);transition:opacity .2s}
+.shot img.swap{opacity:.35}
+.shot figcaption{margin-top:14px;display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;font-size:14.5px;color:var(--muted)}
+.shot figcaption #shot-cap{max-width:44em}
+.shot-note{font-size:13px;color:var(--faint)}
 </style>
 
 </head>
@@ -332,7 +345,7 @@ footer a:hover{color:var(--fg)}
           <h3>Custom business software</h3>
           <p>Internal tools that replace paper and spreadsheets for small teams.</p>
           <ul><li>Desktop and web apps</li><li>Records, tracking and reporting</li><li>Local or cloud data storage</li><li>Built around your workflow</li></ul>
-          <p class="proof">Proof: <a href="#lab-manager">Lab Manager</a>, used daily</p>
+          <p class="proof">Proof: <a href="#lab-manager">Lab Manager</a>, used daily by six staff</p>
         </article>
       </div>
       <ol class="process" aria-label="How a project runs">
@@ -421,12 +434,12 @@ footer a:hover{color:var(--fg)}
       <!-- Project 3 -->
       <article class="project" id="lab-manager">
         <div>
-          <div class="status"><span class="tag">In daily use</span><span>Ongoing</span></div>
+          <div class="status"><span class="tag">In daily use</span><span>Ultramedikx Pathology Lab</span></div>
           <h3>Ultramedikx Lab Manager</h3>
-          <p class="sub">Desktop software that runs the everyday work of a pathology laboratory, from sample intake to the final report.</p>
+          <p class="sub">Desktop software that runs the front desk and finances of a pathology lab, from patient intake to hospital invoices.</p>
           <dl class="p-body">
-            <div><dt>Problem</dt><dd>A busy pathology lab needs one reliable place for patient records, samples, results, reports and stock.</dd></div>
-            <div><dt>What I did</dt><dd>Designed and built the application, with a focus on usability, efficient workflows and local data storage.</dd></div>
+            <div><dt>Problem</dt><dd>The lab serves walk-in patients and partner hospitals on retainership, so staff need to track every test, payment, debt and referral commission in one place.</dd></div>
+            <div><dt>What I did</dt><dd>Designed the interface and built the whole application. It runs offline and keeps all data on the lab’s own computer.</dd></div>
             <div><dt>Impact</dt><dd>Used by six laboratory staff in their daily operations.</dd></div>
             <div><dt>Stack</dt><dd class="stack">React, Electron, HTML, CSS, SQLite</dd></div>
           </dl>
@@ -434,15 +447,28 @@ footer a:hover{color:var(--fg)}
         <div class="p-visual">
           <p class="label" style="margin-bottom:14px">What the app covers</p>
           <div class="modules">
-            <div>Patients<small>Records and history</small></div>
-            <div>Samples<small>Intake and tracking</small></div>
-            <div>Results<small>Entry and review</small></div>
-            <div>Reports<small>Printable output</small></div>
-            <div>Inventory<small>Reagents and stock</small></div>
-            <div>Admin<small>Staff workflows</small></div>
-            <div class="base">SQLite on the local machine</div>
+            <div>Intake<small>Tests, discounts, split payments</small></div>
+            <div>Records ledger<small>Search, filter, print receipts</small></div>
+            <div>Hospitals<small>Retainership accounts</small></div>
+            <div>Invoicing<small>Bills for partner hospitals</small></div>
+            <div>Analytics<small>Revenue, debt, commissions</small></div>
+            <div>Audit trail<small>Every action, by staff member</small></div>
+            <div class="base">Offline · SQLite on the lab’s computer</div>
           </div>
-          <p class="note">Screenshots with sample data coming soon.</p>
+        </div>
+        <div class="shots" data-shots>
+          <div class="shot-tabs" role="tablist" aria-label="Lab Manager screens">
+            <button role="tab" id="shot-t0" aria-selected="true" aria-controls="shot-panel" data-src="img/lab-dashboard.webp" data-cap="Dashboard: the day’s revenue by payment method, new debt, referral commissions and recent intakes.">Dashboard</button>
+            <button role="tab" id="shot-t1" aria-selected="false" aria-controls="shot-panel" tabindex="-1" data-src="img/lab-intake.webp" data-cap="New intake: pick tests from the directory, apply discounts and referral fees, and split payment across cash, transfer and POS.">New intake</button>
+            <button role="tab" id="shot-t2" aria-selected="false" aria-controls="shot-panel" tabindex="-1" data-src="img/lab-ledger.webp" data-cap="Records ledger: every diagnostic record, searchable by patient or test and filtered by billing tier and payment status.">Records ledger</button>
+            <button role="tab" id="shot-t3" aria-selected="false" aria-controls="shot-panel" tabindex="-1" data-src="img/lab-finance.webp" data-cap="Financial analytics: revenue, outstanding debt and commissions over any date range.">Analytics</button>
+            <button role="tab" id="shot-t4" aria-selected="false" aria-controls="shot-panel" tabindex="-1" data-src="img/lab-hospitals.webp" data-cap="Hospitals: register partner facilities so their tests can be billed on retainership.">Hospitals</button>
+            <button role="tab" id="shot-t5" aria-selected="false" aria-controls="shot-panel" tabindex="-1" data-src="img/lab-audit.webp" data-cap="Audit trail: a timestamped log of who did what, for accountability between staff.">Audit trail</button>
+          </div>
+          <figure class="shot" id="shot-panel" role="tabpanel" aria-labelledby="shot-t0">
+            <img src="img/lab-dashboard.webp" alt="Lab Manager dashboard screen" width="1600" height="762" loading="lazy" decoding="async">
+            <figcaption><span id="shot-cap">Dashboard: the day’s revenue by payment method, new debt, referral commissions and recent intakes.</span><span class="shot-note">Shown with an empty database. No patient data appears.</span></figcaption>
+          </figure>
         </div>
       </article>
 
@@ -685,6 +711,26 @@ footer a:hover{color:var(--fg)}
     function fallback(){var r=document.createRange();r.selectNodeContents(email);var s=getSelection();s.removeAllRanges();s.addRange(r);copy.textContent='Selected';}
     try{navigator.clipboard.writeText(t).then(done,fallback);}catch(e){fallback();}
   });
+
+  var tabs=[].slice.call(document.querySelectorAll('.shot-tabs [role=tab]'));
+  if(tabs.length){
+    var img=document.querySelector('#shot-panel img'),cap=document.getElementById('shot-cap'),panel=document.getElementById('shot-panel');
+    tabs.forEach(function(t){var i=new Image();i.src=t.dataset.src;});
+    function pick(t,focus){
+      tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;});
+      img.classList.add('swap');
+      var n=new Image();n.onload=function(){img.src=t.dataset.src;img.alt='Lab Manager '+t.textContent.toLowerCase()+' screen';img.classList.remove('swap');};n.src=t.dataset.src;
+      cap.textContent=t.dataset.cap;panel.setAttribute('aria-labelledby',t.id);
+      if(focus){t.focus();t.scrollIntoView({block:'nearest',inline:'nearest'});}
+    }
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){pick(t);});
+      t.addEventListener('keydown',function(e){
+        var k=e.key,j=k==='ArrowRight'?i+1:k==='ArrowLeft'?i-1:k==='Home'?0:k==='End'?tabs.length-1:null;
+        if(j===null)return;e.preventDefault();pick(tabs[(j+tabs.length)%tabs.length],true);
+      });
+    });
+  }
   document.getElementById('year').textContent=new Date().getFullYear();
 })();
 </script>
