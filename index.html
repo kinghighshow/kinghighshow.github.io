@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sultan Atanda</title>
-<meta name="description" content="Sultan Atanda is an AI/ML engineer and product designer in Waterloo, Ontario. His software is used by 1,000+ students, an aesthetic clinic with about 700 clients and a pathology lab, and his computer vision research is published.">
-<meta property="og:title" content="Sultan Atanda | AI/ML Engineer and Web Designer">
+<meta name="description" content="Sultan Atanda: Medical AI and ML, software development and data to insights. He helps organisations get the most out of AI, with software in daily use at a clinic, a pathology lab and by 1,000+ students.">
+<meta property="og:title" content="Sultan Atanda | Medical AI and ML, Software Dev, Data to Insights">
 <meta property="og:description" content="Websites, apps and machine learning by Sultan Atanda. Available for freelance projects and part-time roles.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="img/avatar.webp">
@@ -378,6 +378,38 @@ footer a:hover{color:var(--ink);text-decoration:underline}
 .notes.two{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (max-width:700px){.notes.two{grid-template-columns:1fr}}
 .ico-app{width:56px;height:56px;border-radius:13px;display:block;box-shadow:0 6px 12px -6px rgba(0,0,0,.45)}
+
+@property --c{syntax:'<length>';inherits:true;initial-value:0px}
+:root{--cred-glass:linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,255,255,.62));--flap:linear-gradient(135deg,#ffffff 35%,#d2d2d7)}
+:root[data-look="dark"]{--cred-glass:linear-gradient(180deg,rgba(44,44,46,.78),rgba(28,28,30,.66));--flap:linear-gradient(135deg,#3a3a3c 35%,#1c1c1e)}
+.cred-list li{background:none;padding:0;border-radius:20px}
+.cred{--c:28px;position:relative;display:block;width:100%;min-height:196px;height:100%;padding:0;border:0;border-radius:20px;overflow:hidden;cursor:pointer;text-align:left;isolation:isolate;
+  background:var(--tile);box-shadow:0 0 0 .5px rgba(0,0,0,.08),0 10px 30px -18px rgba(0,0,0,.35);transition:--c .75s var(--ease),transform .5s var(--ease),box-shadow .5s}
+.cred:hover,.cred:focus-visible{--c:156px;transform:translateY(-3px);box-shadow:0 0 0 .5px rgba(0,0,0,.08),0 24px 40px -20px rgba(0,0,0,.4)}
+.cred .peek{position:absolute;right:-4%;bottom:-14%;width:78%;height:128%;background:var(--img) 40% 40%/cover no-repeat;border-radius:6px;box-shadow:0 0 0 1px rgba(0,0,0,.06);transform:rotate(-5deg) scale(1.04);transition:transform .9s var(--ease)}
+.cred:hover .peek,.cred:focus-visible .peek{transform:rotate(0) scale(1)}
+.cred .face{position:absolute;inset:0;display:flex;flex-direction:column;gap:4px;padding:22px 24px;color:var(--ink);
+  background:var(--cred-glass);-webkit-backdrop-filter:blur(18px) saturate(170%);backdrop-filter:blur(18px) saturate(170%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.75),inset 0 0 0 1px rgba(255,255,255,.3);
+  clip-path:polygon(0 0,100% 0,100% calc(100% - var(--c)),calc(100% - var(--c)) 100%,0 100%)}
+.cred .face>*{max-width:76%}
+.cred .issuer{font-size:13px;color:var(--gray)}
+.cred b{font-size:19px;font-weight:600;letter-spacing:-.02em;line-height:1.2}
+.cred .what{font-size:15px;color:var(--gray);line-height:1.45}
+.cred .when{margin-top:auto;padding-top:10px;font-size:13px;color:var(--flag)}
+.cred .flap-wrap{position:absolute;inset:0;pointer-events:none;filter:drop-shadow(-5px -5px 8px rgba(0,0,0,.2))}
+.cred .flap{position:absolute;inset:0;background:var(--flap);
+  clip-path:polygon(100% calc(100% - var(--c)),calc(100% - var(--c)) 100%,calc(100% - var(--c)) calc(100% - var(--c)))}
+.creds .note{margin-top:12px;font-size:12px;color:var(--gray)}
+.certbox{border:0;padding:0;background:transparent;max-width:min(94vw,1000px);max-height:96vh;overflow:visible;color:#fff}
+.certbox::backdrop{background:rgba(0,0,0,.55);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.certbox[open]{animation:pop .45s var(--ease)}
+@keyframes pop{from{opacity:0;transform:scale(.96) translateY(10px)}to{opacity:1;transform:none}}
+.certbox img{display:block;max-width:100%;max-height:82vh;width:auto;height:auto;margin:0 auto;border-radius:12px;background:#fff;box-shadow:0 40px 90px rgba(0,0,0,.45)}
+.certbox-bar{margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.certbox-bar p{font-size:15px;color:rgba(255,255,255,.9)}
+.certbox-bar button{height:36px;padding:0 18px;border:0;border-radius:999px;cursor:pointer;color:#fff;font-size:14px;background:rgba(255,255,255,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 0 0 1px rgba(255,255,255,.18);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+@media (prefers-reduced-motion:reduce){.cred{--c:40px}.cred:hover,.cred:focus-visible{--c:40px}}
 </style>
 <script>try{if(localStorage.getItem('look')==='dark')document.documentElement.setAttribute('data-look','dark')}catch(e){}</script>
 
@@ -407,9 +439,9 @@ footer a:hover{color:var(--ink);text-decoration:underline}
 <main id="main">
   <section class="hero" id="top">
     <div class="wrap">
-      <div class="byline"><img src="img/avatar.webp" alt="" width="96" height="96"><h1>Sultan Atanda<span>AI/ML engineer and product designer</span></h1></div>
-      <p class="lead">Software people use every day.</p>
-      <p class="sub">I design and build web apps, mobile-first products and computer vision systems. My software runs daily at an aesthetic clinic and a pathology lab, and more than 1,000 students study with it.</p>
+      <div class="byline"><img src="img/avatar.webp" alt="" width="96" height="96"><h1>Sultan Atanda<span>Medical AI and ML · Software Dev · Data to Insights Expert</span></h1></div>
+      <p class="lead">AI that brings out the best in a business.</p>
+      <p class="sub">I find where AI, software and data can do the most for an organisation, then lead the work from the first conversation to daily use. My software already runs at an aesthetic clinic and a pathology lab, and more than 1,000 students study with it.</p>
       <div class="ctas">
         <a class="btn btn-solid" href="#work">See the work</a>
         <a class="link more" href="#contact">Get in touch</a>
@@ -685,8 +717,8 @@ footer a:hover{color:var(--ink);text-decoration:underline}
     <div class="wrap">
       <div class="head">
         <div>
-        <h2 id="services-h">What I can build for you.</h2>
-        <p>Every service here is backed by something real in the library above.</p>
+        <h2 id="services-h">How I help businesses grow with AI.</h2>
+        <p>From spotting the right opportunity to shipping the product. Every service is backed by real work in the library above.</p>
         </div>
       </div>
       <div class="tiles">
@@ -703,9 +735,9 @@ footer a:hover{color:var(--ink);text-decoration:underline}
           <p class="proofline">See <a class="link" href="#ultrabeaux">Ultrabeaux</a>, <a class="link" href="#lab-manager">Lab Manager</a> and <a class="link" href="#plirs">PLIRS</a></p>
         </article>
         <article class="tile inverse">
-          <span class="kicker">Machine learning</span>
-          <h3>Computer vision and predictive models, tested properly.</h3>
-          <p>Models that classify, predict or detect, trained and tested on your data, with honest evaluation and clear limits.</p>
+          <span class="kicker">AI for business</span>
+          <h3>Find where AI pays off, then build it.</h3>
+          <p>I look at how your business runs, find where machine learning or automation would save the most time or money, then build models trained and tested on your own data.</p>
           <p class="proofline">See <a class="link" href="#intellibin">IntelliBin</a>, published in 2025</p>
         </article>
         <article class="tile">
@@ -727,7 +759,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
   <section class="sec" id="about" aria-labelledby="about-h">
     <div class="wrap">
       <div class="head" style="margin-bottom:28px"><h2 id="about-h">About me.</h2></div>
-      <p class="about-lead">I’m a biomedical engineer who builds software and machine learning systems. <span class="dim">I start with the real need, look closely at the data, build something practical and check that it works in the hands of the people who use it. I release my own products under the name Highsynk.</span></p>
+      <p class="about-lead">I help organisations get the most out of AI, software and data, and I lead the work from start to finish. <span class="dim">I trained as a biomedical engineer, so I start with the real need, look closely at the data and check that what I build works for the people using it. I led my final-year research to publication as first author, served as president of my department’s engineering society, and release my own products under the name Highsynk.</span></p>
 
       <div class="cols">
         <div>
@@ -746,7 +778,13 @@ footer a:hover{color:var(--ink);text-decoration:underline}
             <li><b>B.Eng. Biomedical Engineering, First Class</b><span class="at">Abiola Ajimobi Technical University, Ibadan, 2021 to 2025</span></li>
             <li><b>Overall Best Project and Best Department Project</b><span class="at">Biomedical Engineering, 2025, for IntelliBin</span></li>
             <li><b>Best Project</b><span class="at">GOMYCODE Data Science Internship, 2024</span></li>
-            <li><b>Leadership</b><span class="at">President, Biomedical Engineering Students Society. Vice President, Student Energy, Tech-U Chapter.</span></li>
+          </ul>
+          <h3 style="margin-top:40px">Leadership</h3>
+          <ul class="entries">
+            <li><b>President</b><span class="at">Biomedical Engineering Students Society</span></li>
+            <li><b>Vice President</b><span class="at">Student Energy, Tech-U Chapter</span></li>
+            <li><b>First author, IntelliBin</b><span class="at">Led the final-year research to a peer-reviewed paper, 2025</span></li>
+            <li><b>National Ambassador</b><span class="at">GOMYCODE, outreach to about 180 students per event</span></li>
           </ul>
         </div>
         <div>
@@ -764,13 +802,14 @@ footer a:hover{color:var(--ink);text-decoration:underline}
       <div class="creds">
         <h3>Credentials</h3>
         <ul class="cred-list">
-          <li><span class="issuer">Panel on Research Ethics, Canada</span><b>TCPS 2: CORE 2022</b><span class="what">Ethical conduct for research involving humans.</span><span class="when">October 2026</span></li>
-          <li><span class="issuer">Aptech, Arena Multimedia</span><b>Web Designing, with Distinction</b><span class="what">Certificate of Accomplishment in web design.</span><span class="when">March 2026</span></li>
-          <li><span class="issuer">Obichi PitchLab</span><b>Obichi Scholar</b><span class="what">Programme in innovation and research commercialization.</span><span class="when">March 2026</span></li>
-          <li><span class="issuer">Nigerian Society of Engineers</span><b>Graduate Member (GMNSE)</b><span class="what">Admitted as a graduate member of the professional body for engineers in Nigeria.</span><span class="when">January 2026</span></li>
-          <li><span class="issuer">GOMYCODE</span><b>Data Scientist Bootcamp</b><span class="what">Project-based training in data science and machine learning.</span><span class="when">October 2024</span></li>
+          <li><button class="cred" type="button" style="--img:url(img/cert-tcps.webp)" data-full="img/cert-tcps.webp" data-title="TCPS 2: CORE 2022, Panel on Research Ethics, Canada" aria-haspopup="dialog" aria-label="View certificate: TCPS 2: CORE 2022"><span class="peek" aria-hidden="true"></span><span class="face"><span class="issuer">Panel on Research Ethics, Canada</span><b>TCPS 2: CORE 2022</b><span class="what">Ethical conduct for research involving humans.</span><span class="when">October 2026</span></span><span class="flap-wrap" aria-hidden="true"><span class="flap"></span></span></button></li>
+          <li><button class="cred" type="button" style="--img:url(img/cert-aptech.webp)" data-full="img/cert-aptech.webp" data-title="Web Designing, with Distinction, Aptech, Arena Multimedia" aria-haspopup="dialog" aria-label="View certificate: Web Designing, with Distinction"><span class="peek" aria-hidden="true"></span><span class="face"><span class="issuer">Aptech, Arena Multimedia</span><b>Web Designing, with Distinction</b><span class="what">Certificate of Accomplishment in web design.</span><span class="when">March 2026</span></span><span class="flap-wrap" aria-hidden="true"><span class="flap"></span></span></button></li>
+          <li><button class="cred" type="button" style="--img:url(img/cert-obichi.webp)" data-full="img/cert-obichi.webp" data-title="Obichi Scholar, Obichi PitchLab" aria-haspopup="dialog" aria-label="View certificate: Obichi Scholar"><span class="peek" aria-hidden="true"></span><span class="face"><span class="issuer">Obichi PitchLab</span><b>Obichi Scholar</b><span class="what">Programme in innovation and research commercialization.</span><span class="when">March 2026</span></span><span class="flap-wrap" aria-hidden="true"><span class="flap"></span></span></button></li>
+          <li><button class="cred" type="button" style="--img:url(img/cert-nse.webp)" data-full="img/cert-nse.webp" data-title="Graduate Member (GMNSE), Nigerian Society of Engineers" aria-haspopup="dialog" aria-label="View certificate: Graduate Member (GMNSE)"><span class="peek" aria-hidden="true"></span><span class="face"><span class="issuer">Nigerian Society of Engineers</span><b>Graduate Member (GMNSE)</b><span class="what">Admitted as a graduate member of the professional body for engineers in Nigeria.</span><span class="when">January 2026</span></span><span class="flap-wrap" aria-hidden="true"><span class="flap"></span></span></button></li>
+          <li><button class="cred" type="button" style="--img:url(img/cert-gomycode.webp)" data-full="img/cert-gomycode.webp" data-title="Data Scientist Bootcamp, GOMYCODE" aria-haspopup="dialog" aria-label="View certificate: Data Scientist Bootcamp"><span class="peek" aria-hidden="true"></span><span class="face"><span class="issuer">GOMYCODE</span><b>Data Scientist Bootcamp</b><span class="what">Project-based training in data science and machine learning.</span><span class="when">October 2024</span></span><span class="flap-wrap" aria-hidden="true"><span class="flap"></span></span></button></li>
         </ul>
         <p class="also">Also certified in Power BI (GOMYCODE) and UI/UX Design (eHA Academy).</p>
+        <p class="note">Hover to preview, click to view. Serial numbers are blurred; originals are available on request.</p>
       </div>
 
       <div class="paper">
@@ -796,6 +835,11 @@ footer a:hover{color:var(--ink);text-decoration:underline}
     </div>
   </section>
 </main>
+
+<dialog class="certbox" id="certbox" aria-labelledby="certbox-t">
+  <img id="certbox-img" src="" alt="">
+  <div class="certbox-bar"><p id="certbox-t"></p><button type="button" id="certbox-x">Close</button></div>
+</dialog>
 
 <footer>
   <div class="wrap">
@@ -934,6 +978,14 @@ footer a:hover{color:var(--ink);text-decoration:underline}
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){layoutAll();});
 
   if(!fromHash()){spines[0].setAttribute('aria-current','true');stack.classList.add('has-pick');}
+
+  var box=document.getElementById('certbox'),bimg=document.getElementById('certbox-img'),btitle=document.getElementById('certbox-t');
+  document.querySelectorAll('.cred').forEach(function(c){c.addEventListener('click',function(){
+    bimg.src=c.dataset.full;bimg.alt='Certificate: '+c.dataset.title;btitle.textContent=c.dataset.title;
+    if(box.showModal)box.showModal();else box.setAttribute('open','');
+  });});
+  document.getElementById('certbox-x').addEventListener('click',function(){box.close();});
+  box.addEventListener('click',function(e){if(e.target===box)box.close();});
 
   var copy=document.getElementById('copy-email'),email=document.getElementById('email');
   copy.addEventListener('click',function(){
