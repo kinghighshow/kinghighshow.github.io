@@ -258,6 +258,14 @@ footer a:hover{color:var(--fg)}
 .shot figcaption{margin-top:14px;display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;font-size:14.5px;color:var(--muted)}
 .shot figcaption .cap{max-width:44em}
 .shot-note{font-size:13px;color:var(--faint)}
+
+.phones{grid-column:1/-1;min-width:0;background:var(--surface);border-radius:22px;padding:clamp(20px,3vw,32px) 0}
+.phones ol{list-style:none;margin:0;padding:0 clamp(20px,3vw,32px);display:flex;gap:clamp(14px,2vw,22px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 clamp(20px,3vw,32px);scrollbar-width:thin}
+.phones li{flex:none;width:clamp(168px,19vw,212px);scroll-snap-align:start}
+.phones img{display:block;width:100%;height:auto;aspect-ratio:440/848;border-radius:22px;border:1px solid var(--line);background:#0b0e14}
+.phones b{display:block;margin-top:12px;font-size:14.5px;font-weight:600;letter-spacing:-0.01em}
+.phones li span{display:block;margin-top:2px;font-size:13.5px;color:var(--muted);line-height:1.4}
+.phones-foot{display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--faint)}
 </style>
 
 </head>
@@ -328,7 +336,7 @@ footer a:hover{color:var(--fg)}
           <h3>Websites and landing pages</h3>
           <p>Clean, fast sites designed from scratch, never from a template.</p>
           <ul><li>Design in Figma</li><li>Responsive build, HTML, CSS, JavaScript, React</li><li>Accessible and search friendly</li><li>Launch on your own domain</li></ul>
-          <p class="proof">Proof: this site and <a href="#more">Kampuz Connect</a></p>
+          <p class="proof">Proof: this site and <a href="#highsynk">Highsynk</a></p>
         </article>
         <article>
           <h3>Machine learning and computer vision</h3>
@@ -510,6 +518,42 @@ footer a:hover{color:var(--fg)}
             <div class="shot-stage"><img src="img/clinic-dashboard.webp" alt="Ultrabeaux dashboard screen" loading="lazy" decoding="async"></div>
             <figcaption><span class="cap">Dashboard: active clients, today’s visits, open invoices and follow-ups that need action.</span><span class="shot-note">Shown with an empty database. No client data appears.</span></figcaption>
           </figure>
+        </div>
+      </article>
+
+      <article class="project" id="highsynk">
+        <div>
+          <div class="status"><span class="tag">Personal project</span><span>Mobile-first web app · 2025</span></div>
+          <h3>Highsynk Study Companion</h3>
+          <p class="sub">A study app for students that puts a focus timer, tasks, notes, a schedule and flashcards in one calm place.</p>
+          <dl class="p-body">
+            <div><dt>Problem</dt><dd>Students juggle separate apps for timers, to-do lists, notes and revision, and lose focus switching between them.</dd></div>
+            <div><dt>What I did</dt><dd>Designed it for the phone first, with a bottom tab bar and large touch targets, then made it work just as well on a laptop. It installs like a native app, works offline, and keeps study data on the device with export and import for backups.</dd></div>
+            <div><dt>Stack</dt><dd class="stack">React, TypeScript, Vite, Tailwind CSS, shadcn/ui, PWA (offline), Supabase</dd></div>
+          </dl>
+        </div>
+        <div class="p-visual">
+          <p class="label" style="margin-bottom:14px">What the app covers</p>
+          <div class="modules">
+            <div>Focus timer<small>Pomodoro with study history</small></div>
+            <div>Tasks<small>Low, medium, high priority</small></div>
+            <div>Notes<small>Rich text, searchable</small></div>
+            <div>Schedule<small>Calendar of study events</small></div>
+            <div>Flashcards<small>Decks and study mode</small></div>
+            <div>Your data<small>Export, import, reset</small></div>
+            <div class="base">Works offline · installs on phone and desktop</div>
+          </div>
+        </div>
+        <div class="phones" aria-label="Highsynk screens">
+          <ol>
+            <li><img src="img/study-home.webp" alt="Highsynk home screen" width="440" height="848" loading="lazy" decoding="async"><b>Home</b><span>Today’s progress and a study overview</span></li>
+            <li><img src="img/study-timer.webp" alt="Highsynk timer screen" width="440" height="848" loading="lazy" decoding="async"><b>Timer</b><span>Pomodoro focus and break intervals</span></li>
+            <li><img src="img/study-tasks.webp" alt="Highsynk tasks screen" width="440" height="848" loading="lazy" decoding="async"><b>Tasks</b><span>Quick capture with priority levels</span></li>
+            <li><img src="img/study-notes.webp" alt="Highsynk notes screen" width="440" height="848" loading="lazy" decoding="async"><b>Notes</b><span>Searchable rich-text notes</span></li>
+            <li><img src="img/study-schedule.webp" alt="Highsynk schedule screen" width="440" height="848" loading="lazy" decoding="async"><b>Schedule</b><span>Lectures, study blocks and deadlines</span></li>
+            <li><img src="img/study-cards.webp" alt="Highsynk flashcards screen" width="440" height="848" loading="lazy" decoding="async"><b>Flashcards</b><span>Decks with a study mode</span></li>
+            <li><img src="img/study-settings.webp" alt="Highsynk settings screen" width="440" height="848" loading="lazy" decoding="async"><b>Settings</b><span>Export, import or reset your data</span></li>
+          </ol>
         </div>
       </article>
 
