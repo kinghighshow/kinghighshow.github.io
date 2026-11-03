@@ -7,7 +7,7 @@ Plain HTML and CSS with a few lines of JavaScript. No build step and no dependen
 ## Files
 
 - `index.html`: the whole site
-- `portrait.jpg`: hero portrait
+- `img/portrait-cut.webp`: hero portrait (background removed)
 - `img/`: project screenshots (Lab Manager screens, shown with an empty database)
 
 ## Editing

@@ -4,768 +4,676 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sultan Atanda</title>
-<meta name="description" content="Sultan Atanda designs and builds websites, machine learning models and data dashboards. Biomedical engineer and Applied AI student in Waterloo, Ontario. Available for freelance projects.">
-<meta property="og:title" content="Sultan Atanda | AI/ML Engineer">
-<meta property="og:description" content="Websites, machine learning and data work by Sultan Atanda. Available for freelance projects and part-time roles.">
+<meta name="description" content="Sultan Atanda designs and builds software people use every day: a study app used by 1,000+ students, a clinic portal with about 700 clients, lab software and published AI research. Waterloo, Ontario.">
+<meta property="og:title" content="Sultan Atanda | AI/ML Engineer and Web Designer">
+<meta property="og:description" content="Websites, apps and machine learning by Sultan Atanda. Available for freelance projects and part-time roles.">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f5a43'/%3E%3Ctext x='32' y='45' font-family='Helvetica,Arial,sans-serif' font-size='38' font-weight='700' text-anchor='middle' fill='%23fbfbf9' letter-spacing='-2'%3ESA%3C/text%3E%3C/svg%3E">
+<meta property="og:image" content="img/portrait-cut.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23000'/%3E%3Ctext x='32' y='44' font-family='Helvetica,Arial,sans-serif' font-size='34' font-weight='600' text-anchor='middle' fill='%23f5f5f7' letter-spacing='-1.5'%3ESA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600&family=Geist:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: one centred 1120px column. Typographic hero with portrait, then
-   alternating product-style project showcases, then quiet editorial lists. */
+/* Layout: black cinematic stage. Centred Apple-style hero with a lit portrait,
+   a scroll-lit proof reel, then "the library": a stack of cloth-bound project
+   spines on the left that open into a page on the right. Liquid glass is kept
+   for the floating control layer only (nav, buttons, chips). */
 :root{
-  --bg:#fbfbf9; --surface:#f1f1ed; --raised:#ffffff;
-  --fg:#181b1a; --muted:#5b625f; --faint:#8a918d;
-  --line:#e2e2dc; --accent:#1f5a43; --accent-soft:#e3ece6;
-  --sans:"Geist",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  --max:1120px; --nav:56px;
+  --black:#000000;
+  --ink:#f5f5f7;
+  --gray:#86868b;
+  --dim:#3a3a3c;
+  --tile:#141416;
+  --line:#2c2c2e;
+  --blue:#2997ff;
+  --foil-hi:#f4e6bd;
+  --foil-lo:#b4955a;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Geist","Helvetica Neue",Arial,sans-serif;
+  --book:"EB Garamond","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --max:1180px;
+  --ease:cubic-bezier(.2,.75,.15,1);
+  color-scheme:dark;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0e100f; --surface:#171a19; --raised:#1d201f;
-  --fg:#ecede9; --muted:#a0a8a4; --faint:#747c78;
-  --line:#2a2e2c; --accent:#7cc6a0; --accent-soft:#1b2b23; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0e100f; --surface:#171a19; --raised:#1d201f;
-  --fg:#ecede9; --muted:#a0a8a4; --faint:#747c78;
-  --line:#2a2e2c; --accent:#7cc6a0; --accent-soft:#1b2b23; color-scheme:dark}
-
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:17px;line-height:1.55;
-  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"ss01"}
+html{background:var(--black);scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--black);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.47;letter-spacing:-0.012em;-webkit-font-smoothing:antialiased;overflow-x:clip}
 a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-h1,h2,h3{margin:0;font-weight:600;text-wrap:balance;letter-spacing:-0.025em}
+button{font:inherit;color:inherit}
+img{max-width:100%}
+h1,h2,h3,h4{margin:0;font-weight:600;text-wrap:balance}
 p{margin:0}
-.wrap{max-width:var(--max);margin:0 auto;padding-inline:clamp(16px,4vw,32px)}
-section,[id]{scroll-margin-top:calc(var(--nav) + 16px)}
-.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
-.skip{position:absolute;left:-999px;top:8px;background:var(--fg);color:var(--bg);padding:8px 12px;border-radius:6px;z-index:50}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:8px}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+section{scroll-margin-top:88px}
+[id]{scroll-margin-top:88px}
+.skip{position:absolute;left:-999px;top:12px;z-index:99;background:var(--ink);color:#000;padding:8px 14px;border-radius:999px}
 .skip:focus{left:16px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.muted{color:var(--gray)}
+.link{color:var(--blue)}
+.link:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* Film grain */
+body::after{content:"";position:fixed;inset:-50%;z-index:60;pointer-events:none;opacity:.06;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 1.2s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+
+/* Liquid glass */
+.glass{position:relative;isolation:isolate;
+  background:linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,.04));
+  -webkit-backdrop-filter:blur(10px) saturate(180%) brightness(1.08);
+  backdrop-filter:blur(10px) saturate(180%) brightness(1.08);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -1px 1px rgba(255,255,255,.07),inset 0 0 18px rgba(255,255,255,.05),0 8px 28px rgba(0,0,0,.45);
+  border-radius:999px}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;z-index:-1;
+  background:linear-gradient(135deg,rgba(255,255,255,.6),rgba(255,255,255,.1) 28%,rgba(255,255,255,0) 55%,rgba(255,255,255,.08) 75%,rgba(255,255,255,.4));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.glass::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;opacity:0;transition:opacity .4s;
+  background:radial-gradient(160px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.22),transparent 60%)}
+.glass:hover::after{opacity:1}
+.lg-refract .glass{-webkit-backdrop-filter:url(#liquid) blur(3px) saturate(180%) brightness(1.08);backdrop-filter:url(#liquid) blur(3px) saturate(180%) brightness(1.08)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 24px;border-radius:999px;font-size:17px;font-weight:500;border:0;cursor:pointer;transition:transform .3s var(--ease),background .2s}
+.btn:active{transform:scale(.97)}
+.btn-solid{background:var(--blue);color:#fff}
+.btn-solid:hover{background:#0077ed}
+.btn.glass{color:var(--ink)}
 
 /* Nav */
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
-.nav .wrap{height:var(--nav);display:flex;align-items:center;justify-content:space-between;gap:24px}
-.mark{font-weight:600;font-size:16px;letter-spacing:-0.01em}
-.mark span{color:var(--faint);font-weight:500}
-.links{display:flex;align-items:center;gap:28px;font-size:14px;color:var(--muted)}
-.links a{transition:color .15s}
-.links a:hover{color:var(--fg)}
-.btn-sm{border:1px solid var(--line);color:var(--fg)!important;padding:6px 12px;border-radius:7px;font-weight:500}
-.btn-sm:hover{border-color:var(--fg)}
-.menu-btn{display:none;background:none;border:0;color:var(--fg);font:inherit;font-size:14px;padding:8px 0;cursor:pointer}
-@media (max-width:760px){
+.nav{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 14px);transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:4px;padding:6px;width:max-content;max-width:calc(100% - 24px)}
+.nav .mark{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;font-weight:600;font-size:14px;letter-spacing:-.04em;background:rgba(255,255,255,.08)}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{padding:8px 14px;border-radius:999px;font-size:14px;color:rgba(245,245,247,.82);transition:background .2s,color .2s}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.nav-links a.hire{background:var(--ink);color:#000;font-weight:500;margin-left:6px}
+.nav-links a.hire:hover{background:#fff}
+.menu-btn{display:none;height:38px;padding:0 16px;border-radius:999px;border:0;background:rgba(255,255,255,.08);cursor:pointer;font-size:14px}
+@media (max-width:720px){
   .menu-btn{display:block}
-  .links{display:none;position:absolute;left:0;right:0;top:var(--nav);flex-direction:column;align-items:stretch;gap:0;
-    background:var(--bg);border-bottom:1px solid var(--line);padding:8px clamp(16px,4vw,32px) 20px}
-  .links.open{display:flex}
-  .links a{padding:12px 0;font-size:17px;color:var(--fg);border-bottom:1px solid var(--line)}
-  .links .btn-sm{margin-top:14px;text-align:center;padding:12px;border-bottom:1px solid var(--line)}
+  .nav{width:calc(100% - 24px);justify-content:space-between;border-radius:26px;flex-wrap:wrap}
+  .nav-links{display:none;width:100%;flex-direction:column;align-items:stretch;padding:6px 4px 4px}
+  .nav.open .nav-links{display:flex}
+  .nav-links a{padding:13px 14px;font-size:17px}
+  .nav-links a.hire{margin:6px 0 0;text-align:center}
 }
 
 /* Hero */
-.hero{padding-block:clamp(56px,9vw,112px) clamp(48px,7vw,88px)}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:clamp(32px,6vw,80px);align-items:end}
-.hero h1{font-size:clamp(48px,8.6vw,104px);line-height:.95;letter-spacing:-0.05em;font-weight:600}
-.hero .role{margin-top:22px;font-size:clamp(20px,2.4vw,26px);line-height:1.3;letter-spacing:-0.015em;color:var(--fg);font-weight:500}
-.hero .role em{font-style:normal;color:var(--muted)}
-.hero .lede{margin-top:18px;max-width:34em;color:var(--muted);font-size:18px}
-.meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:var(--muted)}
-.meta span{display:inline-flex;align-items:center;gap:8px}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
-.ctas{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 22px;border-radius:999px;font-size:15px;font-weight:500;transition:background .15s,border-color .15s,color .15s}
-.btn-primary{background:var(--fg);color:var(--bg)}
-.btn-primary:hover{background:var(--accent)}
-.btn-ghost{border:1px solid var(--line);color:var(--fg)}
-.btn-ghost:hover{border-color:var(--fg)}
-.portrait{margin:0;width:100%;max-width:300px;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:var(--surface)}
-.portrait img{width:100%;height:100%;object-fit:cover;display:block}
-@media (max-width:820px){.hero-grid{grid-template-columns:1fr}.portrait{max-width:200px;grid-row:1}}
+.hero{position:relative;padding-top:clamp(120px,16vh,168px);text-align:center;overflow:hidden}
+.hero::before{content:"";position:absolute;left:50%;top:38%;width:min(1100px,140vw);aspect-ratio:1;transform:translate(-50%,-10%);pointer-events:none;
+  background:radial-gradient(closest-side,rgba(255,236,214,.16),rgba(255,236,214,.05) 45%,transparent 72%)}
+.hero .who{font-size:clamp(19px,2vw,24px);font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.hero .lead{margin:10px auto 0;font-size:clamp(44px,8.4vw,104px);line-height:1.02;letter-spacing:-.045em;font-weight:700;max-width:12ch;
+  background:linear-gradient(180deg,#ffffff 30%,#a1a1a6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{margin:22px auto 0;max-width:34em;font-size:clamp(18px,1.7vw,21px);color:var(--gray)}
+.hero .ctas{margin-top:32px;display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.stage{position:relative;margin:56px auto 0;width:min(560px,86vw)}
+.stage img{display:block;width:100%;height:auto;
+  -webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 98%);mask-image:linear-gradient(180deg,#000 62%,transparent 98%);
+  filter:drop-shadow(-10px 0 22px rgba(120,170,255,.22)) drop-shadow(12px -4px 26px rgba(255,196,150,.16)) contrast(1.04)}
+.callout{position:absolute;display:flex;flex-direction:column;align-items:flex-start;gap:0;padding:12px 18px;border-radius:20px;text-align:left;font-size:13px;color:rgba(245,245,247,.75);white-space:nowrap}
+.callout b{font-size:22px;font-weight:600;letter-spacing:-.03em;color:#fff;line-height:1.15}
+.callout.c1{left:-22%;top:34%}
+.callout.c2{right:-24%;top:22%}
+.callout.c3{right:-14%;top:60%}
+.status{left:50%;bottom:9%;transform:translateX(-50%);flex-direction:row;align-items:center;gap:10px;border-radius:999px;padding:10px 18px;font-size:14px;color:#fff}
+.dot{width:8px;height:8px;border-radius:50%;background:#30d158;box-shadow:0 0 0 4px rgba(48,209,88,.18);flex:none}
+@media (max-width:900px){.callout.c1{left:-6%;top:44%}.callout.c2{right:-6%;top:16%}.callout.c3{display:none}}
+@media (max-width:560px){.callout.c1,.callout.c2{display:none}.status{white-space:normal;width:max-content;max-width:92%;bottom:6%}}
 
-/* Facts strip */
-.facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.facts .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
-.fact{padding:26px 24px 26px 0}
-.fact+.fact{padding-left:24px;border-left:1px solid var(--line)}
-.fact b{display:block;font-size:30px;font-weight:600;letter-spacing:-0.03em;font-variant-numeric:tabular-nums}
-.fact span{display:block;margin-top:4px;font-size:14px;color:var(--muted);line-height:1.4}
-@media (max-width:820px){.facts .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .fact:nth-child(3){padding-left:0;border-left:0}.fact:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (prefers-reduced-motion:no-preference){
+  .hero .who,.hero .lead,.hero .sub,.hero .ctas{animation:rise 1.1s var(--ease) both}
+  .hero .lead{animation-delay:.08s}.hero .sub{animation-delay:.2s}.hero .ctas{animation-delay:.3s}
+  .stage img{animation:emerge 1.8s var(--ease) .25s both}
+  .stage .c1,.stage .c2,.stage .c3{animation:rise 1s var(--ease) both}
+  .stage .c2{animation-delay:.9s}.stage .c1{animation-delay:1.05s}.stage .c3{animation-delay:1.2s}
+  .reel p{animation:lit linear both;animation-timeline:view();animation-range:entry 0% cover 42%}
+  .reel p .dim{animation:litdim linear both;animation-timeline:view();animation-range:entry 0% cover 42%}
+}
+@keyframes rise{from{opacity:0;transform:translateY(22px);filter:blur(10px)}to{opacity:1;transform:none;filter:none}}
+@keyframes emerge{from{opacity:0;transform:scale(1.05) translateY(24px);filter:brightness(.2) blur(6px)}to{opacity:1;transform:none}}
+@keyframes lit{from{color:#2e2e30}to{color:var(--ink)}}
+@keyframes litdim{from{color:#1f1f21}to{color:var(--gray)}}
 
 /* Section heads */
-.sec{padding-block:clamp(72px,10vw,128px) 0}
-.sec-head{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;margin-bottom:clamp(40px,6vw,64px);align-items:baseline}
-.sec-head h2{font-size:clamp(32px,4.6vw,52px);line-height:1.05;letter-spacing:-0.04em}
-.sec-head p{margin-top:14px;color:var(--muted);max-width:36em;font-size:18px}
-@media (max-width:820px){.sec-head{grid-template-columns:1fr;gap:12px}}
+.sec{padding-block:clamp(96px,13vw,168px) 0}
+.head{max-width:44em;margin-bottom:clamp(44px,6vw,72px)}
+.head h2{font-size:clamp(40px,6vw,72px);line-height:1.04;letter-spacing:-.04em;font-weight:700}
+.head p{margin-top:16px;font-size:clamp(18px,1.7vw,21px);color:var(--gray);max-width:36em}
 
-/* Featured projects */
-.project{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(28px,5vw,64px);align-items:start;padding-block:clamp(40px,6vw,64px);border-top:1px solid var(--line)}
-.project:nth-of-type(even) .p-visual{order:-1}
-.status{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:13px;color:var(--muted)}
-.status .tag{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);padding:3px 8px;border-radius:4px}
-.project h3{margin-top:16px;font-size:clamp(28px,3.4vw,40px);line-height:1.08;letter-spacing:-0.035em}
-.project .sub{margin-top:10px;font-size:19px;color:var(--muted);line-height:1.45;letter-spacing:-0.01em}
-.p-body{margin-top:24px;display:grid;gap:16px;font-size:16px}
-.p-body dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:4px}
-.p-body dd{margin:0;color:var(--fg);max-width:36em}
-.stack{color:var(--muted)!important;font-size:15px}
-.p-links{margin-top:22px;display:flex;flex-wrap:wrap;gap:20px;font-size:15px;font-weight:500}
-.arrow{color:var(--accent);display:inline-flex;gap:6px;align-items:center}
-.arrow:hover{text-decoration:underline;text-underline-offset:4px}
-.p-visual{background:var(--surface);border-radius:22px;padding:clamp(22px,3.4vw,36px);min-width:0}
-.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 20px}
-.stats b{display:block;font-size:clamp(34px,4vw,46px);font-weight:600;letter-spacing:-0.04em;line-height:1;font-variant-numeric:tabular-nums}
-.stats span{display:block;margin-top:8px;font-size:13.5px;color:var(--muted);line-height:1.4}
-.note{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);line-height:1.5}
-.flow-title{margin:28px 0 12px}
-.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:0}
-.flow li{position:relative;background:var(--raised);border:1px solid var(--line);border-radius:12px;padding:12px 12px 13px;font-size:13px;line-height:1.35;color:var(--muted);margin-right:18px}
-.flow li:last-child{margin-right:0}
-.flow li strong{display:block;color:var(--fg);font-weight:600;font-size:13.5px;margin-bottom:3px}
-.flow li:not(:last-child)::after{content:"";position:absolute;right:-14px;top:50%;width:10px;height:1px;background:var(--faint)}
-.flow li:not(:last-child)::before{content:"";position:absolute;right:-14px;top:calc(50% - 3px);border:3px solid transparent;border-left:4px solid var(--faint);transform:translateX(7px)}
-.modules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.modules div{background:var(--raised);border:1px solid var(--line);border-radius:12px;padding:14px;font-size:14px;font-weight:500}
-.modules div small{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
-.modules .base{grid-column:1/-1;text-align:center;background:transparent;border-style:dashed;font-family:var(--mono);font-size:12.5px;font-weight:400;color:var(--muted)}
-@media (max-width:900px){
-  .project{grid-template-columns:1fr}
-  .project:nth-of-type(even) .p-visual{order:0}
+/* Proof reel */
+.reel{display:grid;gap:clamp(28px,4vw,48px)}
+.reel p{font-size:clamp(32px,5vw,64px);line-height:1.08;letter-spacing:-.04em;font-weight:600;max-width:20ch;color:var(--ink)}
+.reel p .dim{color:var(--gray)}
+.reel .num{font-variant-numeric:tabular-nums}
+
+/* Library */
+.library{display:grid;grid-template-columns:minmax(0,5.2fr) minmax(0,6.8fr);gap:clamp(32px,5vw,72px);align-items:start}
+.shelf{position:sticky;top:96px}
+.stack{list-style:none;margin:0;padding:0 0 26px;display:flex;flex-direction:column;gap:3px;position:relative}
+.stack::after{content:"";position:absolute;left:2%;right:6%;bottom:6px;height:22px;background:radial-gradient(closest-side,rgba(0,0,0,.9),transparent);filter:blur(6px);z-index:-1}
+.stack::before{content:"";position:absolute;left:-4%;right:-2%;bottom:14px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent)}
+.spine{--c:#1b2a4a;--w:96%;--t:72px;--x:0px;--r:0deg;
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;
+  width:var(--w);height:var(--t);margin-left:var(--x);padding:0 30px 0 34px;border:0;cursor:pointer;text-align:left;
+  border-radius:3px 9px 9px 3px;transform:translateX(var(--pull,0px)) rotate(var(--r));
+  background:
+    linear-gradient(90deg,transparent 0 12px,rgba(222,198,140,.75) 12px 13.5px,transparent 13.5px 17px,rgba(222,198,140,.75) 17px 18.5px,transparent 18.5px calc(100% - 16px),rgba(222,198,140,.6) calc(100% - 16px) calc(100% - 14.5px),transparent calc(100% - 14.5px)),
+    linear-gradient(180deg,rgba(255,255,255,.2),rgba(255,255,255,.04) 22%,rgba(0,0,0,0) 55%,rgba(0,0,0,.42)),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px),
+    repeating-linear-gradient(0deg,rgba(0,0,0,.08) 0 1px,transparent 1px 3px),
+    var(--c);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12),inset 0 -2px 0 rgba(0,0,0,.35),0 2px 0 rgba(0,0,0,.6),0 14px 24px -12px rgba(0,0,0,.8);
+  transition:transform .6s var(--ease),filter .4s}
+.spine:hover{--pull:14px}
+.spine[aria-current="true"]{--pull:34px;--r:0deg;filter:brightness(1.18) saturate(1.1)}
+.stack.has-pick .spine:not([aria-current="true"]){filter:brightness(.62) saturate(.8)}
+.stack.has-pick .spine:not([aria-current="true"]):hover{filter:brightness(.85)}
+.spine .title{font-family:var(--book);font-variant-caps:small-caps;font-weight:600;font-size:clamp(22px,2vw,27px);letter-spacing:.035em;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  background:linear-gradient(180deg,var(--foil-hi),var(--foil-lo));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 0 rgba(0,0,0,.5))}
+.spine .proof{text-align:right;font-size:13px;line-height:1.25;color:rgba(255,255,255,.8);white-space:nowrap;font-variant-numeric:tabular-nums}
+.spine .proof small{display:block;font-size:11.5px;color:rgba(255,255,255,.5)}
+.more-shelf{margin-top:28px}
+.more-shelf summary{cursor:pointer;color:var(--blue);font-size:15px;list-style:none}
+.more-shelf summary::-webkit-details-marker{display:none}
+.more-shelf ul{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:14px}
+.more-shelf li{font-size:15px;color:var(--gray);line-height:1.4}
+.more-shelf li b{color:var(--ink);font-weight:500}
+@media (max-width:980px){
+  .library{grid-template-columns:1fr}
+  .shelf{position:static}
+  .spine{--t:62px;padding:0 26px 0 30px}
+  .spine[aria-current="true"]{--pull:14px}
+  .spine:hover{--pull:8px}
 }
-@media (max-width:560px){
-  .flow{grid-template-columns:1fr!important;gap:14px}
-  .flow li{margin-right:0}
-  .flow li:not(:last-child)::after{right:auto;left:22px;top:auto;bottom:-12px;width:1px;height:10px}
-  .flow li:not(:last-child)::before{display:none}
-  .modules{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
 
-/* More work */
-.more-head{margin-top:clamp(56px,8vw,88px);margin-bottom:20px;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
-.more-head h3{font-size:24px;letter-spacing:-0.025em}
-.more{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
-.more article{padding:24px 24px 28px 0;border-bottom:1px solid var(--line);min-width:0}
-.more article:not(:nth-child(3n+1)){padding-left:24px;border-left:1px solid var(--line)}
-.more .yr{font-family:var(--mono);font-size:12px;color:var(--faint);letter-spacing:.04em}
-.more h4{margin:10px 0 8px;font-size:18px;font-weight:600;letter-spacing:-0.015em;line-height:1.25}
-.more p{font-size:15px;color:var(--muted);line-height:1.5}
-.more .stack{margin-top:12px;font-size:13px;font-family:var(--mono)}
-@media (max-width:900px){.more{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .more article:not(:nth-child(3n+1)){padding-left:0;border-left:0}
-  .more article:nth-child(even){padding-left:24px;border-left:1px solid var(--line)}}
-@media (max-width:560px){.more{grid-template-columns:1fr}.more article:nth-child(even){padding-left:0;border-left:0}}
+/* Open book */
+.page{min-width:0}
+.js .page[hidden]{display:none!important}
+.page+.page{margin-top:96px}
+.js .page+.page{margin-top:0}
+.page.opening{animation:open .7s var(--ease) both}
+@keyframes open{from{opacity:0;transform:translateY(18px);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+.page-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;font-size:15px;color:var(--gray)}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;font-size:13px;color:#fff;border-radius:999px}
+.page h3{margin-top:16px;font-size:clamp(38px,5vw,60px);line-height:1.04;letter-spacing:-.04em;font-weight:700}
+.page .pitch{margin-top:14px;font-size:clamp(19px,1.8vw,22px);line-height:1.4;color:var(--gray);max-width:30em;letter-spacing:-.015em}
+.figures{margin-top:32px;display:flex;flex-wrap:wrap;gap:22px clamp(24px,3.4vw,44px)}
+.figures div{min-width:0}
+.figures b{display:block;font-size:clamp(30px,3.3vw,44px);font-weight:700;letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums;
+  background:linear-gradient(180deg,#fff,#b9b9be);-webkit-background-clip:text;background-clip:text;color:transparent}
+.figures span{display:block;margin-top:8px;font-size:14px;color:var(--gray);max-width:12em;line-height:1.35}
+.media{margin-top:44px;overflow-x:clip;overflow-y:visible;margin-inline:-8px;padding-inline:8px}
+.notes{margin-top:44px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;padding-top:28px;border-top:1px solid var(--line)}
+.notes h4{font-size:15px;font-weight:600;letter-spacing:-.01em;margin-bottom:8px}
+.notes p{font-size:15px;color:var(--gray);line-height:1.5}
+.notes .links{margin-top:12px;display:flex;flex-wrap:wrap;gap:14px;font-size:15px}
+.fine{margin-top:20px;font-size:13px;color:#6e6e73}
+@media (max-width:700px){.notes{grid-template-columns:1fr;gap:22px}}
 
-/* About */
-.about{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px}
-.about-copy{max-width:40em;display:grid;gap:20px}
-.about-copy p:first-child{font-size:clamp(22px,2.6vw,28px);line-height:1.35;letter-spacing:-0.02em;font-weight:500}
-.about-copy p{font-size:18px;color:var(--muted)}
-.about-copy p:first-child{color:var(--fg)}
-.langs{margin-top:8px;font-size:15px;color:var(--muted)}
-@media (max-width:820px){.about{grid-template-columns:1fr}}
+/* Window cascade */
+.deck{position:relative;width:100%;aspect-ratio:16/12;max-width:100%}
+.win{--d:0;--lift:0px;position:absolute;left:0;bottom:0;width:80%;padding:0;border:0;cursor:pointer;background:none;text-align:left;
+  transform-origin:left bottom;
+  transform:translate3d(calc(var(--d)*8%),calc(var(--d)*-17% + var(--lift)),0) scale(calc(1 - var(--d)*.05));
+  z-index:calc(10 - var(--d));
+  filter:brightness(calc(1 - var(--d)*.17));
+  opacity:clamp(0,calc(4 - var(--d)),1);
+  transition:transform .8s var(--ease),filter .8s var(--ease),opacity .5s}
+.win[data-front]{cursor:default}
+.win:not([data-front]):hover{--lift:-10px;filter:brightness(calc(1.12 - var(--d)*.2))}
+.win .frame{display:block;border-radius:12px;overflow:hidden;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,.12),0 30px 60px -20px rgba(0,0,0,.9),0 12px 24px rgba(0,0,0,.5)}
+.win .bar{display:flex;align-items:center;gap:6px;height:26px;padding:0 10px;background:#323236;border-bottom:1px solid rgba(0,0,0,.4);font-size:11.5px;color:rgba(255,255,255,.6)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:#48484a;flex:none}
+.win .bar span{flex:1;text-align:center;margin-right:33px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.win img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top left;background:var(--wbg,#f8fafc)}
+.win img.fit{object-fit:contain}
+.deck-foot{margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.deck-foot p{font-size:15px;color:var(--gray);max-width:34em;min-height:3em}
+.deck-foot p b{color:var(--ink);font-weight:600}
+.arrows{display:flex;gap:8px;flex:none}
+.arrows button{width:40px;height:40px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center}
+.arrows svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-/* Lists: experience, education */
-.rows{border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1.4fr);gap:24px;padding-block:28px;border-bottom:1px solid var(--line)}
-.row .when{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:3px}
-.row h3{font-size:20px;letter-spacing:-0.02em;line-height:1.25}
-.row .org{margin-top:4px;color:var(--muted);font-size:15px}
-.row ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:15.5px;color:var(--muted)}
-.row li{padding-left:16px;position:relative}
-.row li::before{content:"";position:absolute;left:0;top:.72em;width:6px;height:1px;background:var(--faint)}
-.row p{font-size:15.5px;color:var(--muted)}
-@media (max-width:820px){.row{grid-template-columns:1fr;gap:10px}}
+/* Cover flow */
+.flow{position:relative;height:clamp(470px,52vw,600px);perspective:1400px;touch-action:pan-y}
+.phone{position:absolute;left:50%;top:0;width:clamp(200px,20vw,236px);padding:9px;border:0;border-radius:40px;cursor:pointer;
+  background:linear-gradient(145deg,#3a3a3c,#1c1c1e 40%,#2c2c2e);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),inset 0 0 0 3px #0b0b0c,0 40px 70px -24px rgba(0,0,0,.95);
+  transition:transform .8s var(--ease),opacity .6s,filter .8s;
+  -webkit-box-reflect:below 10px linear-gradient(transparent 70%,rgba(255,255,255,.16))}
+.phone img{display:block;width:100%;height:auto;aspect-ratio:440/848;border-radius:31px;background:#0b0e14}
+.phone[data-front]{cursor:default}
 
-.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,5vw,64px)}
-.two h3.colh{font-size:13px;font-family:var(--mono);font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin-bottom:16px}
-.list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.list li{padding:16px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;font-size:15.5px}
-.list li span:last-child{color:var(--muted);font-family:var(--mono);font-size:13px;white-space:nowrap;padding-top:2px}
-.list li b{font-weight:500}
-.list li small{display:block;color:var(--muted);font-size:14px;margin-top:2px}
-.pub{margin-top:40px;background:var(--surface);border-radius:22px;padding:clamp(22px,3.4vw,36px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:end}
-.pub h4{margin:10px 0 8px;font-size:clamp(20px,2.4vw,26px);font-weight:600;letter-spacing:-0.025em;line-height:1.2;max-width:28em}
-.pub p{color:var(--muted);font-size:15px}
-@media (max-width:820px){.two{grid-template-columns:1fr}.pub{grid-template-columns:1fr}}
-
-/* Skills */
-.skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
-.skills div{padding:24px 24px 0 0;min-width:0}
-.skills div+div{padding-left:24px;border-left:1px solid var(--line)}
-.skills h3{font-size:16px;letter-spacing:-0.01em;margin-bottom:14px}
-.skills ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;font-size:15.5px;color:var(--muted)}
-@media (max-width:900px){.skills{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:32px}.skills div:nth-child(3){padding-left:0;border-left:0}}
-@media (max-width:480px){.skills{grid-template-columns:1fr}.skills div+div{padding-left:0;border-left:0}}
-
-/* Contact */
-.contact{padding-block:clamp(88px,12vw,148px) clamp(64px,9vw,104px)}
-.contact h2{font-size:clamp(40px,7vw,84px);line-height:1;letter-spacing:-0.05em;max-width:12em}
-.contact h2 span{color:var(--faint)}
-.contact .lede{margin-top:22px;font-size:19px;color:var(--muted);max-width:30em}
-.channels{margin-top:44px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
-.channels>div,.channels>a{padding:20px 20px 22px 0;border-bottom:1px solid var(--line);min-width:0;display:block}
-.channels>*+*{padding-left:20px!important;border-left:1px solid var(--line)}
-.channels .v{margin-top:6px;font-size:17px;font-weight:500;display:flex;align-items:center;gap:10px;flex-wrap:wrap;overflow-wrap:anywhere}
-.channels a:hover .v{color:var(--accent)}
-.copy{font:inherit;font-size:12.5px;font-family:var(--mono);background:none;border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:3px 8px;cursor:pointer}
-.copy:hover{color:var(--fg);border-color:var(--fg)}
-@media (max-width:820px){.channels{grid-template-columns:1fr}.channels>*+*{padding-left:0!important;border-left:0}}
-
-footer{border-top:1px solid var(--line)}
-footer .wrap{padding-block:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13.5px;color:var(--muted)}
-footer nav{display:flex;gap:20px}
-footer a:hover{color:var(--fg)}
+/* Pipeline (IntelliBin and analysis projects) */
+.pipe{border-radius:28px;background:var(--tile);padding:clamp(24px,3.4vw,40px);overflow:hidden;position:relative}
+.pipe ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;counter-reset:s;position:relative}
+.pipe ol::before{content:"";position:absolute;left:12px;right:12px;top:15px;height:1px;background:linear-gradient(90deg,var(--line),#48484a,var(--line))}
+.pipe li{position:relative;counter-increment:s;min-width:0;padding-top:46px}
+.pipe li::before{content:counter(s);position:absolute;left:0;top:0;width:31px;height:31px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:600;background:#1f1f22;box-shadow:inset 0 0 0 1px #3a3a3c;color:var(--ink)}
+.pipe li b{display:block;font-size:17px;font-weight:600;letter-spacing:-.02em}
+.pipe li span{display:block;margin-top:4px;font-size:14px;color:var(--gray);line-height:1.4}
+.pipe ol::after{content:"";position:absolute;top:11px;left:12px;width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 12px 4px rgba(255,255,255,.5);opacity:0}
+@media (prefers-reduced-motion:no-preference){.pipe ol::after{animation:run 10s linear infinite}}
+@keyframes run{0%{left:12px;opacity:0}4%{opacity:1}92%{opacity:1}100%{left:calc(100% - 24px);opacity:0}}
+.pipe .cap{margin-top:30px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;font-size:15px;color:var(--gray)}
+@media (max-width:560px){.pipe ol{grid-template-columns:1fr 1fr;row-gap:26px}.pipe ol::before,.pipe ol::after{display:none}}
 
 /* Services */
-.services{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
-.services article{padding:28px 24px 0 0;min-width:0;display:flex;flex-direction:column}
-.services article+article{padding-left:24px;border-left:1px solid var(--line)}
-.services h3{font-size:21px;letter-spacing:-0.02em;line-height:1.2}
-.services p{margin-top:10px;font-size:15.5px;color:var(--muted)}
-.services ul{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:6px;font-size:14.5px}
-.services ul li{padding-left:16px;position:relative}
-.services ul li::before{content:"";position:absolute;left:0;top:.72em;width:6px;height:1px;background:var(--faint)}
-.proof{margin-top:auto;padding-top:20px;font-size:14px;color:var(--muted)}
-.proof a{color:var(--accent);font-weight:500}
-.proof a:hover{text-decoration:underline;text-underline-offset:4px}
-@media (max-width:980px){.services{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:36px}.services article:nth-child(3){padding-left:0;border-left:0}}
-@media (max-width:560px){.services{grid-template-columns:1fr}.services article+article{padding-left:0;border-left:0}}
-.process{margin-top:clamp(48px,7vw,72px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;list-style:none;padding:0;counter-reset:step}
-.process li{background:var(--surface);border-radius:18px;padding:22px;counter-increment:step;min-width:0}
-.process li::before{content:"Step " counter(step);font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
-.process b{display:block;margin-top:10px;font-size:17px;font-weight:600;letter-spacing:-0.015em}
-.process span{display:block;margin-top:6px;font-size:14.5px;color:var(--muted);line-height:1.45}
-@media (max-width:900px){.process{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:480px){.process{grid-template-columns:1fr}}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.tile{background:var(--tile);border-radius:28px;padding:clamp(26px,3.4vw,40px);min-width:0;display:flex;flex-direction:column}
+.tile h3{font-size:clamp(24px,2.6vw,32px);letter-spacing:-.035em;line-height:1.1}
+.tile p{margin-top:12px;color:var(--gray);font-size:17px;max-width:28em}
+.tile .proofline{margin-top:auto;padding-top:28px;font-size:15px;color:var(--gray)}
+.steps{margin:16px 0 0;list-style:none;padding:clamp(24px,3vw,32px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;background:var(--tile);border-radius:28px;counter-reset:st}
+.steps li{counter-increment:st;min-width:0}
+.steps li::before{content:"Step " counter(st);display:block;font-size:13px;color:#6e6e73;margin-bottom:8px}
+.steps b{display:block;font-size:17px;font-weight:600}
+.steps span{display:block;margin-top:4px;font-size:14.5px;color:var(--gray);line-height:1.45}
+@media (max-width:800px){.tiles{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.steps{grid-template-columns:1fr}}
 
-.shots{grid-column:1/-1;min-width:0}
-.shot-tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line);margin-bottom:20px}
-.shot-tabs::-webkit-scrollbar{display:none}
-.shot-tabs button{flex:none;font:inherit;font-size:14px;font-weight:500;color:var(--muted);background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:10px 12px;cursor:pointer;transition:color .15s,border-color .15s}
-.shot-tabs button:hover{color:var(--fg)}
-.shot-tabs button[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--accent)}
-.shot{margin:0}
-.shot-stage{aspect-ratio:16/8.4;max-width:100%;background:var(--surface);border-radius:18px;padding:clamp(10px,2vw,22px);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.shot img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid var(--line);background:var(--raised);transition:opacity .2s}
-.shot img.swap{opacity:.35}
-.shot figcaption{margin-top:14px;display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;font-size:14.5px;color:var(--muted)}
-.shot figcaption .cap{max-width:44em}
-.shot-note{font-size:13px;color:var(--faint)}
+/* About */
+.about-lead{font-size:clamp(26px,3.4vw,40px);line-height:1.22;letter-spacing:-.03em;font-weight:600;max-width:26em;color:var(--ink)}
+.about-lead .dim{color:var(--gray)}
+.cols{margin-top:clamp(56px,7vw,88px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,56px)}
+.cols h3{font-size:21px;letter-spacing:-.02em;margin-bottom:18px}
+.entries{list-style:none;margin:0;padding:0;display:grid;gap:22px}
+.entries li{min-width:0}
+.entries b{display:block;font-size:16px;font-weight:600;letter-spacing:-.01em}
+.entries .at{display:block;font-size:14.5px;color:var(--gray);margin-top:2px}
+.entries p{margin-top:6px;font-size:14.5px;color:var(--gray);line-height:1.5}
+.skillset{display:grid;gap:18px;font-size:15px;color:var(--gray);line-height:1.6}
+.skillset b{display:block;color:var(--ink);font-weight:600;font-size:15px;margin-bottom:2px}
+.paper{margin-top:clamp(56px,7vw,88px);display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:24px;padding:clamp(26px,3.4vw,40px);border-radius:28px;background:var(--tile)}
+.paper .muted{font-size:15px}
+.paper h3{margin:10px 0;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.03em;line-height:1.15;max-width:26em}
+.paper p{font-size:15px;color:var(--gray)}
+@media (max-width:900px){.cols{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.cols{grid-template-columns:1fr}.paper{grid-template-columns:1fr}}
 
-.phones{grid-column:1/-1;min-width:0;background:var(--surface);border-radius:22px;padding:clamp(20px,3vw,32px) 0}
-.phones ol{list-style:none;margin:0;padding:0 clamp(20px,3vw,32px);display:flex;gap:clamp(14px,2vw,22px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 clamp(20px,3vw,32px);scrollbar-width:thin}
-.phones li{flex:none;width:clamp(168px,19vw,212px);scroll-snap-align:start}
-.phones img{display:block;width:100%;height:auto;aspect-ratio:440/848;border-radius:22px;border:1px solid var(--line);background:#0b0e14}
-.phones b{display:block;margin-top:12px;font-size:14.5px;font-weight:600;letter-spacing:-0.01em}
-.phones li span{display:block;margin-top:2px;font-size:13.5px;color:var(--muted);line-height:1.4}
-.phones-foot{display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--faint)}
+/* Contact */
+.contact{padding-block:clamp(120px,16vw,200px) clamp(80px,10vw,120px);text-align:center;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;left:50%;top:60%;width:min(900px,130vw);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(closest-side,rgba(41,151,255,.13),transparent 70%)}
+.contact h2{font-size:clamp(44px,8vw,100px);line-height:1;letter-spacing:-.05em;font-weight:700;max-width:11ch;margin:0 auto;
+  background:linear-gradient(180deg,#fff 35%,#8e8e93);-webkit-background-clip:text;background-clip:text;color:transparent}
+.contact .sub{margin:22px auto 0;max-width:32em;font-size:clamp(18px,1.7vw,21px);color:var(--gray)}
+.mail{margin:40px auto 0;display:inline-flex;align-items:center;gap:6px;padding:6px 6px 6px 22px;max-width:100%;flex-wrap:wrap;justify-content:center}
+.mail span{font-size:clamp(16px,1.8vw,20px);font-weight:500;overflow-wrap:anywhere}
+.mail button{height:38px;padding:0 16px;border-radius:999px;border:0;background:var(--ink);color:#000;font-size:14px;font-weight:500;cursor:pointer}
+.elsewhere{margin-top:24px;display:flex;justify-content:center;gap:28px;font-size:17px}
+footer{border-top:1px solid #1d1d1f}
+footer .wrap{padding-block:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:#6e6e73}
+footer nav{display:flex;gap:20px}
+footer a:hover{color:var(--ink)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  body::after{animation:none}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
 </style>
 
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="liquid" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" primitiveUnits="objectBoundingBox" color-interpolation-filters="sRGB">
+    <feImage id="liquid-map" x="0" y="0" width="1" height="1" preserveAspectRatio="none" result="map"/>
+    <feDisplacementMap in="SourceGraphic" in2="map" scale=".05" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="nav">
-  <div class="wrap">
-    <a class="mark" href="#top" aria-label="Sultan Atanda, back to top">Sultan Atanda</a>
-    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav-links">Menu</button>
-    <nav class="links" id="nav-links" aria-label="Primary">
-      <a href="#services">Services</a>
-      <a href="#work">Projects</a>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a class="btn-sm" href="#contact">Get in touch</a>
-    </nav>
-  </div>
+<header class="nav glass" id="nav">
+  <a class="mark" href="#top" aria-label="Sultan Atanda, back to top">SA</a>
+  <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav-links">Menu</button>
+  <nav class="nav-links" id="nav-links" aria-label="Primary">
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a class="hire" href="#contact">Hire me</a>
+  </nav>
 </header>
 
 <main id="main">
-  <!-- HERO -->
   <section class="hero" id="top">
-    <div class="wrap hero-grid">
-      <div>
-        <h1>Sultan Atanda</h1>
-        <p class="role">AI/ML Engineer <em>with a biomedical engineering background.</em></p>
-        <p class="lede">I design and build websites, machine learning models and data tools that solve real problems. My background in engineering means I start with the need, work carefully with the data and ship things people actually use.</p>
-        <div class="meta">
-          <span><i class="dot" aria-hidden="true"></i>Available for freelance projects and part-time roles</span>
-          <span>Applied AI &amp; ML student, Conestoga College</span>
-          <span>Waterloo, Ontario, Canada</span>
-        </div>
-        <div class="ctas">
-          <a class="btn btn-primary" href="#work">Explore my work</a>
-          <a class="btn btn-ghost" href="#contact">Work with me</a>
-        </div>
+    <div class="wrap">
+      <h1 class="who">Sultan Atanda</h1>
+      <p class="lead">Software people use every day.</p>
+      <p class="sub">I design and build web apps, mobile-first products and machine learning systems. Biomedical engineer by training, now studying Applied AI in Waterloo, Ontario.</p>
+      <div class="ctas">
+        <a class="btn btn-solid" href="#work">See the work</a>
+        <a class="btn glass" href="#contact">Get in touch</a>
       </div>
-      <figure class="portrait">
-        <img src="portrait.jpg" alt="Portrait of Sultan Atanda" width="640" height="800" fetchpriority="high">
-      </figure>
+      <div class="stage">
+        <img src="img/portrait-cut.webp" alt="Portrait of Sultan Atanda" width="760" height="977" fetchpriority="high">
+        <a class="callout glass c1" href="#highsynk"><b>1,000+</b>students use Highsynk</a>
+        <a class="callout glass c2" href="#ultrabeaux"><b>~700</b>clinic clients onboarded</a>
+        <a class="callout glass c3" href="#intellibin"><b>Published</b>AI research, 2025</a>
+        <p class="callout glass status"><i class="dot" aria-hidden="true"></i>Available for freelance and part-time work</p>
+      </div>
     </div>
   </section>
 
-  <div class="facts" aria-label="At a glance">
+  <section class="sec" aria-labelledby="reel-h">
     <div class="wrap">
-      <div class="fact"><b>~700</b><span>Clients onboarded in a clinic app I built</span></div>
-      <div class="fact"><b>97%</b><span>Real-time accuracy, waste sorting prototype</span></div>
-      <div class="fact"><b>1,000+</b><span>Students using my study app</span></div>
-      <div class="fact"><b>1 paper</b><span>Peer-reviewed, Healthcraft Frontiers 2025</span></div>
+      <h2 class="sr" id="reel-h">Results so far</h2>
+      <div class="reel">
+        <p><span class="num" data-count="1000" data-suffix="+">1,000+</span> students <span class="dim">plan, focus and revise with Highsynk, the study app I built.</span></p>
+        <p><span class="num" data-count="700" data-prefix="~">~700</span> clients <span class="dim">onboarded at an aesthetic clinic running my consultation app.</span></p>
+        <p><span class="num" data-count="97" data-suffix="%">97%</span> accuracy <span class="dim">in real-time tests of my hospital waste sorter, published in 2025.</span></p>
+        <p><span class="num" data-count="6">6</span> lab staff <span class="dim">run their working day on software I designed.</span></p>
+      </div>
     </div>
-  </div>
+  </section>
 
-
-  <!-- SERVICES -->
-  <section class="sec" id="services">
+  <section class="sec" id="work" aria-labelledby="work-h">
     <div class="wrap">
-      <div class="sec-head">
-        <span class="label">Services</span>
-        <div>
-          <h2>What I can do for you.</h2>
-          <p>Each service is backed by work you can see on this page.</p>
+      <div class="head">
+        <h2 id="work-h">The library.</h2>
+        <p>Six projects, each one shipped, in use or published. Pull a book from the stack to open it.</p>
+      </div>
+
+      <div class="library">
+        <div class="shelf">
+          <ul class="stack" id="stack">
+            <li><button class="spine" style="--c:#1d2c4f;--w:88%;--t:70px;--x:3%;--r:-.4deg" data-book="highsynk" aria-controls="highsynk"><span class="title">Highsynk</span><span class="proof">1,000+ students<small>Mobile app, 2025</small></span></button></li>
+            <li><button class="spine" style="--c:#4b2235;--w:93%;--t:66px;--x:0%;--r:.3deg" data-book="ultrabeaux" aria-controls="ultrabeaux"><span class="title">Ultrabeaux</span><span class="proof">~700 clients<small>Web app, in use</small></span></button></li>
+            <li><button class="spine" style="--c:#173f31;--w:91%;--t:76px;--x:5%;--r:-.2deg" data-book="lab-manager" aria-controls="lab-manager"><span class="title">Lab Manager</span><span class="proof">6 staff daily<small>Desktop app, in use</small></span></button></li>
+            <li><button class="spine" style="--c:#5a4116;--w:97%;--t:80px;--x:1%;--r:.25deg" data-book="intellibin" aria-controls="intellibin"><span class="title">IntelliBin</span><span class="proof">97% accuracy<small>Edge AI, published</small></span></button></li>
+            <li><button class="spine" style="--c:#21434a;--w:90%;--t:64px;--x:4%;--r:-.35deg" data-book="breast-cancer" aria-controls="breast-cancer"><span class="title">Breast Cancer</span><span class="proof">98.7% on test<small>Deep learning, 2024</small></span></button></li>
+            <li><button class="spine" style="--c:#2c2d33;--w:100%;--t:72px;--x:0%;--r:.15deg" data-book="road-safety" aria-controls="road-safety"><span class="title">Road Safety</span><span class="proof">Two datasets<small>Data analysis, 2026</small></span></button></li>
+          </ul>
+          <details class="more-shelf">
+            <summary>Also on the shelf</summary>
+            <ul>
+              <li><b>Network Intrusion Detection</b>, 2025. A Random Forest model that spots XSS, SQL injection and brute-force patterns in traffic.</li>
+              <li><b>Kampuz Connect</b>, 2025 to 2026. A campus marketplace demo designed and built at Aptech in HTML, CSS and JavaScript.</li>
+              <li><b>Histology Image Cleanup</b>, 2024. Removes background from histology slides and improves tissue clarity with OpenCV.</li>
+              <li><b>Pathology Dictation</b>, 2024. Turns a pathologist’s spoken descriptions into structured text.</li>
+              <li><b>SmartMeal</b>, 2024. Meal planning and reminders for people managing diabetes.</li>
+              <li><b>Applied AI labs</b>, 2026. Team notebooks at Conestoga on KNN, decision trees, metrics and streaming data.</li>
+            </ul>
+          </details>
+        </div>
+
+        <div class="pages">
+          <article class="page" id="highsynk" aria-label="Highsynk Study Companion">
+            <div class="page-meta"><span class="chip glass"><i class="dot" aria-hidden="true"></i>In use</span><span>A Highsynk product, 2025</span></div>
+            <h3>Highsynk Study Companion</h3>
+            <p class="pitch">A focus timer, tasks, notes, a schedule and flashcards in one calm app, designed for the phone first.</p>
+            <div class="figures">
+              <div><b>1,000+</b><span>students using it</span></div>
+              <div><b>7</b><span>tools in one app</span></div>
+              <div><b>Offline</b><span>installs on phone or laptop</span></div>
+            </div>
+            <div class="media">
+              <div class="flow" data-flow tabindex="0" aria-roledescription="carousel" aria-label="Highsynk screens, use arrow keys to browse">
+                <button class="phone" data-cap="<b>Home.</b> Today’s progress and a study overview at a glance."><img src="img/study-home.webp" alt="Highsynk home screen" width="440" height="848" loading="lazy" decoding="async"></button>
+                <button class="phone" data-cap="<b>Timer.</b> Pomodoro focus and break intervals, with a study history."><img src="img/study-timer.webp" alt="Highsynk timer screen" width="440" height="848" loading="lazy" decoding="async"></button>
+                <button class="phone" data-cap="<b>Tasks.</b> Quick capture with low, medium and high priority."><img src="img/study-tasks.webp" alt="Highsynk tasks screen" width="440" height="848" loading="lazy" decoding="async"></button>
+                <button class="phone" data-cap="<b>Notes.</b> Rich-text notes you can search."><img src="img/study-notes.webp" alt="Highsynk notes screen" width="440" height="848" loading="lazy" decoding="async"></button>
+                <button class="phone" data-cap="<b>Schedule.</b> Lectures, study blocks and deadlines on one calendar."><img src="img/study-schedule.webp" alt="Highsynk schedule screen" width="440" height="848" loading="lazy" decoding="async"></button>
+                <button class="phone" data-cap="<b>Flashcards.</b> Build decks and test yourself in study mode."><img src="img/study-cards.webp" alt="Highsynk flashcards screen" width="440" height="848" loading="lazy" decoding="async"></button>
+                <button class="phone" data-cap="<b>Settings.</b> Export, import or reset your study data."><img src="img/study-settings.webp" alt="Highsynk settings screen" width="440" height="848" loading="lazy" decoding="async"></button>
+              </div>
+              <div class="deck-foot">
+                <p aria-live="polite" data-caption><b>Timer.</b> Pomodoro focus and break intervals, with a study history.</p>
+                <div class="arrows"><button class="glass" data-prev aria-label="Previous screen"><svg viewBox="0 0 16 16"><path d="M10 3 5 8l5 5"/></svg></button><button class="glass" data-next aria-label="Next screen"><svg viewBox="0 0 16 16"><path d="m6 3 5 5-5 5"/></svg></button></div>
+              </div>
+            </div>
+            <div class="notes">
+              <div><h4>The problem</h4><p>Students juggle separate apps for timers, to-do lists, notes and revision, and lose focus switching between them.</p></div>
+              <div><h4>What I did</h4><p>Designed it for the phone first, with a bottom tab bar and large touch targets, then made it work just as well on a laptop. It works offline and keeps study data on the device, with export and import for backups.</p></div>
+              <div><h4>Built with</h4><p>React, TypeScript, Vite, Tailwind CSS, shadcn/ui, PWA and Supabase.</p></div>
+            </div>
+          </article>
+
+          <article class="page" id="ultrabeaux" aria-label="Ultrabeaux Clinic Portal">
+            <div class="page-meta"><span class="chip glass"><i class="dot" aria-hidden="true"></i>In daily use</span><span>Ultrabeaux aesthetic clinic</span></div>
+            <h3>Ultrabeaux Clinic Portal</h3>
+            <p class="pitch">The web app an aesthetic clinic runs its consultations on: client profiles, bookings and aftercare follow-ups in one place.</p>
+            <div class="figures">
+              <div><b>~700</b><span>clients onboarded</span></div>
+              <div><b>1 tap</b><span>to message a client on WhatsApp</span></div>
+              <div><b>Cloud</b><span>synced, installs on staff phones</span></div>
+            </div>
+            <div class="media">
+              <div class="deck" data-deck tabindex="0" style="--wbg:#fdf7f0" aria-label="Ultrabeaux screens, use arrow keys to browse">
+                <button class="win" data-cap="<b>Dashboard.</b> Active clients, today’s visits, open invoices and follow-ups that need action."><span class="frame"><span class="bar"><i></i><i></i><i></i><span>Dashboard</span></span><img src="img/clinic-dashboard.webp" alt="Ultrabeaux dashboard" loading="lazy" decoding="async"></span></button>
+                <button class="win" data-cap="<b>New client.</b> Contact details, WhatsApp number, skin type and primary concern in one form."><span class="frame"><span class="bar"><i></i><i></i><i></i><span>New client</span></span><img src="img/clinic-client.webp" alt="Ultrabeaux new client form" loading="lazy" decoding="async"></span></button>
+                <button class="win" data-cap="<b>Appointments.</b> A month calendar with a list view, search and a date filter."><span class="frame"><span class="bar"><i></i><i></i><i></i><span>Appointments</span></span><img class="fit" src="img/clinic-appointments.webp" alt="Ultrabeaux appointments calendar" loading="lazy" decoding="async"></span></button>
+                <button class="win" data-cap="<b>Booking.</b> Schedule a visit for an existing client or a walk-in, with purpose and notes."><span class="frame"><span class="bar"><i></i><i></i><i></i><span>Booking</span></span><img class="fit" src="img/clinic-booking.webp" alt="Ultrabeaux booking form" loading="lazy" decoding="async"></span></button>
+                <button class="win" data-cap="<b>Follow-ups.</b> Set a date and reason so no client is forgotten after treatment."><span class="frame"><span class="bar"><i></i><i></i><i></i><span>Follow-ups</span></span><img class="fit" src="img/clinic-followup.webp" alt="Ultrabeaux follow-up form" loading="lazy" decoding="async"></span></button>
+                <button class="win" data-cap="<b>Sign in.</b> Staff log in before any client record is shown."><span class="frame"><span class="bar"><i></i><i></i><i></i><span>Sign in</span></span><img src="img/clinic-signin.webp" alt="Ultrabeaux sign-in screen" loading="lazy" decoding="async"></span></button>
+              </div>
+              <div class="deck-foot">
+                <p aria-live="polite" data-caption><b>Dashboard.</b> Active clients, today’s visits, open invoices and follow-ups that need action.</p>
+                <div class="arrows"><button class="glass" data-prev aria-label="Previous screen"><svg viewBox="0 0 16 16"><path d="M10 3 5 8l5 5"/></svg></button><button class="glass" data-next aria-label="Next screen"><svg viewBox="0 0 16 16"><path d="m6 3 5 5-5 5"/></svg></button></div>
+              </div>
+            </div>
+            <div class="notes">
+              <div><h4>The problem</h4><p>A clinic has to remember each client’s skin type and concerns, keep the day’s bookings straight and follow up after treatment, while knowing which invoices are still open.</p></div>
+              <div><h4>What I did</h4><p>Designed the interface and built the whole app, from staff sign-in and the dashboard to client records, the appointment calendar, follow-ups and a recycle bin for restoring deleted records.</p></div>
+              <div><h4>Built with</h4><p>React, TypeScript, Vite, Tailwind CSS, shadcn/ui, Supabase and Vercel.</p></div>
+            </div>
+            <p class="fine">Screens shown with an empty database. No client data appears.</p>
+          </article>
+
+          <article class="page" id="lab-manager" aria-label="Ultramedikx Lab Manager">
+            <div class="page-meta"><span class="chip glass"><i class="dot" aria-hidden="true"></i>In daily use</span><span>Ultramedikx Pathology Lab</span></div>
+            <h3>Ultramedikx Lab Manager</h3>
+            <p class="pitch">Desktop software that runs the front desk and finances of a pathology lab, from patient intake to hospital invoices.</p>
+            <div class="figures">
+              <div><b>6</b><span>lab staff use it every day</span></div>
+              <div><b>Offline</b><span>all data stays on the lab’s computer</span></div>
+              <div><b>Audited</b><span>every action logged by staff member</span></div>
+            </div>
+            <div class="media">
+              <div class="deck" data-deck tabindex="0" aria-label="Lab Manager screens, use arrow keys to browse">
+                <button class="win" data-cap="<b>Dashboard.</b> The day’s revenue by payment method, new debt, referral commissions and recent intakes."><span class="frame"><span class="bar"><i></i><i></i><i></i><span>Dashboard</span></span><img src="img/lab-dashboard.webp" alt="Lab Manager dashboard" loading="lazy" decoding="async"></span></button>
+                <button class="win" data-cap="<b>New intake.</b> Pick tests from the directory, apply discounts and referral fees, and split payment across cash, transfer and POS."><span class="frame"><span class="bar"><i></i><i></i><i></i><span>New intake</span></span><img src="img/lab-intake.webp" alt="Lab Manager new intake" loading="lazy" decoding="async"></span></button>
+                <button class="win" data-cap="<b>Records ledger.</b> Every diagnostic record, searchable and filtered by billing tier and payment status."><span class="frame"><span class="bar"><i></i><i></i><i></i><span>Records ledger</span></span><img src="img/lab-ledger.webp" alt="Lab Manager records ledger" loading="lazy" decoding="async"></span></button>
+                <button class="win" data-cap="<b>Analytics.</b> Revenue, outstanding debt and commissions over any date range."><span class="frame"><span class="bar"><i></i><i></i><i></i><span>Financial analytics</span></span><img src="img/lab-finance.webp" alt="Lab Manager financial analytics" loading="lazy" decoding="async"></span></button>
+                <button class="win" data-cap="<b>Hospitals.</b> Register partner facilities so their tests can be billed on retainership."><span class="frame"><span class="bar"><i></i><i></i><i></i><span>Hospitals</span></span><img src="img/lab-hospitals.webp" alt="Lab Manager hospitals" loading="lazy" decoding="async"></span></button>
+                <button class="win" data-cap="<b>Audit trail.</b> A timestamped log of who did what, for accountability between staff."><span class="frame"><span class="bar"><i></i><i></i><i></i><span>System logs</span></span><img src="img/lab-audit.webp" alt="Lab Manager audit trail" loading="lazy" decoding="async"></span></button>
+              </div>
+              <div class="deck-foot">
+                <p aria-live="polite" data-caption><b>Dashboard.</b> The day’s revenue by payment method, new debt, referral commissions and recent intakes.</p>
+                <div class="arrows"><button class="glass" data-prev aria-label="Previous screen"><svg viewBox="0 0 16 16"><path d="M10 3 5 8l5 5"/></svg></button><button class="glass" data-next aria-label="Next screen"><svg viewBox="0 0 16 16"><path d="m6 3 5 5-5 5"/></svg></button></div>
+              </div>
+            </div>
+            <div class="notes">
+              <div><h4>The problem</h4><p>The lab serves walk-in patients and partner hospitals on retainership, so staff need every test, payment, debt and referral commission in one place.</p></div>
+              <div><h4>What I did</h4><p>Designed the interface and built the application. It runs offline and keeps all data on the lab’s own computer.</p></div>
+              <div><h4>Built with</h4><p>React, Electron, HTML, CSS and SQLite.</p></div>
+            </div>
+            <p class="fine">Screens shown with an empty database. No patient data appears.</p>
+          </article>
+
+          <article class="page" id="intellibin" aria-label="IntelliBin">
+            <div class="page-meta"><span class="chip glass">Published research</span><span>Final-year project, 2025</span></div>
+            <h3>IntelliBin</h3>
+            <p class="pitch">A hospital waste sorter that sees each item, classifies it on a Raspberry Pi and drops it into the right bin.</p>
+            <div class="figures">
+              <div><b>97%</b><span>accuracy in a 100-item real-time test</span></div>
+              <div><b>8–12 s</b><span>from detection to deposit</span></div>
+              <div><b>6,868</b><span>training images, 1,475 captured by our team</span></div>
+            </div>
+            <div class="media">
+              <div class="pipe">
+                <ol>
+                  <li><b>Detect</b><span>An ultrasonic sensor notices an item.</span></li>
+                  <li><b>Capture</b><span>The camera takes a frame.</span></li>
+                  <li><b>Classify</b><span>MobileNetV2 picks one of five waste types on the Pi.</span></li>
+                  <li><b>Sort</b><span>Stepper and servo motors route it to its bin.</span></li>
+                </ol>
+                <div class="cap"><span>One cycle per item, start to finish.</span><span>Overall Best Project and Best Department Project, 2025</span></div>
+              </div>
+            </div>
+            <div class="notes">
+              <div><h4>The problem</h4><p>Hospital waste is often sorted by hand, and mixing categories creates infection and disposal risks for staff.</p></div>
+              <div><h4>What I did</h4><p>As first author, I assembled the dataset, fine-tuned MobileNetV2, deployed it on the Pi and wired the camera, sensor and motors into one cycle.</p>
+                <div class="links"><a class="link" href="https://www.acadlore.com/article/HF/2025_3_3/hf030302" target="_blank" rel="noopener">Read the paper</a></div></div>
+              <div><h4>Built with</h4><p>Python, TensorFlow and TensorFlow Lite, MobileNetV2, OpenCV, Raspberry Pi 4B and an OV5647 camera.</p></div>
+            </div>
+            <p class="fine">Prototype results from controlled testing. Pharmaceutical waste was the weakest class at 85%. Not clinically validated.</p>
+          </article>
+
+          <article class="page" id="breast-cancer" aria-label="Breast Cancer Detection">
+            <div class="page-meta"><span class="chip glass">Internship project</span><span>GOMYCODE, 2024</span></div>
+            <h3>Breast Cancer Detection</h3>
+            <p class="pitch">A convolutional neural network trained on screening records from a working pathology laboratory.</p>
+            <div class="figures">
+              <div><b>98.7%</b><span>accuracy on held-out test data</span></div>
+              <div><b>Best</b><span>Project award, Data Science Internship</span></div>
+            </div>
+            <div class="media">
+              <div class="pipe">
+                <ol>
+                  <li><b>Collect</b><span>Screening records from Ultramedikx Pathology Lab.</span></li>
+                  <li><b>Prepare</b><span>Clean, label and split the data.</span></li>
+                  <li><b>Train</b><span>A CNN built from scratch.</span></li>
+                  <li><b>Evaluate</b><span>Scored on a held-out test set.</span></li>
+                </ol>
+                <div class="cap"><span>Presented at the internship Demo Day.</span></div>
+              </div>
+            </div>
+            <div class="notes">
+              <div><h4>The problem</h4><p>Explore whether a model trained on local pathology data could help flag likely cancer cases for closer review.</p></div>
+              <div><h4>What I did</h4><p>Prepared the laboratory records, built and trained the network, evaluated it on held-out data and presented the results.</p></div>
+              <div><h4>Built with</h4><p>Python, TensorFlow and Keras, Pandas, NumPy and scikit-learn.</p></div>
+            </div>
+            <p class="fine">A learning project. It has not been clinically validated or used for diagnosis.</p>
+          </article>
+
+          <article class="page" id="road-safety" aria-label="Road Safety Analysis">
+            <div class="page-meta"><span class="chip glass">Academic</span><span>2025 to 2026</span></div>
+            <h3>Road Safety Analysis</h3>
+            <p class="pitch">Two projects asking the same question: what conditions come before road incidents?</p>
+            <div class="figures">
+              <div><b>2</b><span>datasets, human-driven and robotaxi</span></div>
+            </div>
+            <div class="media">
+              <div class="pipe">
+                <ol>
+                  <li><b>Clean</b><span>Fix types, gaps and duplicates.</span></li>
+                  <li><b>Explore</b><span>Distributions and trends.</span></li>
+                  <li><b>Features</b><span>Weather, time and traffic density.</span></li>
+                  <li><b>Model</b><span>Score risky road conditions.</span></li>
+                </ol>
+              </div>
+            </div>
+            <div class="notes">
+              <div><h4>Accident risk model, 2025</h4><p>Combined traffic density, weather, time of day and past accident records to flag high-risk road conditions.</p></div>
+              <div><h4>Robotaxi incidents, 2026</h4><p>Team coursework at Conestoga. I cleaned and explored public autonomous-vehicle incident records and built a reusable chart class for the team.</p></div>
+              <div><h4>Built with</h4><p>Python, Pandas, Plotly and Jupyter.</p></div>
+            </div>
+            <p class="fine">Both are academic projects. Neither is a deployed crash prediction system.</p>
+          </article>
         </div>
       </div>
-      <div class="services">
-        <article>
+    </div>
+  </section>
+
+  <section class="sec" id="services" aria-labelledby="services-h">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="services-h">What I can build for you.</h2>
+        <p>Every service here is backed by something real in the library above.</p>
+      </div>
+      <div class="tiles">
+        <article class="tile">
           <h3>Websites and landing pages</h3>
-          <p>Clean, fast sites designed from scratch, never from a template.</p>
-          <ul><li>Design in Figma</li><li>Responsive build, HTML, CSS, JavaScript, React</li><li>Accessible and search friendly</li><li>Launch on your own domain</li></ul>
-          <p class="proof">Proof: this site and <a href="#highsynk">Highsynk</a></p>
+          <p>Clean, fast sites designed from scratch, built responsive and accessible, and launched on your own domain.</p>
+          <p class="proofline">See this site and <a class="link" href="#highsynk">Highsynk</a></p>
         </article>
-        <article>
+        <article class="tile">
+          <h3>Web and mobile apps</h3>
+          <p>Tools that replace paper and spreadsheets: bookings, records, billing and dashboards, built around how your team works.</p>
+          <p class="proofline">See <a class="link" href="#ultrabeaux">Ultrabeaux</a> and <a class="link" href="#lab-manager">Lab Manager</a></p>
+        </article>
+        <article class="tile">
           <h3>Machine learning and computer vision</h3>
-          <p>Models that classify, predict or detect, trained and tested on your data.</p>
-          <ul><li>Image classification</li><li>Predictive models</li><li>Small-device inference on Raspberry Pi</li><li>Clear evaluation and limits</li></ul>
-          <p class="proof">Proof: <a href="#intellibin">IntelliBin</a>, published 2025</p>
+          <p>Models that classify, predict or detect, trained and tested on your data, with honest evaluation and clear limits.</p>
+          <p class="proofline">See <a class="link" href="#intellibin">IntelliBin</a>, published 2025</p>
         </article>
-        <article>
+        <article class="tile">
           <h3>Data analysis and dashboards</h3>
-          <p>Turn messy spreadsheets and records into answers you can act on.</p>
-          <ul><li>Cleaning and preparation</li><li>Exploratory analysis</li><li>Interactive Plotly charts</li><li>Power BI and Tableau</li></ul>
-          <p class="proof">Proof: <a href="#road-safety">Road Safety Analysis</a></p>
-        </article>
-        <article>
-          <h3>Custom business software</h3>
-          <p>Internal tools that replace paper and spreadsheets for small teams.</p>
-          <ul><li>Desktop and web apps</li><li>Records, tracking and reporting</li><li>Local or cloud data storage</li><li>Built around your workflow</li></ul>
-          <p class="proof">Proof: <a href="#lab-manager">Lab Manager</a> and <a href="#ultrabeaux">Ultrabeaux</a></p>
+          <p>Messy records turned into answers, with interactive charts in Plotly, Power BI or Tableau.</p>
+          <p class="proofline">See <a class="link" href="#road-safety">Road Safety Analysis</a></p>
         </article>
       </div>
-      <ol class="process" aria-label="How a project runs">
-        <li><b>Understand</b><span>A short call to learn the goal, the users and what success looks like.</span></li>
-        <li><b>Plan</b><span>A written scope, timeline and fixed quote before any work starts.</span></li>
-        <li><b>Build</b><span>Regular previews so you can steer early, not after it is finished.</span></li>
-        <li><b>Hand over</b><span>Clean code, a launch, and a walkthrough so you own what you paid for.</span></li>
+      <ol class="steps" aria-label="How a project runs">
+        <li><b>Understand</b><span>A short call about the goal, the users and what success looks like.</span></li>
+        <li><b>Plan</b><span>A written scope, timeline and fixed quote before work starts.</span></li>
+        <li><b>Build</b><span>Regular previews so you can steer early.</span></li>
+        <li><b>Hand over</b><span>Clean code, a launch and a walkthrough.</span></li>
       </ol>
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section class="sec" id="work">
+  <section class="sec" id="about" aria-labelledby="about-h">
     <div class="wrap">
-      <div class="sec-head">
-        <span class="label">Selected work</span>
+      <div class="head" style="margin-bottom:28px"><h2 id="about-h">About.</h2></div>
+      <p class="about-lead">I’m a biomedical engineer who builds software. <span class="dim">I start with the real need, look closely at the data, build something practical and check that it works. I release my own products under the name Highsynk, and I’m studying Applied AI and Machine Learning at Conestoga College.</span></p>
+
+      <div class="cols">
         <div>
-          <h2>Things I’ve built.</h2>
-          <p>Computer vision on small hardware, models trained on real laboratory data, and software that people rely on at work.</p>
+          <h3>Experience</h3>
+          <ul class="entries">
+            <li><b>Web Design Intern</b><span class="at">Aptech Nigeria, Oct 2025 to Mar 2026</span><p>Designed and built Kampuz Connect in HTML, CSS and JavaScript, with Git for version control.</p></li>
+            <li><b>National Ambassador</b><span class="at">GOMYCODE, Mar 2025 to Sept 2025</span><p>Helped run two webinars and a workshop, each reaching about 180 students.</p></li>
+            <li><b>Data Science Intern</b><span class="at">GOMYCODE, Jul 2024 to Oct 2024</span><p>Built machine learning projects on real data and won Best Project at Demo Day.</p></li>
+            <li><b>Engineering Assistant</b><span class="at">Krecool Nigeria Limited, Aug 2023 to Nov 2024</span><p>Installed, calibrated, maintained and repaired biomedical and technical equipment.</p></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Education and recognition</h3>
+          <ul class="entries">
+            <li><b>Graduate Certificate, Applied AI and Machine Learning</b><span class="at">Conestoga College, Waterloo, 2026 to 2027, in progress</span></li>
+            <li><b>B.Eng. Biomedical Engineering, First Class</b><span class="at">Abiola Ajimobi Technical University, Ibadan, 2021 to 2025</span></li>
+            <li><b>Overall Best Project and Best Department Project</b><span class="at">Biomedical Engineering, 2025, for IntelliBin</span></li>
+            <li><b>Best Project</b><span class="at">GOMYCODE Data Science Internship, 2024</span></li>
+            <li><b>Certificates</b><span class="at">Data Science and Power BI (GOMYCODE), UI/UX Design (eHA Academy), Web Designing (Aptech)</span></li>
+            <li><b>Leadership</b><span class="at">President, Biomedical Engineering Students Society. Vice President, Student Energy, Tech-U Chapter.</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Skills</h3>
+          <div class="skillset">
+            <p><b>Apps and web</b>React, TypeScript, JavaScript, Electron, Vite, Tailwind CSS, HTML, CSS, Supabase, SQLite, REST APIs, Git</p>
+            <p><b>AI and machine learning</b>Python, TensorFlow and Keras, TensorFlow Lite, scikit-learn, XGBoost, OpenCV, NLP, model evaluation</p>
+            <p><b>Data</b>Pandas, NumPy, SQL, Plotly, Power BI, Tableau, Excel</p>
+            <p><b>Design and engineering</b>Figma, UI/UX design, edge AI on Raspberry Pi, equipment maintenance, Agile and Scrum</p>
+            <p><b>Languages</b>English, Yoruba and Hausa</p>
+          </div>
         </div>
       </div>
 
-      <!-- Project 1 -->
-      <article class="project" id="intellibin">
+      <div class="paper">
         <div>
-          <div class="status"><span class="tag">Published research</span><span>Final-year project · 2025</span></div>
-          <h3>IntelliBin</h3>
-          <p class="sub">A hospital waste sorter that sees each item, classifies it on a Raspberry Pi and drops it into the right bin.</p>
-          <dl class="p-body">
-            <div><dt>Problem</dt><dd>Hospital waste is often sorted by hand, and mixing categories creates infection and disposal risks for staff.</dd></div>
-            <div><dt>What I did</dt><dd>As first author, I assembled the dataset, fine-tuned MobileNetV2 into five hospital waste categories, deployed it on the Pi and wired the camera, ultrasonic sensor, stepper and servo motors into one cycle.</dd></div>
-            <div><dt>Recognition</dt><dd>Overall Best Project and Best Department Project, Biomedical Engineering, 2025.</dd></div>
-            <div><dt>Stack</dt><dd class="stack">Python, TensorFlow / TensorFlow Lite, MobileNetV2, OpenCV, Raspberry Pi 4B (4 GB), OV5647 camera</dd></div>
-          </dl>
-          <div class="p-links">
-            <a class="arrow" href="https://www.acadlore.com/article/HF/2025_3_3/hf030302" target="_blank" rel="noopener">Read the paper ↗</a>
-          </div>
+          <span class="muted">Healthcraft Frontiers, volume 3, issue 3, 2025</span>
+          <h3>Hospital-Specific Automated Waste Segregation for High-Accuracy Real-Time Classification</h3>
+          <p><span style="color:var(--ink)">Atanda, S. A.</span>, Abdulrasaq, S. O., Akinde, O. K., Ajagbe, S. A. and Aworinde, A. K. DOI 10.56578/hf030302</p>
         </div>
-        <div class="p-visual" aria-label="IntelliBin results and pipeline">
-          <div class="stats">
-            <div><b>97%</b><span>Accuracy in a 100-item real-time test</span></div>
-            <div><b>8–12 s</b><span>From detection to deposit, per item</span></div>
-            <div><b>6,868</b><span>Training images, 1,475 captured by our team</span></div>
-            <div><b>5</b><span>Hospital waste categories</span></div>
-          </div>
-          <p class="label flow-title">How one item moves through it</p>
-          <ol class="flow" style="--n:4">
-            <li><strong>Detect</strong>Ultrasonic sensor notices an item</li>
-            <li><strong>Capture</strong>OV5647 camera takes a frame</li>
-            <li><strong>Classify</strong>MobileNetV2 runs on the Pi</li>
-            <li><strong>Sort</strong>Stepper and servo route it</li>
-          </ol>
-          <p class="note">Prototype results from controlled testing. Pharmaceutical waste was the weakest class at 85%. Not clinically validated.</p>
-        </div>
-      </article>
-
-      <!-- Project 2 -->
-      <article class="project">
-        <div>
-          <div class="status"><span class="tag">Internship project</span><span>GOMYCODE · 2024</span></div>
-          <h3>Breast Cancer Detection</h3>
-          <p class="sub">A convolutional neural network trained on screening records from a working pathology laboratory.</p>
-          <dl class="p-body">
-            <div><dt>Problem</dt><dd>Explore whether a model trained on local pathology data could help flag likely cancer cases for closer review.</dd></div>
-            <div><dt>What I did</dt><dd>Prepared the laboratory records, built and trained the CNN from scratch, evaluated it on held-out data and presented the work at the internship Demo Day.</dd></div>
-            <div><dt>Recognition</dt><dd>Best Project, GOMYCODE Data Science Internship, 2024.</dd></div>
-            <div><dt>Stack</dt><dd class="stack">Python, TensorFlow / Keras, Pandas, NumPy, scikit-learn</dd></div>
-          </dl>
-        </div>
-        <div class="p-visual">
-          <div class="stats">
-            <div><b>98.7%</b><span>Classification accuracy on test data</span></div>
-            <div><b>Real</b><span>Data from Ultramedikx Pathology Lab</span></div>
-          </div>
-          <p class="label flow-title">Approach</p>
-          <ol class="flow" style="--n:4">
-            <li><strong>Collect</strong>Lab screening records</li>
-            <li><strong>Prepare</strong>Clean, label, split</li>
-            <li><strong>Train</strong>CNN built from scratch</li>
-            <li><strong>Evaluate</strong>Held-out test set</li>
-          </ol>
-          <p class="note">A learning project. It has not been clinically validated or used for diagnosis.</p>
-        </div>
-      </article>
-
-      <!-- Project 3 -->
-      <article class="project" id="lab-manager">
-        <div>
-          <div class="status"><span class="tag">In daily use</span><span>Ultramedikx Pathology Lab</span></div>
-          <h3>Ultramedikx Lab Manager</h3>
-          <p class="sub">Desktop software that runs the front desk and finances of a pathology lab, from patient intake to hospital invoices.</p>
-          <dl class="p-body">
-            <div><dt>Problem</dt><dd>The lab serves walk-in patients and partner hospitals on retainership, so staff need to track every test, payment, debt and referral commission in one place.</dd></div>
-            <div><dt>What I did</dt><dd>Designed the interface and built the whole application. It runs offline and keeps all data on the lab’s own computer.</dd></div>
-            <div><dt>Impact</dt><dd>Used by six laboratory staff in their daily operations.</dd></div>
-            <div><dt>Stack</dt><dd class="stack">React, Electron, HTML, CSS, SQLite</dd></div>
-          </dl>
-        </div>
-        <div class="p-visual">
-          <p class="label" style="margin-bottom:14px">What the app covers</p>
-          <div class="modules">
-            <div>Intake<small>Tests, discounts, split payments</small></div>
-            <div>Records ledger<small>Search, filter, print receipts</small></div>
-            <div>Hospitals<small>Retainership accounts</small></div>
-            <div>Invoicing<small>Bills for partner hospitals</small></div>
-            <div>Analytics<small>Revenue, debt, commissions</small></div>
-            <div>Audit trail<small>Every action, by staff member</small></div>
-            <div class="base">Offline · SQLite on the lab’s computer</div>
-          </div>
-        </div>
-        <div class="shots" data-shots>
-          <div class="shot-tabs" role="tablist" aria-label="Lab Manager screens" data-name="Lab Manager">
-            <button role="tab" id="lab-t0" aria-selected="true" aria-controls="lab-panel" data-src="img/lab-dashboard.webp" data-cap="Dashboard: the day’s revenue by payment method, new debt, referral commissions and recent intakes.">Dashboard</button>
-            <button role="tab" id="lab-t1" aria-selected="false" aria-controls="lab-panel" tabindex="-1" data-src="img/lab-intake.webp" data-cap="New intake: pick tests from the directory, apply discounts and referral fees, and split payment across cash, transfer and POS.">New intake</button>
-            <button role="tab" id="lab-t2" aria-selected="false" aria-controls="lab-panel" tabindex="-1" data-src="img/lab-ledger.webp" data-cap="Records ledger: every diagnostic record, searchable by patient or test and filtered by billing tier and payment status.">Records ledger</button>
-            <button role="tab" id="lab-t3" aria-selected="false" aria-controls="lab-panel" tabindex="-1" data-src="img/lab-finance.webp" data-cap="Financial analytics: revenue, outstanding debt and commissions over any date range.">Analytics</button>
-            <button role="tab" id="lab-t4" aria-selected="false" aria-controls="lab-panel" tabindex="-1" data-src="img/lab-hospitals.webp" data-cap="Hospitals: register partner facilities so their tests can be billed on retainership.">Hospitals</button>
-            <button role="tab" id="lab-t5" aria-selected="false" aria-controls="lab-panel" tabindex="-1" data-src="img/lab-audit.webp" data-cap="Audit trail: a timestamped log of who did what, for accountability between staff.">Audit trail</button>
-          </div>
-          <figure class="shot" id="lab-panel" role="tabpanel" aria-labelledby="lab-t0">
-            <div class="shot-stage"><img src="img/lab-dashboard.webp" alt="Lab Manager dashboard screen" loading="lazy" decoding="async"></div>
-            <figcaption><span class="cap">Dashboard: the day’s revenue by payment method, new debt, referral commissions and recent intakes.</span><span class="shot-note">Shown with an empty database. No patient data appears.</span></figcaption>
-          </figure>
-        </div>
-      </article>
-
-      <article class="project" id="ultrabeaux">
-        <div>
-          <div class="status"><span class="tag">In daily use</span><span>Ultrabeaux aesthetic clinic</span></div>
-          <h3>Ultrabeaux Clinic Portal</h3>
-          <p class="sub">A web app that runs client consultations for an aesthetic clinic, with profiles, bookings and aftercare follow-ups in one place.</p>
-          <dl class="p-body">
-            <div><dt>Problem</dt><dd>An aesthetic clinic has to remember each client’s skin type and concerns, keep the day’s bookings straight and follow up after treatment, while knowing which invoices are still open.</dd></div>
-            <div><dt>What I did</dt><dd>Designed the interface and built the application, from staff sign-in and the dashboard to client records, the appointment calendar and follow-up scheduling. Staff can message any client on WhatsApp in one tap, and the app installs on a phone like a native app.</dd></div>
-            <div><dt>Impact</dt><dd>About 700 clients onboarded so far.</dd></div>
-            <div><dt>Stack</dt><dd class="stack">React, TypeScript, Vite, Tailwind CSS, shadcn/ui, Supabase, Vercel</dd></div>
-          </dl>
-        </div>
-        <div class="p-visual">
-          <p class="label" style="margin-bottom:14px">What the app covers</p>
-          <div class="modules">
-            <div>Clients<small>Skin profile, one-tap WhatsApp</small></div>
-            <div>Appointments<small>Calendar and list views</small></div>
-            <div>Booking<small>Existing clients or walk-ins</small></div>
-            <div>Follow-ups<small>Aftercare reminders</small></div>
-            <div>Invoices<small>Open balances at a glance</small></div>
-            <div>Recycle bin<small>Restore deleted records</small></div>
-            <div class="base">Supabase cloud database · installable on phones</div>
-          </div>
-        </div>
-        <div class="shots">
-          <div class="shot-tabs" role="tablist" aria-label="Ultrabeaux screens" data-name="Ultrabeaux">
-            <button role="tab" id="clinic-t0" aria-selected="true" aria-controls="clinic-panel" data-src="img/clinic-dashboard.webp" data-cap="Dashboard: active clients, today’s visits, open invoices and follow-ups that need action.">Dashboard</button>
-            <button role="tab" id="clinic-t1" aria-selected="false" aria-controls="clinic-panel" tabindex="-1" data-src="img/clinic-client.webp" data-cap="New client: contact details, WhatsApp number, skin type and primary concern in one form.">New client</button>
-            <button role="tab" id="clinic-t2" aria-selected="false" aria-controls="clinic-panel" tabindex="-1" data-src="img/clinic-appointments.webp" data-cap="Appointments: a month calendar with a list view, search and a date filter.">Appointments</button>
-            <button role="tab" id="clinic-t3" aria-selected="false" aria-controls="clinic-panel" tabindex="-1" data-src="img/clinic-booking.webp" data-cap="Booking: schedule a visit for an existing client or a walk-in, with purpose and session notes.">Booking</button>
-            <button role="tab" id="clinic-t4" aria-selected="false" aria-controls="clinic-panel" tabindex="-1" data-src="img/clinic-followup.webp" data-cap="Follow-ups: set a date and reason so no client is forgotten after treatment.">Follow-ups</button>
-            <button role="tab" id="clinic-t5" aria-selected="false" aria-controls="clinic-panel" tabindex="-1" data-src="img/clinic-signin.webp" data-cap="Sign in: staff log in before any client record is shown.">Sign in</button>
-          </div>
-          <figure class="shot" id="clinic-panel" role="tabpanel" aria-labelledby="clinic-t0">
-            <div class="shot-stage"><img src="img/clinic-dashboard.webp" alt="Ultrabeaux dashboard screen" loading="lazy" decoding="async"></div>
-            <figcaption><span class="cap">Dashboard: active clients, today’s visits, open invoices and follow-ups that need action.</span><span class="shot-note">Shown with an empty database. No client data appears.</span></figcaption>
-          </figure>
-        </div>
-      </article>
-
-      <article class="project" id="highsynk">
-        <div>
-          <div class="status"><span class="tag">In use</span><span>Highsynk · mobile-first web app · 2025</span></div>
-          <h3>Highsynk Study Companion</h3>
-          <p class="sub">A study app I publish under my own brand, Highsynk. It puts a focus timer, tasks, notes, a schedule and flashcards in one calm place.</p>
-          <dl class="p-body">
-            <div><dt>Problem</dt><dd>Students juggle separate apps for timers, to-do lists, notes and revision, and lose focus switching between them.</dd></div>
-            <div><dt>What I did</dt><dd>Designed it for the phone first, with a bottom tab bar and large touch targets, then made it work just as well on a laptop. It installs like a native app, works offline, and keeps study data on the device with export and import for backups.</dd></div>
-            <div><dt>Impact</dt><dd>Used by more than 1,000 students.</dd></div>
-            <div><dt>Stack</dt><dd class="stack">React, TypeScript, Vite, Tailwind CSS, shadcn/ui, PWA (offline), Supabase</dd></div>
-          </dl>
-        </div>
-        <div class="p-visual">
-          <p class="label" style="margin-bottom:14px">What the app covers</p>
-          <div class="modules">
-            <div>Focus timer<small>Pomodoro with study history</small></div>
-            <div>Tasks<small>Low, medium, high priority</small></div>
-            <div>Notes<small>Rich text, searchable</small></div>
-            <div>Schedule<small>Calendar of study events</small></div>
-            <div>Flashcards<small>Decks and study mode</small></div>
-            <div>Your data<small>Export, import, reset</small></div>
-            <div class="base">Works offline · installs on phone and desktop</div>
-          </div>
-        </div>
-        <div class="phones" aria-label="Highsynk screens">
-          <ol>
-            <li><img src="img/study-home.webp" alt="Highsynk home screen" width="440" height="848" loading="lazy" decoding="async"><b>Home</b><span>Today’s progress and a study overview</span></li>
-            <li><img src="img/study-timer.webp" alt="Highsynk timer screen" width="440" height="848" loading="lazy" decoding="async"><b>Timer</b><span>Pomodoro focus and break intervals</span></li>
-            <li><img src="img/study-tasks.webp" alt="Highsynk tasks screen" width="440" height="848" loading="lazy" decoding="async"><b>Tasks</b><span>Quick capture with priority levels</span></li>
-            <li><img src="img/study-notes.webp" alt="Highsynk notes screen" width="440" height="848" loading="lazy" decoding="async"><b>Notes</b><span>Searchable rich-text notes</span></li>
-            <li><img src="img/study-schedule.webp" alt="Highsynk schedule screen" width="440" height="848" loading="lazy" decoding="async"><b>Schedule</b><span>Lectures, study blocks and deadlines</span></li>
-            <li><img src="img/study-cards.webp" alt="Highsynk flashcards screen" width="440" height="848" loading="lazy" decoding="async"><b>Flashcards</b><span>Decks with a study mode</span></li>
-            <li><img src="img/study-settings.webp" alt="Highsynk settings screen" width="440" height="848" loading="lazy" decoding="async"><b>Settings</b><span>Export, import or reset your data</span></li>
-          </ol>
-        </div>
-      </article>
-
-      <!-- Project 4 -->
-      <article class="project" id="road-safety">
-        <div>
-          <div class="status"><span class="tag">Academic</span><span>2025–2026</span></div>
-          <h3>Road Safety Data Analysis</h3>
-          <p class="sub">Two projects asking the same question: what conditions come before road incidents?</p>
-          <dl class="p-body">
-            <div><dt>Accident risk model, 2025</dt><dd>A predictive analytics project combining traffic density, weather, time of day and historical accident records to flag high-risk road conditions.</dd></div>
-            <div><dt>Autonomous vehicle incidents, 2026</dt><dd>Team coursework at Conestoga College. I cleaned and explored public robotaxi incident records and built a reusable visualizer class for the team’s charts.</dd></div>
-            <div><dt>Stack</dt><dd class="stack">Python, Pandas, Jupyter</dd></div>
-          </dl>
-        </div>
-        <div class="p-visual">
-          <p class="label" style="margin-bottom:12px">Analysis workflow</p>
-          <ol class="flow" style="--n:4">
-            <li><strong>Clean</strong>Fix types, gaps, duplicates</li>
-            <li><strong>Explore</strong>Distributions and trends</li>
-            <li><strong>Features</strong>Weather, time, density</li>
-            <li><strong>Model</strong>Score road conditions</li>
-          </ol>
-          <p class="note">Both are academic projects. Neither is a deployed crash prediction system.</p>
-        </div>
-      </article>
-
-      <!-- More work -->
-      <div class="more-head" id="more">
-        <h3>More work</h3>
-        <a class="arrow" href="https://github.com/kinghighshow" target="_blank" rel="noopener">All code on GitHub ↗</a>
-      </div>
-      <div class="more">
-        <article>
-          <span class="yr">2025 · Security</span>
-          <h4>Network Intrusion Detection</h4>
-          <p>A Random Forest model that spots XSS, SQL injection and brute-force patterns in network traffic.</p>
-          <p class="stack">Python · scikit-learn</p>
-        </article>
-        <article>
-          <span class="yr">2025–2026 · Web design</span>
-          <h4>Kampuz Connect</h4>
-          <p>A campus marketplace demo designed and built during my web design internship at Aptech.</p>
-          <p class="stack">HTML · CSS · JavaScript · Git</p>
-        </article>
-        <article>
-          <span class="yr">2024 · Imaging</span>
-          <h4>Histology Image Cleanup</h4>
-          <p>A tool that removes background from histology slides and improves tissue clarity and contrast.</p>
-          <p class="stack">Python · OpenCV</p>
-        </article>
-        <article>
-          <span class="yr">2024 · Speech</span>
-          <h4>Pathology Dictation</h4>
-          <p>Turns a pathologist’s spoken descriptions into structured text using speech recognition and NLP.</p>
-          <p class="stack">Python · Speech recognition · NLP</p>
-        </article>
-        <article>
-          <span class="yr">2024 · Mobile</span>
-          <h4>SmartMeal</h4>
-          <p>A meal planning and reminder app for people managing diabetes, with nutrition tracking.</p>
-          <p class="stack">Mobile app</p>
-        </article>
-        <article>
-          <span class="yr">2026 · Coursework</span>
-          <h4>Applied AI Labs</h4>
-          <p>Team notebooks at Conestoga on KNN, decision trees, classification metrics and streaming data.</p>
-          <p class="stack">Python · scikit-learn · PostgreSQL</p>
-        </article>
+        <a class="btn glass" href="https://www.acadlore.com/article/HF/2025_3_3/hf030302" target="_blank" rel="noopener">Read the paper</a>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="sec" id="about">
-    <div class="wrap about">
-      <span class="label">About</span>
-      <div class="about-copy">
-        <p>I’m a biomedical engineering graduate who builds with machine learning and software.</p>
-        <p>Engineering shaped how I work. I start with the real need, look closely at the data, build something practical and then check whether it actually works. That habit carried from maintaining biomedical equipment to training models on laboratory data.</p>
-        <p>My projects so far cover computer vision, healthcare data, laboratory software and predictive modelling. I’m now studying Applied Artificial Intelligence and Machine Learning at Conestoga College in Waterloo.</p>
-        <p>I care most about technology that solves useful problems, especially where engineering, data and good design meet. I release my own products under the name Highsynk.</p>
-        <p class="langs">I speak English, Yoruba and Hausa.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="sec" id="experience">
+  <section class="contact" id="contact" aria-labelledby="contact-h">
     <div class="wrap">
-      <div class="sec-head">
-        <span class="label">Experience</span>
-        <div><h2>Where I’ve worked.</h2></div>
-      </div>
-      <div class="rows">
-        <div class="row">
-          <span class="when">Oct 2025 – Mar 2026</span>
-          <div><h3>Web Design Intern</h3><p class="org">Aptech Nigeria</p></div>
-          <ul>
-            <li>Designed and built Kampuz Connect, a campus marketplace demo, in HTML, CSS and JavaScript.</li>
-            <li>Applied UI/UX principles and used Git and GitHub for version control and collaboration.</li>
-          </ul>
-        </div>
-        <div class="row">
-          <span class="when">Mar 2025 – Sept 2025</span>
-          <div><h3>National Ambassador</h3><p class="org">GOMYCODE</p></div>
-          <ul>
-            <li>Helped organize two webinars and one workshop, each reaching about 180 students.</li>
-            <li>Promoted technology education through student outreach, leading to five course registrations.</li>
-          </ul>
-        </div>
-        <div class="row">
-          <span class="when">Jul 2024 – Oct 2024</span>
-          <div><h3>Data Science Intern</h3><p class="org">GOMYCODE</p></div>
-          <ul>
-            <li>Built data science and machine learning solutions on real-world datasets in a project-based programme.</li>
-            <li>Built a breast cancer detection model from pathology lab data and won Best Project at Demo Day.</li>
-          </ul>
-        </div>
-        <div class="row">
-          <span class="when">Aug 2023 – Nov 2024</span>
-          <div><h3>Engineering Assistant</h3><p class="org">Krecool Nigeria Limited</p></div>
-          <ul>
-            <li>Assisted with installation, calibration, assembly, troubleshooting and repair of biomedical and technical equipment.</li>
-            <li>Supported preventive and corrective maintenance, testing, inspection and fault diagnosis.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Education & recognition -->
-      <div class="two" style="margin-top:clamp(56px,8vw,88px)">
-        <div>
-          <h3 class="colh">Education</h3>
-          <ul class="list">
-            <li><div><b>Graduate Certificate, Applied AI and Machine Learning</b><small>Conestoga College, Waterloo · In progress</small></div><span>2026–27</span></li>
-            <li><div><b>B.Eng. Biomedical Engineering, First Class</b><small>Abiola Ajimobi Technical University, Ibadan</small></div><span>2021–25</span></li>
-          </ul>
-          <h3 class="colh" style="margin-top:36px">Certificates</h3>
-          <ul class="list">
-            <li><div><b>Data Science</b><small>GOMYCODE</small></div><span></span></li>
-            <li><div><b>Power BI</b><small>GOMYCODE</small></div><span></span></li>
-            <li><div><b>UI/UX Design</b><small>eHA Academy</small></div><span></span></li>
-            <li><div><b>Web Designing</b><small>Aptech Nigeria</small></div><span></span></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="colh">Recognition</h3>
-          <ul class="list">
-            <li><div><b>Overall Best Project</b><small>Biomedical Engineering final-year projects, for IntelliBin</small></div><span>2025</span></li>
-            <li><div><b>Best Department Project</b><small>Hospital-specific waste segregation system</small></div><span>2025</span></li>
-            <li><div><b>Best Project</b><small>GOMYCODE Data Science Internship</small></div><span>2024</span></li>
-          </ul>
-          <h3 class="colh" style="margin-top:36px">Leadership</h3>
-          <ul class="list">
-            <li><div><b>President</b><small>Biomedical Engineering Students Society (NABETS)</small></div><span></span></li>
-            <li><div><b>Vice President</b><small>Student Energy, Tech-U Chapter</small></div><span></span></li>
-            <li><div><b>Director of Academics</b><small>Muslim Student Society</small></div><span></span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="pub">
-        <div>
-          <span class="label">Publication · Healthcraft Frontiers 3(3), 2025</span>
-          <h4>Hospital-Specific Automated Waste Segregation for High-Accuracy Real-Time Classification</h4>
-          <p><b style="color:var(--fg);font-weight:500">Atanda, S. A.</b>, Abdulrasaq, S. O., Akinde, O. K., Ajagbe, S. A. and Aworinde, A. K. · DOI 10.56578/hf030302</p>
-        </div>
-        <a class="btn btn-ghost" href="https://www.acadlore.com/article/HF/2025_3_3/hf030302" target="_blank" rel="noopener">Read paper ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="sec" id="skills">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="label">Skills</span>
-        <div><h2>What I work with.</h2></div>
-      </div>
-      <div class="skills">
-        <div><h3>AI and machine learning</h3><ul>
-          <li>Python</li><li>TensorFlow / Keras</li><li>TensorFlow Lite</li><li>scikit-learn</li><li>XGBoost</li><li>OpenCV</li><li>Computer vision</li><li>NLP</li><li>Model evaluation</li></ul></div>
-        <div><h3>Data</h3><ul>
-          <li>Pandas, NumPy</li><li>SQL</li><li>Data cleaning</li><li>Exploratory analysis</li><li>Feature engineering</li><li>Plotly, Matplotlib</li><li>Power BI, Tableau</li><li>Excel</li></ul></div>
-        <div><h3>Software and design</h3><ul>
-          <li>JavaScript</li><li>React, Electron</li><li>HTML, CSS</li><li>SQLite</li><li>REST APIs</li><li>Git, GitHub</li><li>Figma</li><li>UI/UX design</li></ul></div>
-        <div><h3>Engineering</h3><ul>
-          <li>Biomedical engineering</li><li>Edge AI on Raspberry Pi</li><li>Hardware and software integration</li><li>Equipment maintenance and calibration</li><li>Agile, Scrum</li></ul></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="wrap">
-      <span class="label">Contact</span>
-      <h2 style="margin-top:18px">Have a project in mind? <span>Let’s talk.</span></h2>
-      <p class="lede">I take on freelance work in web design, machine learning and data analysis, and I’m open to part-time roles in Waterloo or remote. Send a short note about what you need and I’ll reply within a day.</p>
-      <div class="channels">
-        <div>
-          <span class="label">Email</span>
-          <div class="v"><span id="email">sultanatanda123@gmail.com</span><button class="copy" id="copy-email" type="button">Copy</button></div>
-        </div>
-        <a href="https://www.linkedin.com/in/sultan-atanda-gmnse-421943223" target="_blank" rel="noopener">
-          <span class="label">LinkedIn</span>
-          <div class="v">sultan-atanda ↗</div>
-        </a>
-        <a href="https://github.com/kinghighshow" target="_blank" rel="noopener">
-          <span class="label">GitHub</span>
-          <div class="v">kinghighshow ↗</div>
-        </a>
+      <h2 id="contact-h">Let’s build something.</h2>
+      <p class="sub">I take on freelance work in web design, apps, machine learning and data, and I’m open to part-time roles in Waterloo or remote. Send a short note about what you need and I’ll reply within a day.</p>
+      <div class="mail glass"><span id="email">sultanatanda123@gmail.com</span><button type="button" id="copy-email">Copy</button></div>
+      <div class="elsewhere">
+        <a class="link" href="https://www.linkedin.com/in/sultan-atanda-gmnse-421943223" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="link" href="https://github.com/kinghighshow" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </section>
@@ -773,8 +681,8 @@ footer a:hover{color:var(--fg)}
 
 <footer>
   <div class="wrap">
-    <span>© <span id="year">2026</span> Sultan Atanda · Waterloo, Ontario</span>
-    <nav aria-label="Social">
+    <span>Copyright <span id="year">2026</span> Sultan Atanda. Waterloo, Ontario.</span>
+    <nav aria-label="Footer">
       <a href="https://github.com/kinghighshow" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/sultan-atanda-gmnse-421943223" target="_blank" rel="noopener">LinkedIn</a>
       <a href="#top">Back to top</a>
@@ -784,40 +692,126 @@ footer a:hover{color:var(--fg)}
 
 <script>
 (function(){
-  var btn=document.getElementById('menu-btn'),links=document.getElementById('nav-links');
-  function set(open){links.classList.toggle('open',open);btn.setAttribute('aria-expanded',open);btn.textContent=open?'Close':'Menu';}
-  btn.addEventListener('click',function(){set(!links.classList.contains('open'));});
-  links.addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&links.classList.contains('open')){set(false);btn.focus();}});
+  var root=document.documentElement;root.classList.add('js');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var narrowMQ=matchMedia('(max-width:980px)');
+
+  var nav=document.getElementById('nav'),menu=document.getElementById('menu-btn');
+  function setMenu(o){nav.classList.toggle('open',o);menu.setAttribute('aria-expanded',o);menu.textContent=o?'Close':'Menu';}
+  menu.addEventListener('click',function(){setMenu(!nav.classList.contains('open'));});
+  nav.addEventListener('click',function(e){if(e.target.closest('.nav-links a'))setMenu(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){setMenu(false);menu.focus();}});
+
+  document.addEventListener('pointermove',function(e){
+    var g=e.target.closest&&e.target.closest('.glass');if(!g)return;
+    var r=g.getBoundingClientRect();g.style.setProperty('--mx',(e.clientX-r.left)+'px');g.style.setProperty('--my',(e.clientY-r.top)+'px');
+  },{passive:true});
+
+  try{
+    var brands=(navigator.userAgentData&&navigator.userAgentData.brands)||[];
+    var chromium=brands.some(function(b){return /Chromium/.test(b.brand);});
+    if(chromium&&!reduce){
+      var N=96,c=document.createElement('canvas');c.width=c.height=N;var x=c.getContext('2d'),d=x.createImageData(N,N),p=4,band=.32;
+      for(var j=0;j<N;j++)for(var i=0;i<N;i++){
+        var u=(i+.5)/N*2-1,v=(j+.5)/N*2-1,au=Math.abs(u),av=Math.abs(v);
+        var r=Math.pow(Math.pow(au,p)+Math.pow(av,p),1/p),t=Math.max(0,Math.min(1,(r-(1-band))/band));t=t*t;
+        var nx=Math.sign(u)*Math.pow(au,p-1),ny=Math.sign(v)*Math.pow(av,p-1),l=Math.hypot(nx,ny)||1;
+        var k=(j*N+i)*4;d.data[k]=128+(nx/l)*t*127;d.data[k+1]=128+(ny/l)*t*127;d.data[k+2]=128;d.data[k+3]=255;
+      }
+      x.putImageData(d,0,0);
+      document.getElementById('liquid-map').setAttribute('href',c.toDataURL());
+      root.classList.add('lg-refract');
+    }
+  }catch(e){}
+
+  if('IntersectionObserver' in window&&!reduce){
+    var fmt=function(n){return n.toLocaleString('en-US');};
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){
+      if(!en.isIntersecting)return;io.unobserve(en.target);
+      var el=en.target,to=+el.dataset.count,pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',t0=null,dur=1400;
+      function step(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/dur),e=1-Math.pow(1-k,4);el.textContent=pre+fmt(Math.round(to*e))+suf;if(k<1)requestAnimationFrame(step);}
+      requestAnimationFrame(step);
+    });},{threshold:.6});
+    document.querySelectorAll('[data-count]').forEach(function(el){io.observe(el);});
+  }
+
+  var layouts=[];
+  function layoutAll(scope){layouts.forEach(function(l){if(!scope||scope.contains(l.el))l.fn();});}
+
+  var stack=document.getElementById('stack'),spines=[].slice.call(stack.querySelectorAll('.spine'));
+  var pages=[].slice.call(document.querySelectorAll('.page'));
+  function openBook(id,scroll){
+    var page=document.getElementById(id);if(!page||!page.classList.contains('page'))return false;
+    pages.forEach(function(pg){
+      if(pg===page){if(pg.hidden){pg.hidden=false;pg.classList.remove('opening');void pg.offsetWidth;pg.classList.add('opening');}}
+      else pg.hidden=true;
+    });
+    spines.forEach(function(s){s.setAttribute('aria-current',s.dataset.book===id?'true':'false');});
+    stack.classList.add('has-pick');
+    layoutAll(page);
+    if(scroll){var t=narrowMQ.matches?page:document.getElementById('work');t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});}
+    return true;
+  }
+  spines.forEach(function(s){s.addEventListener('click',function(){
+    openBook(s.dataset.book,narrowMQ.matches);
+    try{history.replaceState(null,'','#'+s.dataset.book);}catch(e){}
+  });});
+  pages.forEach(function(pg,i){if(i)pg.hidden=true;});
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href').slice(1),el=document.getElementById(id);
+    if(el&&el.classList.contains('page')){e.preventDefault();openBook(id,true);try{history.replaceState(null,'','#'+id);}catch(_){}}
+  });
+  function fromHash(){var h=location.hash.slice(1);return h?openBook(h,true):false;}
+  window.addEventListener('hashchange',fromHash);
+
+  function setCap(scope,html){var c=scope.querySelector('[data-caption]');if(c)c.innerHTML=html;}
+
+  document.querySelectorAll('[data-deck]').forEach(function(deck){
+    var wins=[].slice.call(deck.querySelectorAll('.win')),n=wins.length,cur=0,scope=deck.parentNode;
+    function show(k){cur=(k+n)%n;wins.forEach(function(w,i){var dd=(i-cur+n)%n;w.style.setProperty('--d',dd);w.toggleAttribute('data-front',dd===0);w.setAttribute('aria-hidden',dd>3?'true':'false');w.tabIndex=dd>3?-1:0;w.setAttribute('aria-label',(dd===0?'Showing ':'Show ')+w.querySelector('.bar span').textContent);});setCap(scope,wins[cur].dataset.cap);}
+    wins.forEach(function(w,i){w.addEventListener('click',function(){if(i!==cur)show(i);});});
+    scope.querySelector('[data-prev]').addEventListener('click',function(){show(cur-1);});
+    scope.querySelector('[data-next]').addEventListener('click',function(){show(cur+1);});
+    deck.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();show(cur+1);}else if(e.key==='ArrowLeft'){e.preventDefault();show(cur-1);}});
+    show(0);
+  });
+
+  document.querySelectorAll('[data-flow]').forEach(function(flow){
+    var ph=[].slice.call(flow.querySelectorAll('.phone')),n=ph.length,cur=1,scope=flow.parentNode;
+    function place(){
+      var W=ph[0].offsetWidth||220,narrow=flow.offsetWidth<560;
+      ph.forEach(function(p,i){
+        var o=i-cur,a=Math.abs(o),s=Math.sign(o);
+        var tx=o===0?0:s*(W*(narrow?.5:.66)+(a-1)*W*(narrow?.2:.3));
+        var tz=o===0?0:-(170+a*90);
+        var ry=o===0?0:-s*42;
+        p.style.transform='translateX(calc(-50% + '+tx+'px)) translateZ('+tz+'px) rotateY('+ry+'deg)';
+        p.style.zIndex=20-a;p.style.opacity=a>3?0:1;p.style.filter='brightness('+(1-Math.min(a,3)*.22)+')';
+        p.toggleAttribute('data-front',o===0);p.tabIndex=a>3?-1:0;
+        p.setAttribute('aria-label',(o===0?'Showing ':'Show ')+p.querySelector('img').alt.replace('Highsynk ',''));
+      });
+      setCap(scope,ph[cur].dataset.cap);
+    }
+    function show(k){cur=Math.max(0,Math.min(n-1,k));place();}
+    ph.forEach(function(p,i){p.addEventListener('click',function(){if(i!==cur)show(i);});});
+    scope.querySelector('[data-prev]').addEventListener('click',function(){show(cur-1);});
+    scope.querySelector('[data-next]').addEventListener('click',function(){show(cur+1);});
+    flow.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();show(cur+1);}else if(e.key==='ArrowLeft'){e.preventDefault();show(cur-1);}});
+    var sx=null;flow.addEventListener('pointerdown',function(e){sx=e.clientX;});
+    flow.addEventListener('pointerup',function(e){if(sx===null)return;var dx=e.clientX-sx;sx=null;if(Math.abs(dx)>40)show(cur+(dx<0?1:-1));});
+    layouts.push({el:flow,fn:place});
+    place();
+  });
+  addEventListener('resize',function(){layoutAll();});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){layoutAll();});
+
+  if(!fromHash()){spines[0].setAttribute('aria-current','true');stack.classList.add('has-pick');}
 
   var copy=document.getElementById('copy-email'),email=document.getElementById('email');
   copy.addEventListener('click',function(){
-    var t=email.textContent;
     function done(){copy.textContent='Copied';setTimeout(function(){copy.textContent='Copy';},1600);}
     function fallback(){var r=document.createRange();r.selectNodeContents(email);var s=getSelection();s.removeAllRanges();s.addRange(r);copy.textContent='Selected';}
-    try{navigator.clipboard.writeText(t).then(done,fallback);}catch(e){fallback();}
-  });
-
-  [].forEach.call(document.querySelectorAll('.shot-tabs'),function(list){
-    var tabs=[].slice.call(list.querySelectorAll('[role=tab]')),name=list.dataset.name;
-    var panel=document.getElementById(tabs[0].getAttribute('aria-controls')),img=panel.querySelector('img'),cap=panel.querySelector('.cap');
-    var warm=function(){tabs.forEach(function(t){new Image().src=t.dataset.src;});warm=function(){};};
-    list.addEventListener('pointerenter',function(){warm();});
-    function pick(t,focus){
-      warm();
-      tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;});
-      img.classList.add('swap');
-      var n=new Image();n.onload=function(){img.src=t.dataset.src;img.alt=name+' '+t.textContent.toLowerCase()+' screen';img.classList.remove('swap');};n.src=t.dataset.src;
-      cap.textContent=t.dataset.cap;panel.setAttribute('aria-labelledby',t.id);
-      if(focus){t.focus();t.scrollIntoView({block:'nearest',inline:'nearest'});}
-    }
-    tabs.forEach(function(t,i){
-      t.addEventListener('click',function(){pick(t);});
-      t.addEventListener('keydown',function(e){
-        var k=e.key,j=k==='ArrowRight'?i+1:k==='ArrowLeft'?i-1:k==='Home'?0:k==='End'?tabs.length-1:null;
-        if(j===null)return;e.preventDefault();pick(tabs[(j+tabs.length)%tabs.length],true);
-      });
-    });
+    try{navigator.clipboard.writeText(email.textContent).then(done,fallback);}catch(e){fallback();}
   });
   document.getElementById('year').textContent=new Date().getFullYear();
 })();
