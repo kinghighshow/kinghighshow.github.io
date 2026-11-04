@@ -18,7 +18,7 @@
 <style>
 /* Layout: Apple-style white page. Left-aligned page title with a lineup row of
    small project icons, a scroll-lit proof reel, then "the library": cloth-bound
-   an Apple-style lineup of project cards that open a full page below. Liquid glass is
+   a fanned deck of liquid-glass project cards that shuffle and open a full page below. Liquid glass is
    kept for the floating control layer only. Light is the default; the nav
    toggle switches to a dark look. */
 :root{
@@ -198,36 +198,36 @@ section,[id]{scroll-margin-top:88px}
 .reel .num{font-variant-numeric:tabular-nums}
 
 /* Library */
-.lineup-cards{position:relative}
-.cards{list-style:none;margin:0 calc(-1*clamp(16px,4vw,40px));padding:6px clamp(16px,4vw,40px) 10px;display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 clamp(16px,4vw,40px);scrollbar-width:none}
-.cards::-webkit-scrollbar{display:none}
-.cards li{flex:none;scroll-snap-align:start}
-.card{--tint:#eef1f7;position:relative;width:clamp(248px,25vw,292px);height:470px;border:0;border-radius:28px;padding:0 22px 26px;display:flex;flex-direction:column;align-items:center;text-align:center;cursor:pointer;color:var(--ink);
-  background:linear-gradient(180deg,var(--tint),var(--tile) 62%);box-shadow:inset 0 0 0 1px transparent;transition:transform .5s var(--ease),box-shadow .4s}
-:root[data-look="dark"] .card{background:linear-gradient(180deg,#1f1f22,var(--tile) 62%)}
-.card:hover{transform:scale(1.015)}
-.card[aria-current="true"]{box-shadow:inset 0 0 0 2px var(--ink)}
-.card-open{position:absolute;top:14px;right:14px;padding:5px 12px;font-size:12px;color:var(--ink);border-radius:999px;opacity:0;transform:translateY(-4px);transition:opacity .3s,transform .3s}
-.card[aria-current="true"] .card-open{opacity:1;transform:none}
-.card-art{flex:none;height:250px;width:100%;display:grid;place-items:center;padding:36px 0 18px}
-.mini-phone{display:block;padding:6px;border-radius:24px;background:#1d1d1f;box-shadow:0 22px 34px -18px rgba(0,0,0,.55)}
-.mini-phone img{display:block;width:100px;height:193px;max-width:none;border-radius:18px;object-fit:cover;object-position:top}
-.mini-win{width:100%;border-radius:9px;overflow:hidden;background:var(--win-bar);box-shadow:0 0 0 .5px rgba(0,0,0,.14),0 22px 34px -18px rgba(0,0,0,.45)}
-.mini-win b{display:block;height:13px;background:var(--win-bar);box-shadow:inset 0 -1px 0 rgba(0,0,0,.06)}
-.mini-win img{display:block;width:100%;aspect-ratio:16/10.5;object-fit:cover;object-position:left top}
-.mini-icon{width:118px;height:118px;border-radius:27px;display:grid;place-items:center;color:#fff;box-shadow:0 22px 34px -18px rgba(0,0,0,.5)}
-.mini-icon svg{width:56px;height:56px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-img.mini-icon{display:block}
-.card-flag{font-size:12px;color:var(--flag);min-height:16px}
-.card-name{margin-top:4px;font-size:21px;font-weight:600;letter-spacing:-.025em;line-height:1.15}
-.card-desc{margin-top:6px;font-size:15px;line-height:1.4;color:var(--gray);max-width:21ch}
-.card-stat{margin:12px 0 16px;font-size:14px;font-weight:600;color:var(--ink)}
-.card-cta{margin-top:auto;padding:7px 16px;border-radius:999px;background:var(--btn);color:#fff;font-size:14px}
-.card[aria-current="true"] .card-cta{background:var(--ink);color:var(--bg)}
-.cards-nav{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
-.cards-nav button{width:36px;height:36px;border:0;border-radius:50%;cursor:pointer;display:grid;place-items:center;color:var(--ink)}
-.cards-nav svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.cards-nav button:disabled{opacity:.35;cursor:default}
+.fan{position:relative;height:clamp(480px,46vw,560px);margin-top:8px}
+.fan-cards{list-style:none;margin:0;padding:0;position:absolute;inset:0;transform:rotate(-7deg);transform-origin:50% 62%}
+.fan-cards li{display:contents}
+.fcard{--h:220;--x:0px;--y:0px;--lift:0px;position:absolute;left:2%;bottom:96px;width:clamp(190px,19vw,224px);aspect-ratio:224/306;padding:0;border:0;border-radius:22px;cursor:pointer;text-align:left;color:var(--ink);
+  z-index:var(--z,var(--zi,1));transform:translate3d(var(--x),calc(var(--y) + var(--lift)),0) scale(var(--sc,1));
+  background:linear-gradient(155deg,hsla(var(--h),88%,70%,.6),hsla(calc(var(--h) + 28),90%,86%,.3));
+  -webkit-backdrop-filter:blur(12px) saturate(160%);backdrop-filter:blur(12px) saturate(160%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.7),inset 0 1px 0 rgba(255,255,255,.95),inset 0 -14px 28px -18px hsla(var(--h),70%,40%,.35),0 24px 44px -26px hsla(var(--h),60%,28%,.55);
+  transition:transform .75s var(--ease),box-shadow .4s}
+.fan-cards.stacked .fcard{transition-duration:.45s}
+.fcard:hover{--lift:-22px;--z:60}
+.fcard[aria-current="true"]{--lift:-34px;--z:50;--sc:1.03;box-shadow:inset 0 0 0 1.5px #fff,inset 0 1px 0 #fff,inset 0 -14px 28px -18px hsla(var(--h),70%,40%,.35),0 34px 60px -26px hsla(var(--h),60%,28%,.7)}
+.fan-cards.stacked .fcard{--lift:0px;--sc:1}
+.fc-flag{position:absolute;left:18px;top:16px;font-size:12px;color:hsl(var(--h),55%,30%);letter-spacing:-.01em}
+.fc-emblem{position:absolute;left:14px;top:44px;width:42%;color:hsl(var(--h),72%,48%);filter:drop-shadow(0 8px 10px hsla(var(--h),70%,30%,.35)) drop-shadow(0 -1px 0 rgba(255,255,255,.7));opacity:.9}
+.fc-emblem svg{display:block;width:100%;height:auto;fill:currentColor;fill-rule:evenodd}
+.fc-name{position:absolute;left:18px;right:16px;bottom:38px;font-size:18px;font-weight:600;letter-spacing:-.025em;line-height:1.15}
+.fc-stat{position:absolute;left:18px;right:16px;bottom:16px;font-size:13px;color:hsl(var(--h),40%,28%)}
+.fcard .card-open{position:absolute;right:12px;top:12px;padding:4px 10px;font-size:11px;color:var(--ink);border-radius:999px;opacity:0;transition:opacity .3s}
+.fcard[aria-current="true"] .card-open{opacity:1}
+:root[data-look="dark"] .fcard{color:#fff;background:linear-gradient(155deg,hsla(var(--h),70%,45%,.55),hsla(calc(var(--h) + 28),70%,30%,.35));box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),inset 0 1px 0 rgba(255,255,255,.45),0 24px 44px -26px rgba(0,0,0,.8)}
+:root[data-look="dark"] .fc-flag,:root[data-look="dark"] .fc-stat{color:rgba(255,255,255,.75)}
+:root[data-look="dark"] .fc-emblem{color:hsl(var(--h),90%,80%)}
+.fan-hint{margin-top:6px;font-size:14px;color:var(--gray)}
+@media (max-width:760px){
+  .fan{height:auto}
+  .fan-cards{position:static;transform:none;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:40px 4px 26px;margin:0 -16px;padding-inline:16px;scrollbar-width:none}
+  .fan-cards::-webkit-scrollbar{display:none}
+  .fcard{position:relative;left:auto;bottom:auto;flex:none;width:180px;scroll-snap-align:start;transform:translateY(var(--lift)) rotate(-3deg)}
+}
 .pages{margin-top:clamp(56px,7vw,88px);padding-top:clamp(40px,5vw,56px);border-top:1px solid var(--line)}
 .page{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(32px,5vw,64px);align-items:start}
 .page>.page-head{grid-column:1}
@@ -505,24 +505,24 @@ footer a:hover{color:var(--ink);text-decoration:underline}
       <div class="head">
         <div>
         <h2 id="work-h">The work.</h2>
-        <p>Seven projects, each one shipped, in use or published. Choose one to see how it works.</p>
+        <p>Seven projects, each one shipped, in use or published.</p>
         </div>
         <a class="link more" href="https://github.com/kinghighshow" target="_blank" rel="noopener">See code on GitHub</a>
       </div>
 
       <div class="library">
-        <div class="lineup-cards">
-          <ul class="cards" id="stack">
-            <li><button class="card" type="button" style="--tint:#e9eefb" data-book="highsynk" aria-controls="highsynk"><span class="card-open glass">Open below</span><span class="card-art" aria-hidden="true"><span class="mini-phone"><img src="img/study-home.webp" alt="" loading="lazy"></span></span><span class="card-flag">In use</span><span class="card-name">Highsynk Study Companion</span><span class="card-desc">A study app for focus, notes and revision.</span><span class="card-stat">1,000+ students</span><span class="card-cta">Learn more</span></button></li>
-            <li><button class="card" type="button" style="--tint:#f8ecef" data-book="ultrabeaux" aria-controls="ultrabeaux"><span class="card-open glass">Open below</span><span class="card-art" aria-hidden="true"><span class="mini-win"><b></b><img src="img/clinic-dashboard.webp" alt="" loading="lazy"></span></span><span class="card-flag">In daily use</span><span class="card-name">Ultrabeaux Clinic Portal</span><span class="card-desc">Consultations, bookings and follow-ups for a clinic.</span><span class="card-stat">~700 clients onboarded</span><span class="card-cta">Learn more</span></button></li>
-            <li><button class="card" type="button" style="--tint:#e8f3ee" data-book="lab-manager" aria-controls="lab-manager"><span class="card-open glass">Open below</span><span class="card-art" aria-hidden="true"><span class="mini-win"><b></b><img src="img/lab-dashboard.webp" alt="" loading="lazy"></span></span><span class="card-flag">In daily use</span><span class="card-name">Ultramedikx Lab Manager</span><span class="card-desc">Front desk and finances for a pathology lab.</span><span class="card-stat">6 staff use it daily</span><span class="card-cta">Learn more</span></button></li>
-            <li><button class="card" type="button" style="--tint:#f6f0e3" data-book="intellibin" aria-controls="intellibin"><span class="card-open glass">Open below</span><span class="card-art" aria-hidden="true"><span class="mini-icon" style="background:#5a4116"><svg viewBox="0 0 28 28"><path d="M5 8h18M10.5 8V5h7v3M7 8l1.5 15h11L21 8M12 12v7M16 12v7"/></svg></span></span><span class="card-flag">Published</span><span class="card-name">IntelliBin</span><span class="card-desc">Hospital waste sorting with computer vision.</span><span class="card-stat">97% real-time accuracy</span><span class="card-cta">Learn more</span></button></li>
-            <li><button class="card" type="button" style="--tint:#eef0f6" data-book="plirs" aria-controls="plirs"><span class="card-open glass">Open below</span><span class="card-art" aria-hidden="true"><span class="mini-win"><b></b><img src="img/plirs-viewer.webp" alt="" loading="lazy"></span></span><span class="card-flag">Version 1.0</span><span class="card-name">PLIRS</span><span class="card-desc">Search and compile years of pathology reports.</span><span class="card-stat">~290 integration tests</span><span class="card-cta">Learn more</span></button></li>
-            <li><button class="card" type="button" style="--tint:#e7f1f2" data-book="breast-cancer" aria-controls="breast-cancer"><span class="card-open glass">Open below</span><span class="card-art" aria-hidden="true"><span class="mini-icon" style="background:#21434a"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="9"/><circle cx="12" cy="12" r="2.6"/><circle cx="17.5" cy="16.5" r="1.3"/><circle cx="11" cy="18.2" r="1"/></svg></span></span><span class="card-flag">Award winner</span><span class="card-name">Breast Cancer Detection</span><span class="card-desc">A CNN trained on real lab screening data.</span><span class="card-stat">98.7% on test data</span><span class="card-cta">Learn more</span></button></li>
-            <li><button class="card" type="button" style="--tint:#eeeef1" data-book="road-safety" aria-controls="road-safety"><span class="card-open glass">Open below</span><span class="card-art" aria-hidden="true"><span class="mini-icon" style="background:#2c2d33"><svg viewBox="0 0 28 28"><path d="M10.5 4 6 24M17.5 4 22 24M14 6v3M14 13v3M14 20v3"/></svg></span></span><span class="card-flag">Completed</span><span class="card-name">Road Safety Analysis</span><span class="card-desc">What conditions come before road incidents.</span><span class="card-stat">Two datasets analysed</span><span class="card-cta">Learn more</span></button></li>
+        <div class="fan" id="fan">
+          <ul class="fan-cards" id="stack">
+            <li><button class="card fcard" type="button" style="--h:218" data-book="highsynk" aria-controls="highsynk" aria-label="Open Highsynk"><span class="card-open glass">Open below</span><span class="fc-flag">In use</span><span class="fc-emblem" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M6 12c7-3 12-2 17 2v26c-5-4-10-5-17-2zM42 12c-7-3-12-2-17 2v26c5-4 10-5 17-2z"/></svg></span><span class="fc-name">Highsynk</span><span class="fc-stat">1,000+ students</span></button></li>
+            <li><button class="card fcard" type="button" style="--h:227" data-book="ultrabeaux" aria-controls="ultrabeaux" aria-label="Open Ultrabeaux"><span class="card-open glass">Open below</span><span class="fc-flag">In daily use</span><span class="fc-emblem" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 4c2.2 10 7 15 17 17-10 2.2-14.8 7-17 17-2.2-10-7-14.8-17-17 10-2 14.8-7 17-17z"/></svg></span><span class="fc-name">Ultrabeaux</span><span class="fc-stat">~700 clients</span></button></li>
+            <li><button class="card fcard" type="button" style="--h:236" data-book="lab-manager" aria-controls="lab-manager" aria-label="Open Lab Manager"><span class="card-open glass">Open below</span><span class="fc-flag">In daily use</span><span class="fc-emblem" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M18 4h12v4h-2v11l11 18c1.6 2.7-.3 7-3.6 7H12.6C9.3 44 7.4 39.7 9 37l11-18V8h-2z"/></svg></span><span class="fc-name">Lab Manager</span><span class="fc-stat">6 staff daily</span></button></li>
+            <li><button class="card fcard" type="button" style="--h:245" data-book="intellibin" aria-controls="intellibin" aria-label="Open IntelliBin"><span class="card-open glass">Open below</span><span class="fc-flag">Published</span><span class="fc-emblem" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 9h32v5H8zM18 4h12v5H18zM10 16h28l-3 25a3 3 0 0 1-3 3H16a3 3 0 0 1-3-3z"/></svg></span><span class="fc-name">IntelliBin</span><span class="fc-stat">97% accuracy</span></button></li>
+            <li><button class="card fcard" type="button" style="--h:254" data-book="plirs" aria-controls="plirs" aria-label="Open PLIRS"><span class="card-open glass">Open below</span><span class="fc-flag">Version 1.0</span><span class="fc-emblem" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M20 4a16 16 0 1 1 0 32 16 16 0 0 1 0-32zm0 6a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM31 35l4-4 10 10-4 4z"/></svg></span><span class="fc-name">PLIRS</span><span class="fc-stat">290 tests</span></button></li>
+            <li><button class="card fcard" type="button" style="--h:263" data-book="breast-cancer" aria-controls="breast-cancer" aria-label="Open Breast Cancer"><span class="card-open glass">Open below</span><span class="fc-flag">Award winner</span><span class="fc-emblem" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 4c5.5 0 9 4.2 9 9 0 5.4-4 10.6-8.2 14.8L34 42l-5.6 3.2-4.4-7.4-4.4 7.4L14 42l9.2-14.2C19 23.6 15 18.4 15 13c0-4.8 3.5-9 9-9zm0 6c-2 0-3.2 1.4-3.2 3.2 0 2.4 1.6 5.4 3.2 7.6 1.6-2.2 3.2-5.2 3.2-7.6 0-1.8-1.2-3.2-3.2-3.2z"/></svg></span><span class="fc-name">Breast Cancer</span><span class="fc-stat">98.7% on test</span></button></li>
+            <li><button class="card fcard" type="button" style="--h:272" data-book="road-safety" aria-controls="road-safety" aria-label="Open Road Safety"><span class="card-open glass">Open below</span><span class="fc-flag">Completed</span><span class="fc-emblem" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M17 4h5l-2 40H8zM31 4h-5l2 40h12zM22.6 6h2.8v7h-2.8zM22.6 19h2.8v8h-2.8zM22.4 33h3.2v9h-3.2z"/></svg></span><span class="fc-name">Road Safety</span><span class="fc-stat">Two datasets</span></button></li>
           </ul>
-          <div class="cards-nav"><button class="glass" type="button" data-cprev aria-label="Previous projects"><svg viewBox="0 0 16 16"><path d="M10 3 5 8l5 5"/></svg></button><button class="glass" type="button" data-cnext aria-label="More projects"><svg viewBox="0 0 16 16"><path d="m6 3 5 5-5 5"/></svg></button></div>
         </div>
+        <p class="fan-hint">Pick a card to open the project.</p>
 
         <div class="pages">
           <article class="page" id="highsynk" aria-label="Highsynk Study Companion">
@@ -1000,7 +1000,8 @@ footer a:hover{color:var(--ink);text-decoration:underline}
     return true;
   }
   spines.forEach(function(s){s.addEventListener('click',function(){
-    openBook(s.dataset.book,true);
+    var id=s.dataset.book;
+    shuffle(function(){openBook(id,false);setTimeout(function(){var pg=document.getElementById(id);if(pg)pg.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});},reduce?0:700);});
     try{history.replaceState(null,'','#'+s.dataset.book);}catch(e){}
   });});
   pages.forEach(function(pg,i){if(i)pg.hidden=true;});
@@ -1011,12 +1012,27 @@ footer a:hover{color:var(--ink);text-decoration:underline}
   function fromHash(){var h=location.hash.slice(1);return h?openBook(h,true):false;}
   window.addEventListener('hashchange',fromHash);
 
-  var cardsEl=stack,cprev=document.querySelector('[data-cprev]'),cnext=document.querySelector('[data-cnext]');
-  function cardStep(){var c=cardsEl.querySelector('li');return c?c.offsetWidth+20:300;}
-  function cardBtns(){cprev.disabled=cardsEl.scrollLeft<4;cnext.disabled=cardsEl.scrollLeft+cardsEl.clientWidth>=cardsEl.scrollWidth-4;}
-  cprev.addEventListener('click',function(){cardsEl.scrollBy({left:-cardStep()*2,behavior:reduce?'auto':'smooth'});});
-  cnext.addEventListener('click',function(){cardsEl.scrollBy({left:cardStep()*2,behavior:reduce?'auto':'smooth'});});
-  cardsEl.addEventListener('scroll',cardBtns,{passive:true});addEventListener('resize',cardBtns);cardBtns();
+  var fanBox=document.getElementById('fan'),fanCards=[].slice.call(stack.querySelectorAll('.fcard')),fanMQ=matchMedia('(max-width:760px)');
+  function layoutFan(){
+    if(fanMQ.matches){fanCards.forEach(function(c){c.style.removeProperty('--x');c.style.removeProperty('--y');c.style.removeProperty('--zi');});return;}
+    var W=fanBox.clientWidth,cw=fanCards[0].offsetWidth,n=fanCards.length,step=Math.min(150,(W*0.94-cw)/(n-1)),stacked=stack.classList.contains('stacked');
+    fanCards.forEach(function(c,i){
+      c.style.setProperty('--x',(stacked?W*0.36+i*4:i*step)+'px');
+      c.style.setProperty('--y',(stacked?-i*5:-i*16)+'px');
+      c.style.setProperty('--zi',i+1);
+    });
+  }
+  function shuffle(then){
+    if(reduce||fanMQ.matches){then&&then();return;}
+    stack.classList.add('stacked');layoutFan();
+    setTimeout(function(){stack.classList.remove('stacked');layoutFan();then&&then();},480);
+  }
+  layoutFan();addEventListener('resize',layoutFan);
+  if('IntersectionObserver' in window&&!reduce&&!fanMQ.matches&&fanBox.getBoundingClientRect().top>innerHeight){
+    stack.classList.add('stacked');layoutFan();
+    var fio=new IntersectionObserver(function(es){if(es[0].isIntersecting){fio.disconnect();setTimeout(function(){stack.classList.remove('stacked');layoutFan();},180);}},{threshold:.35});
+    fio.observe(fanBox);
+  }
 
   function setCap(scope,html){var c=scope.querySelector('[data-caption]');if(c)c.innerHTML=html;}
 
