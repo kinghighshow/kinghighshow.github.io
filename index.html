@@ -18,7 +18,7 @@
 <style>
 /* Layout: Apple-style white page. Left-aligned page title with a lineup row of
    small project icons, a scroll-lit proof reel, then "the library": cloth-bound
-   project spines on the left opening into a page on the right. Liquid glass is
+   project books standing on a glass shelf, opening into a page on the right. Liquid glass is
    kept for the floating control layer only. Light is the default; the nav
    toggle switches to a dark look. */
 :root{
@@ -199,29 +199,46 @@ section,[id]{scroll-margin-top:88px}
 
 /* Library */
 .library{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,64px);align-items:start}
-.shelf{position:sticky;top:96px}
-.stack{list-style:none;margin:0;padding:0 0 26px;display:flex;flex-direction:column;gap:3px;position:relative}
-.stack::after{content:"";position:absolute;left:2%;right:6%;bottom:8px;height:20px;background:radial-gradient(closest-side,var(--shelf),transparent);filter:blur(6px);z-index:-1}
-.spine{--c:#1b2a4a;--w:96%;--t:70px;--x:0px;--r:0deg;
-  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;
-  width:var(--w);height:var(--t);margin-left:var(--x);padding:0 30px 0 34px;border:0;cursor:pointer;text-align:left;
-  border-radius:3px 9px 9px 3px;transform:translateX(var(--pull,0px)) rotate(var(--r));
+.shelf{position:sticky;top:96px;--u:.92}
+.shelf-stage{position:relative;perspective:1300px;perspective-origin:72% -40%;padding-top:24px}
+.books{list-style:none;margin:0;padding:0 0 0 calc(30px*var(--u));display:flex;align-items:flex-end;gap:calc(4px*var(--u));transform-style:preserve-3d;min-height:calc(312px*var(--u))}
+.slot{display:flex;align-items:flex-end;transform-style:preserve-3d}
+.book{--w:calc(var(--bw)*1px*var(--u));--h:calc(var(--bh)*1px*var(--u));--d:calc(150px*var(--u));
+  position:relative;flex:none;width:var(--w);height:var(--h);padding:0;border:0;background:none;cursor:pointer;transform-style:preserve-3d;
+  transform:translate3d(0,var(--lift,0px),var(--pull,0px)) rotateY(var(--turn,0deg));transition:transform .85s var(--ease)}
+.book:hover{--pull:calc(30px*var(--u));--lift:-6px}
+.book[aria-current="true"]{--pull:calc(96px*var(--u));--turn:-36deg;--lift:-14px}
+.book:focus-visible{outline:none}
+.book:focus-visible .f-spine{outline:2px solid var(--btn);outline-offset:3px}
+.face{position:absolute;left:50%;top:50%;display:block}
+.f-spine{width:var(--w);height:var(--h);margin:calc(var(--h)/-2) 0 0 calc(var(--w)/-2);transform:translateZ(calc(var(--d)/2));border-radius:3px 4px 2px 2px;
+  display:flex;flex-direction:column;align-items:center;padding:calc(26px*var(--u)) 0 calc(40px*var(--u));overflow:hidden;
   background:
-    linear-gradient(90deg,transparent 0 12px,rgba(222,198,140,.75) 12px 13.5px,transparent 13.5px 17px,rgba(222,198,140,.75) 17px 18.5px,transparent 18.5px calc(100% - 16px),rgba(222,198,140,.6) calc(100% - 16px) calc(100% - 14.5px),transparent calc(100% - 14.5px)),
-    linear-gradient(180deg,rgba(255,255,255,.2),rgba(255,255,255,.04) 22%,rgba(0,0,0,0) 55%,rgba(0,0,0,.42)),
-    repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px),
-    repeating-linear-gradient(0deg,rgba(0,0,0,.08) 0 1px,transparent 1px 3px),
-    var(--c);
-  box-shadow:var(--spine-shadow);
-  transition:transform .6s var(--ease),filter .4s}
-.spine:hover{--pull:14px}
-.spine[aria-current="true"]{--pull:30px;--r:0deg}
-.stack.has-pick .spine:not([aria-current="true"]){filter:var(--spine-rest)}
-.stack.has-pick .spine:not([aria-current="true"]):hover{filter:none}
-.spine .title{font-family:var(--book);font-variant-caps:small-caps;font-weight:600;font-size:clamp(22px,2vw,27px);letter-spacing:.035em;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-  background:linear-gradient(180deg,#f4e6bd,#b4955a);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 0 rgba(0,0,0,.5))}
-.spine .proof{text-align:right;font-size:13px;line-height:1.25;color:rgba(255,255,255,.85);white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
-.spine .proof small{display:block;font-size:11.5px;color:rgba(255,255,255,.55)}
+    linear-gradient(180deg,transparent 0 10px,rgba(222,198,140,.8) 10px 11.5px,transparent 11.5px 15px,rgba(222,198,140,.8) 15px 16.5px,transparent 16.5px calc(100% - 30px),rgba(222,198,140,.7) calc(100% - 30px) calc(100% - 28.5px),transparent calc(100% - 28.5px)),
+    linear-gradient(90deg,rgba(0,0,0,.42),rgba(255,255,255,.2) 20%,rgba(255,255,255,.05) 42%,rgba(0,0,0,.06) 70%,rgba(0,0,0,.45)),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px),
+    repeating-linear-gradient(90deg,rgba(0,0,0,.07) 0 1px,transparent 1px 3px),
+    var(--bc);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.15)}
+.sp-title{flex:1;min-height:0;writing-mode:vertical-rl;display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;
+  font-family:var(--book);font-variant-caps:small-caps;font-weight:600;font-size:calc(var(--fs,20px)*var(--u));letter-spacing:.06em;line-height:1;
+  background:linear-gradient(90deg,#f4e6bd,#b4955a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sp-mark{margin-top:8px;font-size:calc(10.5px*var(--u));color:rgba(255,255,255,.62);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.f-cover{width:var(--d);height:var(--h);margin:calc(var(--h)/-2) 0 0 calc(var(--d)/-2);transform:rotateY(90deg) translateZ(calc(var(--w)/2));border-radius:2px 6px 6px 2px;
+  display:flex;flex-direction:column;align-items:center;gap:calc(10px*var(--u));padding:calc(20px*var(--u)) calc(14px*var(--u));text-align:center;
+  background:linear-gradient(90deg,rgba(0,0,0,.35),rgba(255,255,255,.08) 8%,rgba(0,0,0,0) 30%,rgba(0,0,0,.18)),repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px),var(--bc);
+  box-shadow:inset 0 0 0 calc(7px*var(--u)) var(--bc),inset 0 0 0 calc(8.5px*var(--u)) rgba(222,198,140,.7)}
+.cv-title{font-family:var(--book);font-variant-caps:small-caps;font-weight:600;font-size:calc(17px*var(--u));line-height:1.1;letter-spacing:.04em;
+  background:linear-gradient(180deg,#f4e6bd,#b4955a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cv-art{width:78%;flex:1;min-height:0;border-radius:3px;background:var(--art) center top/cover no-repeat,rgba(0,0,0,.25);box-shadow:0 0 0 1px rgba(222,198,140,.6);display:grid;place-items:center;color:#f0dfb0}
+.cv-art svg{width:46%;height:auto;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.cv-stat{font-size:calc(11.5px*var(--u));color:rgba(255,255,255,.82)}
+.f-top{width:var(--w);height:var(--d);margin:calc(var(--d)/-2) 0 0 calc(var(--w)/-2);transform:rotateX(90deg) translateZ(calc(var(--h)/2));
+  background:repeating-linear-gradient(90deg,#f6f0e0 0 1px,#e2d8bf 1px 2px);box-shadow:inset 3px 0 0 var(--bc),inset -3px 0 0 var(--bc),inset 0 3px 0 var(--bc)}
+.plank{position:relative;height:16px;margin:0 -10px;border-radius:8px}
+.plank::after{content:"";position:absolute;left:4%;right:4%;top:100%;height:24px;background:radial-gradient(closest-side,var(--shelf),transparent);filter:blur(8px);opacity:.5;pointer-events:none}
+.shelf-label{margin-top:30px;display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:10px 18px;border-radius:16px;font-size:14px;color:var(--gray)}
+.shelf-label b{font-size:15px;font-weight:600;color:var(--ink)}
 .more-shelf{margin-top:28px}
 .more-shelf summary{cursor:pointer;color:var(--blue);font-size:15px;list-style:none}
 .more-shelf summary::after{content:" ›"}
@@ -229,14 +246,13 @@ section,[id]{scroll-margin-top:88px}
 .more-shelf ul{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:14px}
 .more-shelf li{font-size:15px;color:var(--gray);line-height:1.4}
 .more-shelf li b{color:var(--ink);font-weight:600}
+@media (max-width:1180px){.shelf{--u:.8}}
 @media (max-width:960px){
   .library{grid-template-columns:1fr}
-  .shelf{position:static}
-  .spine{--t:62px;padding:0 26px 0 30px}
-  .spine[aria-current="true"]{--pull:14px}
-  .spine:hover{--pull:8px}
+  .shelf{position:static;--u:1}
 }
-
+@media (max-width:520px){.shelf{--u:.78}}
+@media (max-width:380px){.shelf{--u:.7}}
 /* Open book */
 .page{min-width:0}
 .js .page[hidden]{display:none!important}
@@ -496,22 +512,26 @@ footer a:hover{color:var(--ink);text-decoration:underline}
       <div class="head">
         <div>
         <h2 id="work-h">The library.</h2>
-        <p>Seven projects, each one shipped, in use or published. Pull a book from the stack to open it.</p>
+        <p>Seven projects, each one shipped, in use or published. Pull a book from the shelf to open it.</p>
         </div>
         <a class="link more" href="https://github.com/kinghighshow" target="_blank" rel="noopener">See code on GitHub</a>
       </div>
 
       <div class="library">
         <div class="shelf">
-          <ul class="stack" id="stack">
-            <li><button class="spine" style="--c:#1d2c4f;--w:90%;--t:80px;--x:3%;--r:-.4deg" data-book="highsynk" aria-controls="highsynk"><span class="title">Highsynk</span><span class="proof">1,000+ students<small>Mobile app, 2025</small></span></button></li>
-            <li><button class="spine" style="--c:#4b2235;--w:94%;--t:78px;--x:0%;--r:.3deg" data-book="ultrabeaux" aria-controls="ultrabeaux"><span class="title">Ultrabeaux</span><span class="proof">~700 clients<small>Web app, in use</small></span></button></li>
-            <li><button class="spine" style="--c:#173f31;--w:92%;--t:82px;--x:5%;--r:-.2deg" data-book="lab-manager" aria-controls="lab-manager"><span class="title">Lab Manager</span><span class="proof">6 staff daily<small>Desktop app, in use</small></span></button></li>
-            <li><button class="spine" style="--c:#5a4116;--w:98%;--t:84px;--x:1%;--r:.25deg" data-book="intellibin" aria-controls="intellibin"><span class="title">IntelliBin</span><span class="proof">97% accuracy<small>Edge AI, published</small></span></button></li>
-            <li><button class="spine" style="--c:#5b2e1e;--w:88%;--t:64px;--x:4%;--r:.2deg" data-book="plirs" aria-controls="plirs"><span class="title">PLIRS</span><span class="proof">290 tests<small>Desktop app, v1.0</small></span></button></li>
-            <li><button class="spine" style="--c:#21434a;--w:86%;--t:56px;--x:6%;--r:-.35deg" data-book="breast-cancer" aria-controls="breast-cancer"><span class="title">Breast Cancer</span><span class="proof">98.7% on test<small>Deep learning, 2024</small></span></button></li>
-            <li><button class="spine" style="--c:#2c2d33;--w:100%;--t:56px;--x:0%;--r:.15deg" data-book="road-safety" aria-controls="road-safety"><span class="title">Road Safety</span><span class="proof">Completed<small>Academic, 2025 to 2026</small></span></button></li>
+          <div class="shelf-stage">
+          <ul class="books" id="stack">
+            <li class="slot"><button class="book" type="button" data-book="highsynk" data-full="Highsynk Study Companion" data-stat="1,000+ students" aria-controls="highsynk" aria-label="Open Highsynk Study Companion" style="--bc:#1d2c4f;--bw:62;--bh:292;--art:url(img/study-home.webp)"><span class="face f-top" aria-hidden="true"></span><span class="face f-cover" aria-hidden="true"><span class="cv-title">Highsynk</span><span class="cv-art"></span><span class="cv-stat">1,000+ students</span></span><span class="face f-spine"><span class="sp-title">Highsynk</span><span class="sp-mark">2025</span></span></button></li>
+            <li class="slot"><button class="book" type="button" data-book="ultrabeaux" data-full="Ultrabeaux Clinic Portal" data-stat="~700 clients" aria-controls="ultrabeaux" aria-label="Open Ultrabeaux Clinic Portal" style="--bc:#4b2235;--bw:60;--bh:280;--art:url(img/clinic-dashboard.webp)"><span class="face f-top" aria-hidden="true"></span><span class="face f-cover" aria-hidden="true"><span class="cv-title">Ultrabeaux</span><span class="cv-art"></span><span class="cv-stat">~700 clients</span></span><span class="face f-spine"><span class="sp-title">Ultrabeaux</span><span class="sp-mark">In use</span></span></button></li>
+            <li class="slot"><button class="book" type="button" data-book="lab-manager" data-full="Ultramedikx Lab Manager" data-stat="6 staff daily" aria-controls="lab-manager" aria-label="Open Ultramedikx Lab Manager" style="--bc:#173f31;--bw:64;--bh:300;--art:url(img/lab-dashboard.webp);--fs:18px"><span class="face f-top" aria-hidden="true"></span><span class="face f-cover" aria-hidden="true"><span class="cv-title">Lab Manager</span><span class="cv-art"></span><span class="cv-stat">6 staff daily</span></span><span class="face f-spine"><span class="sp-title">Lab Manager</span><span class="sp-mark">In use</span></span></button></li>
+            <li class="slot"><button class="book" type="button" data-book="intellibin" data-full="IntelliBin" data-stat="97% accuracy" aria-controls="intellibin" aria-label="Open IntelliBin" style="--bc:#5a4116;--bw:60;--bh:270;--art:none"><span class="face f-top" aria-hidden="true"></span><span class="face f-cover" aria-hidden="true"><span class="cv-title">IntelliBin</span><span class="cv-art"><svg viewBox="0 0 28 28"><path d="M5 8h18M10.5 8V5h7v3M7 8l1.5 15h11L21 8M12 12v7M16 12v7"/></svg></span><span class="cv-stat">97% accuracy</span></span><span class="face f-spine"><span class="sp-title">IntelliBin</span><span class="sp-mark">2025</span></span></button></li>
+            <li class="slot"><button class="book" type="button" data-book="plirs" data-full="PLIRS" data-stat="290 tests" aria-controls="plirs" aria-label="Open PLIRS" style="--bc:#5b2e1e;--bw:50;--bh:262;--art:url(img/plirs-icon.webp)"><span class="face f-top" aria-hidden="true"></span><span class="face f-cover" aria-hidden="true"><span class="cv-title">PLIRS</span><span class="cv-art"></span><span class="cv-stat">290 tests</span></span><span class="face f-spine"><span class="sp-title">PLIRS</span><span class="sp-mark">v1.0</span></span></button></li>
+            <li class="slot"><button class="book" type="button" data-book="breast-cancer" data-full="Breast Cancer Detection" data-stat="98.7% on test" aria-controls="breast-cancer" aria-label="Open Breast Cancer Detection" style="--bc:#21434a;--bw:46;--bh:250;--art:none;--fs:16px"><span class="face f-top" aria-hidden="true"></span><span class="face f-cover" aria-hidden="true"><span class="cv-title">Breast Cancer</span><span class="cv-art"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="9"/><circle cx="12" cy="12" r="2.6"/><circle cx="17.5" cy="16.5" r="1.3"/><circle cx="11" cy="18.2" r="1"/></svg></span><span class="cv-stat">98.7% on test</span></span><span class="face f-spine"><span class="sp-title">Breast Cancer</span><span class="sp-mark">2024</span></span></button></li>
+            <li class="slot"><button class="book" type="button" data-book="road-safety" data-full="Road Safety Analysis" data-stat="Completed, academic" aria-controls="road-safety" aria-label="Open Road Safety Analysis" style="--bc:#2c2d33;--bw:44;--bh:256;--art:none;--fs:16px"><span class="face f-top" aria-hidden="true"></span><span class="face f-cover" aria-hidden="true"><span class="cv-title">Road Safety</span><span class="cv-art"><svg viewBox="0 0 28 28"><path d="M10.5 4 6 24M17.5 4 22 24M14 6v3M14 13v3M14 20v3"/></svg></span><span class="cv-stat">Completed, academic</span></span><span class="face f-spine"><span class="sp-title">Road Safety</span><span class="sp-mark">2026</span></span></button></li>
           </ul>
+          </div>
+          <div class="plank glass" aria-hidden="true"></div>
+          <p class="shelf-label glass" aria-live="polite"><b id="shelf-title">Highsynk Study Companion</b><span id="shelf-stat">1,000+ students</span></p>
           <details class="more-shelf">
             <summary>Also on the shelf</summary>
             <ul>
@@ -874,7 +894,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
         </label>
         <label class="field"><span>Tell me about it</span><textarea id="f-msg" name="message" rows="5" required placeholder="What you want to build or improve, and roughly when."></textarea></label>
         <input type="hidden" name="_subject" value="New portfolio enquiry">
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
         <div class="send-row"><button class="btn btn-solid" type="submit" id="f-send">Send message</button><p class="form-status" id="f-status" role="status" aria-live="polite"></p></div>
       </form>
       <p class="or">Or email me directly</p>
@@ -961,7 +981,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
   var layouts=[];
   function layoutAll(scope){layouts.forEach(function(l){if(!scope||scope.contains(l.el))l.fn();});}
 
-  var stack=document.getElementById('stack'),spines=[].slice.call(stack.querySelectorAll('.spine'));
+  var stack=document.getElementById('stack'),spines=[].slice.call(stack.querySelectorAll('.book'));
   var pages=[].slice.call(document.querySelectorAll('.page'));
   function openBook(id,scroll){
     var page=document.getElementById(id);if(!page||!page.classList.contains('page'))return false;
@@ -970,6 +990,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
       else pg.hidden=true;
     });
     spines.forEach(function(s){s.setAttribute('aria-current',s.dataset.book===id?'true':'false');});
+    spines.forEach(function(s){if(s.dataset.book===id){document.getElementById('shelf-title').textContent=s.dataset.full;document.getElementById('shelf-stat').textContent=s.dataset.stat;}});
     stack.classList.add('has-pick');
     layoutAll(page);
     if(scroll){var t=narrowMQ.matches?page:document.getElementById('work');t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});}
