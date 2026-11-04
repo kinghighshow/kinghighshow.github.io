@@ -233,7 +233,8 @@ img.mini-icon{display:block}
 .page>.page-head{grid-column:1}
 .page>.media{grid-column:2;grid-row:1;margin-top:0}
 .page>.notes,.page>.cta-line,.page>.fine{grid-column:1/-1}
-.page-head{position:sticky;top:96px}
+.page>.notes{margin-top:56px}
+.page-head{min-width:0}
 .more-shelf{margin-top:28px}
 .more-shelf summary{cursor:pointer;color:var(--blue);font-size:15px;list-style:none}
 .more-shelf summary::after{content:" ›"}
@@ -244,7 +245,6 @@ img.mini-icon{display:block}
 @media (max-width:960px){
   .page{grid-template-columns:1fr}
   .page>.media{grid-column:1;grid-row:auto;margin-top:40px}
-  .page-head{position:static}
 }
 /* Open book */
 .page{min-width:0}
